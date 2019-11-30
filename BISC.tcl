@@ -122,9 +122,6 @@ set LOGICLIB lec25dscc25_TT
 #/* Sourcing the file that sets the Search path and the libraries(target,link) */
 
 
-set netlist_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".vg"]
-set ddc_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".ddc"]
-set rep_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".rep"]
 set dc_shell_status [ set chk_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".chk"] ]
 
 #/* if we didnt find errors at this point, run */
@@ -152,15 +149,14 @@ if {  $dc_shell_status != [list] } {
   # create netlist file
   # in this part you can create ddc, sdc and etc files either
   ###############################################################
-  set filename [format "%s%s" $design_name "_dc_netlist.v"]
-  write -f verilog -hierarchy -output $output_path/$filename
+  set netlist_file [format "%s%s" $design_name ".vg"]
+  write -f verilog -hierarchy -output $output_path/$netlist_file
   set filename [format "%s%s" $design_name ".ddc"]
   write -format ddc -hierarchy -output $output_path/$filename
   set filename [format "%s%s" $design_name "_synopsys_design_constraints.sdc"]
   write_sdc $output_path/$filename
   #set filename [format "%s%s" $design_name ".db"]
   #write -f db -hier -output $output_path/$filename
-
 
   report_timing -transition_time -max_paths 10 -input_pins -nets -attributes -nosplit > $report_path/timing.rpt
   report_area -nosplit -hierarchy > $report_path/area.rpt
@@ -170,7 +166,7 @@ if {  $dc_shell_status != [list] } {
   report_constraint -all_violators > $report_path/violations.rpt
 
   remove_design -all
-  read_file -format verilog $netlist_file
+  read_file -format verilog $output_path/$netlist_file
   redirect -append $rep_file { report_reference -nosplit }
   quit
 } else {
