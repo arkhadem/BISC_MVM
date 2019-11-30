@@ -141,7 +141,7 @@ if {  $dc_shell_status != [list] } {
   set_max_delay $CLK_PERIOD [all_outputs]
   #set MAX_FANOUT $MAX_FANOUT
   #set MAX_TRANSITION $MAX_TRANSITION
-  ungroup -all -flatten
+  #ungroup -all -flatten
   compile -map_effort high
   check_design
 
