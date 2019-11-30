@@ -145,7 +145,7 @@ if {  $dc_shell_status != [list] } {
   #set MAX_FANOUT $MAX_FANOUT
   #set MAX_TRANSITION $MAX_TRANSITION
   ungroup -all -flatten
-  compile -map_effort high -no_autoungroup
+  compile -map_effort high
   check_design
 
   ###############################################################
