@@ -1,0 +1,188 @@
+ 
+****************************************
+Report : resources
+Design : processing_unit
+Version: O-2018.06
+Date   : Sat Nov 30 17:08:37 2019
+****************************************
+
+Resource Sharing Report for design processing_unit in file
+        /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv
+
+===============================================================================
+|          |              |            | Contained     |                      |
+| Resource | Module       | Parameters | Resources     | Contained Operations |
+===============================================================================
+| r180     | DW01_cmp2    | width=2    |               | lte_210              |
+|          |              |            |               | lte_210_I2_I1        |
+| r181     | DW01_cmp2    | width=2    |               | lte_210_2            |
+|          |              |            |               | lte_210_2_I2         |
+| r186     | DW01_cmp2    | width=2    |               | lte_210_2_I2_I1      |
+|          |              |            |               | lte_210_2_I2_I2      |
+| r187     | DW01_dec     | width=5    |               | sub_210_2_I2_I1      |
+|          |              |            |               | sub_210_2_I2_I2      |
+| r188     | DW01_cmp2    | width=2    |               | lte_210_I2           |
+|          |              |            |               | lte_210_I2_I2        |
+| r189     | DW01_dec     | width=5    |               | sub_210_4_I2         |
+|          |              |            |               | sub_210_4_I2_I2      |
+| r197     | DW01_inc     | width=2    |               | add_229              |
+| r199     | DW01_inc     | width=2    |               | add_231              |
+| r201     | DW01_dec     | width=3    |               | sub_245              |
+| r309     | DW01_dec     | width=4    |               | add_1_root_sub_210_3 |
+|          |              |            |               | add_1_root_sub_210_3_I2 |
+        |              |            |               | add_1_root_sub_210_3_I2_I1 |
+     |              |            |               | add_1_root_sub_210_3_I2_I2 |
+| r311     | DW01_add     | width=4    |               | sub_0_root_sub_210_3 |
+|          |              |            |               | sub_0_root_sub_210_3_I2 |
+        |              |            |               | sub_0_root_sub_210_3_I2_I1 |
+     |              |            |               | sub_0_root_sub_210_3_I2_I2 |
+| r419     | DW01_dec     | width=4    |               | add_1_root_sub_210   |
+|          |              |            |               | add_1_root_sub_210_I2 |
+          |              |            |               | add_1_root_sub_210_I2_I1 |
+       |              |            |               | add_1_root_sub_210_I2_I2 |
+| r421     | DW01_add     | width=4    |               | sub_0_root_sub_210   |
+|          |              |            |               | sub_0_root_sub_210_I2 |
+          |              |            |               | sub_0_root_sub_210_I2_I1 |
+       |              |            |               | sub_0_root_sub_210_I2_I2 |
+===============================================================================
+
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : processing_element_0
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : multiplexer_0
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : counter_0
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : processing_element_1
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : multiplexer_1
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : counter_1
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : processing_element_2
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : multiplexer_2
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : counter_2
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : processing_element_3
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : multiplexer_3
+****************************************
+
+No implementations to report
+ 
+****************************************
+Design : counter_3
+****************************************
+Resource Sharing Report for design counter_0 in file
+        /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/counter.sv
+
+===============================================================================
+|          |              |            | Contained     |                      |
+| Resource | Module       | Parameters | Resources     | Contained Operations |
+===============================================================================
+| r55      | DW01_add     | width=6    |               | add_22               |
+===============================================================================
+
+
+No implementations to report
+ 
+****************************************
+Design : FSM_selector
+****************************************
+Resource Sharing Report for design FSM_selector in file
+        /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/FSM_selector.sv
+
+===============================================================================
+|          |              |            | Contained     |                      |
+| Resource | Module       | Parameters | Resources     | Contained Operations |
+===============================================================================
+| r58      | DW01_inc     | width=6    |               | add_25               |
+| r60      | DW01_sub     | width=3    |               | sub_29               |
+===============================================================================
+
+
+No implementations to report
+ 
+****************************************
+Design : down_counter
+****************************************
+Resource Sharing Report for design down_counter in file
+        /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/down_counter.sv
+
+===============================================================================
+|          |              |            | Contained     |                      |
+| Resource | Module       | Parameters | Resources     | Contained Operations |
+===============================================================================
+| r55      | DW01_dec     | width=6    |               | sub_18               |
+===============================================================================
+
+
+No implementations to report
+1

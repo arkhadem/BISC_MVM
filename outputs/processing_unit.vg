@@ -1,0 +1,914 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Expert(TM) in wire load mode
+// Version   : O-2018.06
+// Date      : Sat Nov 30 17:08:37 2019
+/////////////////////////////////////////////////////////////
+
+
+module down_counter ( clock, reset, enable, count_init, zero );
+  input [5:0] count_init;
+  input clock, reset, enable;
+  output zero;
+  wire   N6, N7, N8, N9, N10, n2, n3, n4, n5, n7, n9, n10, n11, n12, n13, n14,
+         n15, n16, n17, n18, n19, n20, n21, n22, n23, n24, n1, n6, n8, n25,
+         n26, n27, n28, n29, n30, n31, n32, n33, n34, n35, n36, n37;
+  wire   [5:0] Count;
+
+  nnd2s2 U16 ( .DIN1(n37), .DIN2(n17), .Q(n10) );
+  dffs1 \Count_reg[5]  ( .DIN(n23), .CLK(clock), .Q(n6), .QN(n2) );
+  dffs1 \Count_reg[1]  ( .DIN(n19), .CLK(clock), .Q(Count[1]), .QN(n32) );
+  dffs1 \Count_reg[4]  ( .DIN(n22), .CLK(clock), .Q(Count[4]), .QN(n3) );
+  dffs1 \Count_reg[2]  ( .DIN(n20), .CLK(clock), .Q(Count[2]), .QN(n5) );
+  dffs1 \Count_reg[3]  ( .DIN(n21), .CLK(clock), .Q(Count[3]), .QN(n4) );
+  dffs1 \Count_reg[0]  ( .DIN(n24), .CLK(clock), .Q(Count[0]), .QN(n7) );
+  and3s1 U3 ( .DIN1(n3), .DIN2(n2), .DIN3(n4), .Q(n18) );
+  and2s1 U4 ( .DIN1(n26), .DIN2(n27), .Q(n16) );
+  oai21s2 U5 ( .DIN1(n10), .DIN2(n4), .DIN3(n13), .Q(n21) );
+  oai21s2 U6 ( .DIN1(n10), .DIN2(n5), .DIN3(n12), .Q(n20) );
+  ib1s1 U7 ( .DIN(n10), .Q(n1) );
+  nnd3s2 U8 ( .DIN1(n9), .DIN2(n37), .DIN3(enable), .Q(n17) );
+  nnd2s2 U9 ( .DIN1(n1), .DIN2(n6), .Q(n8) );
+  nnd2s2 U10 ( .DIN1(n8), .DIN2(n15), .Q(n23) );
+  aoi22s1 U11 ( .DIN1(N10), .DIN2(n36), .DIN3(count_init[5]), .DIN4(reset), 
+        .Q(n15) );
+  nor2s2 U12 ( .DIN1(n34), .DIN2(Count[3]), .Q(n31) );
+  ib1s1 U13 ( .DIN(reset), .Q(n37) );
+  ib1s2 U14 ( .DIN(n17), .Q(n36) );
+  nnd2s1 U15 ( .DIN1(n1), .DIN2(Count[0]), .Q(n25) );
+  nnd2s2 U17 ( .DIN1(n25), .DIN2(n16), .Q(n24) );
+  nnd2s1 U18 ( .DIN1(n7), .DIN2(n36), .Q(n26) );
+  nnd2s1 U19 ( .DIN1(count_init[0]), .DIN2(reset), .Q(n27) );
+  i1s2 U20 ( .DIN(n29), .Q(n33) );
+  i1s2 U21 ( .DIN(n30), .Q(n34) );
+  i1s2 U22 ( .DIN(n31), .Q(n35) );
+  hi1s1 U23 ( .DIN(n9), .Q(zero) );
+  oai21s2 U24 ( .DIN1(n10), .DIN2(n3), .DIN3(n14), .Q(n22) );
+  nnd4s1 U25 ( .DIN1(n32), .DIN2(n5), .DIN3(n7), .DIN4(n18), .Q(n9) );
+  aoi22s1 U26 ( .DIN1(N9), .DIN2(n36), .DIN3(count_init[4]), .DIN4(reset), .Q(
+        n14) );
+  aoi22s1 U27 ( .DIN1(N8), .DIN2(n36), .DIN3(count_init[3]), .DIN4(reset), .Q(
+        n13) );
+  aoi22s1 U28 ( .DIN1(N7), .DIN2(n36), .DIN3(count_init[2]), .DIN4(reset), .Q(
+        n12) );
+  xor2s1 U29 ( .DIN1(n2), .DIN2(n28), .Q(N10) );
+  or2s2 U30 ( .DIN1(Count[4]), .DIN2(n35), .Q(n28) );
+  oai21s2 U31 ( .DIN1(n10), .DIN2(n32), .DIN3(n11), .Q(n19) );
+  aoi22s1 U32 ( .DIN1(N6), .DIN2(n36), .DIN3(reset), .DIN4(count_init[1]), .Q(
+        n11) );
+  nor2s1 U33 ( .DIN1(Count[1]), .DIN2(Count[0]), .Q(n29) );
+  oai21s1 U34 ( .DIN1(n7), .DIN2(n32), .DIN3(n33), .Q(N6) );
+  nor2s1 U35 ( .DIN1(n33), .DIN2(Count[2]), .Q(n30) );
+  oai21s1 U36 ( .DIN1(n29), .DIN2(n5), .DIN3(n34), .Q(N7) );
+  oai21s1 U37 ( .DIN1(n30), .DIN2(n4), .DIN3(n35), .Q(N8) );
+  xor2s1 U38 ( .DIN1(Count[4]), .DIN2(n31), .Q(N9) );
+endmodule
+
+
+module FSM_selector ( clock, reset, enable, selector, zero_select );
+  output [2:0] selector;
+  input clock, reset, enable;
+  output zero_select;
+  wire   n3, n10, n11, n12, n13, n14, n18, n19, n20, n21, n22, n23, n8, n9,
+         n15, n16, n17, n24, n25, n26, n27, n28, n29, n30, n31, n32, n33, n34,
+         n35, n36, n37, n38, n39, n40, n41, n42, n43;
+  wire   [5:0] count;
+
+  dffs2 \count_reg[0]  ( .DIN(n23), .CLK(clock), .Q(count[0]), .QN(n14) );
+  dffs2 \count_reg[3]  ( .DIN(n20), .CLK(clock), .Q(count[3]), .QN(n11) );
+  dffs2 \count_reg[4]  ( .DIN(n19), .CLK(clock), .Q(count[4]), .QN(n10) );
+  dffs2 \count_reg[5]  ( .DIN(n18), .CLK(clock), .Q(count[5]), .QN(n3) );
+  dffs2 \count_reg[1]  ( .DIN(n22), .CLK(clock), .Q(count[1]), .QN(n13) );
+  dffs2 \count_reg[2]  ( .DIN(n21), .CLK(clock), .Q(n8), .QN(n12) );
+  ib1s1 U3 ( .DIN(1'b0), .Q(selector[2]) );
+  ib1s1 U5 ( .DIN(1'b1), .Q(selector[1]) );
+  ib1s1 U7 ( .DIN(1'b0), .Q(selector[0]) );
+  ib1s1 U9 ( .DIN(n43), .Q(n16) );
+  nnd2s2 U10 ( .DIN1(enable), .DIN2(n26), .Q(n42) );
+  or2s1 U11 ( .DIN1(n11), .DIN2(n35), .Q(n38) );
+  or2s1 U12 ( .DIN1(n9), .DIN2(n32), .Q(n35) );
+  nnd2s2 U13 ( .DIN1(n24), .DIN2(n41), .Q(n18) );
+  hi1s1 U14 ( .DIN(n8), .Q(n9) );
+  ib1s1 U15 ( .DIN(reset), .Q(n26) );
+  nnd2s2 U16 ( .DIN1(n16), .DIN2(n17), .Q(n24) );
+  hi1s1 U17 ( .DIN(n42), .Q(n17) );
+  xor2s1 U18 ( .DIN1(n25), .DIN2(count[5]), .Q(n43) );
+  hi1s1 U21 ( .DIN(n9), .Q(n15) );
+  nnd2s1 U22 ( .DIN1(n40), .DIN2(count[5]), .Q(n41) );
+  nnd2s2 U23 ( .DIN1(count[4]), .DIN2(n39), .Q(n25) );
+  nnd2s1 U24 ( .DIN1(n40), .DIN2(count[1]), .Q(n28) );
+  ib1s1 U25 ( .DIN(n38), .Q(n39) );
+  xor2s1 U26 ( .DIN1(count[0]), .DIN2(n13), .Q(n29) );
+  xor2s1 U27 ( .DIN1(n38), .DIN2(count[4]), .Q(n37) );
+  xor2s1 U28 ( .DIN1(n35), .DIN2(count[3]), .Q(n34) );
+  oai22s2 U29 ( .DIN1(count[0]), .DIN2(n42), .DIN3(n14), .DIN4(n27), .Q(n23)
+         );
+  nnd2s1 U30 ( .DIN1(n40), .DIN2(n15), .Q(n30) );
+  nnd2s1 U31 ( .DIN1(count[1]), .DIN2(count[0]), .Q(n32) );
+  xor2s1 U32 ( .DIN1(n32), .DIN2(n15), .Q(n31) );
+  nor6s3 U33 ( .DIN1(n3), .DIN2(n10), .DIN3(n11), .DIN4(n12), .DIN5(n13), 
+        .DIN6(n14), .Q(zero_select) );
+  nnd2s2 U34 ( .DIN1(n42), .DIN2(n26), .Q(n27) );
+  ib1s2 U35 ( .DIN(n27), .Q(n40) );
+  oai21s2 U36 ( .DIN1(n29), .DIN2(n42), .DIN3(n28), .Q(n22) );
+  oai21s2 U37 ( .DIN1(n42), .DIN2(n31), .DIN3(n30), .Q(n21) );
+  nnd2s2 U38 ( .DIN1(n40), .DIN2(count[3]), .Q(n33) );
+  oai21s2 U39 ( .DIN1(n42), .DIN2(n34), .DIN3(n33), .Q(n20) );
+  nnd2s2 U40 ( .DIN1(n40), .DIN2(count[4]), .Q(n36) );
+  oai21s2 U41 ( .DIN1(n42), .DIN2(n37), .DIN3(n36), .Q(n19) );
+endmodule
+
+
+module counter_3 ( clock, reset, enable, init, bit_in, init_val, count );
+  input [5:0] init_val;
+  output [5:0] count;
+  input clock, reset, enable, init, bit_in;
+  wire   net3264, net3266, net3267, net3273, net3280, net3281, net3284,
+         net3288, net3289, net3290, net3293, net3396, net3395, net4016,
+         net4142, net4158, net4157, net4164, net4163, net4192, net4198,
+         net3276, net4726, net4723, net4703, net4702, net4662, n1, n2, n3, n4,
+         n5, n6, n7, n8, n9, n10, n11, n12, n13, n14, n15, n16, n17, n18, n19,
+         n20, n21, n22, n23, n24, n25, n26, n27, n28, n29, n30, n31, n32, n33,
+         n34, n35, n36, n37, n38, n39, n40, n41, n42, n43, n44, n45;
+
+  dffs1 \count_reg[0]  ( .DIN(n45), .CLK(clock), .Q(count[0]), .QN(n10) );
+  dffs1 \count_reg[1]  ( .DIN(n7), .CLK(clock), .Q(count[1]), .QN(net3290) );
+  dffs1 \count_reg[5]  ( .DIN(n41), .CLK(clock), .Q(count[5]), .QN(net3266) );
+  dffs1 \count_reg[2]  ( .DIN(n36), .CLK(clock), .Q(count[2]), .QN(n33) );
+  dffs1 \count_reg[4]  ( .DIN(n6), .CLK(clock), .Q(count[4]), .QN(n34) );
+  dffs1 \count_reg[3]  ( .DIN(n37), .CLK(clock), .Q(count[3]), .QN(net3280) );
+  i1s8 U3 ( .DIN(n15), .Q(n12) );
+  ib1s1 U4 ( .DIN(n29), .Q(n28) );
+  dsmxc31s2 U5 ( .DIN1(net3280), .DIN2(net3281), .CLK(count[2]), .Q(n2) );
+  and2s1 U6 ( .DIN1(net3280), .DIN2(n5), .Q(net4192) );
+  mxi21s2 U7 ( .DIN1(net3267), .DIN2(net3266), .SIN(n34), .Q(net3264) );
+  nnd2s2 U8 ( .DIN1(n18), .DIN2(net3266), .Q(net3267) );
+  ib1s1 U9 ( .DIN(n26), .Q(n18) );
+  nor2s1 U10 ( .DIN1(n11), .DIN2(n2), .Q(net4157) );
+  ib1s1 U11 ( .DIN(n27), .Q(n20) );
+  and2s2 U12 ( .DIN1(init_val[2]), .DIN2(n1), .Q(n35) );
+  i1s2 U13 ( .DIN(net4662), .Q(net4726) );
+  and2s1 U14 ( .DIN1(init), .DIN2(n29), .Q(n1) );
+  and2s1 U15 ( .DIN1(count[3]), .DIN2(count[2]), .Q(n3) );
+  and2s1 U16 ( .DIN1(count[2]), .DIN2(count[3]), .Q(n4) );
+  and2s1 U17 ( .DIN1(count[0]), .DIN2(count[1]), .Q(n5) );
+  or2s2 U18 ( .DIN1(n20), .DIN2(n32), .Q(n6) );
+  nnd3s2 U19 ( .DIN1(n40), .DIN2(net4163), .DIN3(net4164), .Q(n7) );
+  ib1s1 U20 ( .DIN(reset), .Q(n29) );
+  ib1s2 U21 ( .DIN(n17), .Q(net4198) );
+  nnd2s1 U22 ( .DIN1(net4142), .DIN2(net4723), .Q(net3289) );
+  or2s3 U23 ( .DIN1(net4726), .DIN2(n9), .Q(n31) );
+  nnd2s2 U24 ( .DIN1(n22), .DIN2(net4662), .Q(n23) );
+  and2s2 U25 ( .DIN1(net4142), .DIN2(net4723), .Q(n8) );
+  nnd2s3 U26 ( .DIN1(net4702), .DIN2(enable), .Q(n15) );
+  nnd2s1 U27 ( .DIN1(net3276), .DIN2(n4), .Q(n26) );
+  nnd2s3 U28 ( .DIN1(net4703), .DIN2(net3273), .Q(net4723) );
+  or2s2 U29 ( .DIN1(n15), .DIN2(n16), .Q(net4142) );
+  nnd3s2 U30 ( .DIN1(count[2]), .DIN2(count[3]), .DIN3(net3276), .Q(n9) );
+  dsmxc31s2 U31 ( .DIN1(net4016), .DIN2(count[1]), .CLK(n10), .Q(net3288) );
+  ib1s1 U32 ( .DIN(n14), .Q(n16) );
+  nnd2s1 U33 ( .DIN1(n3), .DIN2(net3276), .Q(n22) );
+  mxi21s2 U34 ( .DIN1(n13), .DIN2(n8), .SIN(count[0]), .Q(net3293) );
+  nnd2s2 U35 ( .DIN1(net4702), .DIN2(enable), .Q(net3273) );
+  nnd2s2 U36 ( .DIN1(net3264), .DIN2(n12), .Q(net3395) );
+  nnd2s2 U37 ( .DIN1(n12), .DIN2(net3288), .Q(net4163) );
+  nnd2s2 U38 ( .DIN1(n16), .DIN2(n12), .Q(n13) );
+  nnd2s1 U39 ( .DIN1(net4702), .DIN2(enable), .Q(n11) );
+  i1s1 U40 ( .DIN(bit_in), .Q(n14) );
+  i1s1 U41 ( .DIN(net3276), .Q(n21) );
+  and2s2 U42 ( .DIN1(n17), .DIN2(count[3]), .Q(net4158) );
+  nnd2s2 U43 ( .DIN1(count[5]), .DIN2(n19), .Q(net3396) );
+  nnd2s2 U44 ( .DIN1(net4662), .DIN2(n21), .Q(n24) );
+  nnd2s2 U45 ( .DIN1(init_val[4]), .DIN2(n1), .Q(n27) );
+  i1s4 U46 ( .DIN(n15), .Q(net4662) );
+  nor2s2 U47 ( .DIN1(init), .DIN2(n28), .Q(net4703) );
+  nnd2s1 U48 ( .DIN1(n25), .DIN2(net4723), .Q(n19) );
+  nnd2s1 U49 ( .DIN1(n12), .DIN2(n9), .Q(n25) );
+  nor2s2 U50 ( .DIN1(reset), .DIN2(init), .Q(net4702) );
+  nnd2s1 U51 ( .DIN1(net3276), .DIN2(net4662), .Q(net3284) );
+  nnd2s3 U52 ( .DIN1(n24), .DIN2(net4723), .Q(n17) );
+  and2s2 U53 ( .DIN1(n23), .DIN2(net4723), .Q(n30) );
+  mxi21s3 U54 ( .DIN1(n31), .DIN2(n30), .SIN(count[4]), .Q(n32) );
+  and2s2 U55 ( .DIN1(bit_in), .DIN2(n5), .Q(net3276) );
+  nnd2s1 U56 ( .DIN1(count[1]), .DIN2(net3289), .Q(net4164) );
+  mxi21s3 U57 ( .DIN1(net4198), .DIN2(net3284), .SIN(n33), .Q(n44) );
+  or2s3 U58 ( .DIN1(n35), .DIN2(n44), .Q(n36) );
+  nnd2s2 U59 ( .DIN1(n38), .DIN2(n39), .Q(n37) );
+  nnd2s2 U60 ( .DIN1(init_val[3]), .DIN2(n1), .Q(n38) );
+  nor2s1 U61 ( .DIN1(net4157), .DIN2(net4158), .Q(n39) );
+  nnd2s1 U62 ( .DIN1(init_val[1]), .DIN2(n1), .Q(n40) );
+  and2s1 U63 ( .DIN1(bit_in), .DIN2(net3290), .Q(net4016) );
+  nnd3s2 U64 ( .DIN1(n42), .DIN2(net3395), .DIN3(net3396), .Q(n41) );
+  i1s3 U65 ( .DIN(n43), .Q(n45) );
+  nnd2s1 U66 ( .DIN1(net4192), .DIN2(bit_in), .Q(net3281) );
+  aoi21s3 U67 ( .DIN1(init_val[0]), .DIN2(n1), .DIN3(net3293), .Q(n43) );
+  nnd2s2 U68 ( .DIN1(init_val[5]), .DIN2(n1), .Q(n42) );
+endmodule
+
+
+module multiplexer_3 ( bin_in, selector, zero_select, bin_out );
+  input [5:0] bin_in;
+  input [2:0] selector;
+  input zero_select;
+  output bin_out;
+  wire   n1, n2, n3, n4, n5;
+
+  aoi21s3 U2 ( .DIN1(n1), .DIN2(n2), .DIN3(zero_select), .Q(bin_out) );
+  dsmxc31s2 U3 ( .DIN1(n3), .DIN2(n4), .CLK(selector[0]), .Q(n2) );
+  aoi22s2 U4 ( .DIN1(bin_in[3]), .DIN2(selector[1]), .DIN3(bin_in[5]), .DIN4(
+        selector[2]), .Q(n4) );
+  aoi22s2 U5 ( .DIN1(selector[1]), .DIN2(bin_in[2]), .DIN3(selector[2]), 
+        .DIN4(bin_in[4]), .Q(n3) );
+  or3s1 U6 ( .DIN1(selector[1]), .DIN2(n5), .DIN3(selector[2]), .Q(n1) );
+  mxi21s2 U7 ( .DIN1(bin_in[0]), .DIN2(bin_in[1]), .SIN(selector[0]), .Q(n5)
+         );
+endmodule
+
+
+module processing_element_3 ( clock, reset, enable, init, selector, 
+        zero_select, init_val, weight_val, output_val );
+  input [2:0] selector;
+  input [5:0] init_val;
+  input [5:0] weight_val;
+  output [5:0] output_val;
+  input clock, reset, enable, init, zero_select;
+  wire   bit_med;
+
+  counter_3 counter_inst ( .clock(clock), .reset(reset), .enable(enable), 
+        .init(init), .bit_in(bit_med), .init_val(init_val), .count(output_val)
+         );
+  multiplexer_3 multiplexer_inst ( .bin_in(weight_val), .selector(selector), 
+        .zero_select(zero_select), .bin_out(bit_med) );
+endmodule
+
+
+module counter_2 ( clock, reset, enable, init, bit_in, init_val, count );
+  input [5:0] init_val;
+  output [5:0] count;
+  input clock, reset, enable, init, bit_in;
+  wire   n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, n14, n15, n16,
+         n17, n18, n19, n20, n21, n22, n23, n24, n25, n26, n27, n28, n29, n30,
+         n31, n32, n33, n34, n35, n36, n37, n38, n39, n40, n41, n42, n43, n44,
+         n45, n46, n47, n48, n49, n50, n51, n52, n53, n54, n55, n56, n57, n58,
+         n59, n60, n61, n62;
+
+  dffs1 \count_reg[2]  ( .DIN(n3), .CLK(clock), .Q(count[2]), .QN(n35) );
+  dffs1 \count_reg[3]  ( .DIN(n5), .CLK(clock), .Q(count[3]), .QN(n52) );
+  dffs1 \count_reg[1]  ( .DIN(n10), .CLK(clock), .Q(count[1]), .QN(n45) );
+  dffs1 \count_reg[5]  ( .DIN(n32), .CLK(clock), .Q(count[5]), .QN(n58) );
+  dffs1 \count_reg[4]  ( .DIN(n18), .CLK(clock), .Q(count[4]), .QN(n9) );
+  dffs1 \count_reg[0]  ( .DIN(n15), .CLK(clock), .Q(count[0]) );
+  mxi21s2 U3 ( .DIN1(n48), .DIN2(n49), .SIN(n35), .Q(n50) );
+  i1s2 U4 ( .DIN(n59), .Q(n56) );
+  nnd2s2 U5 ( .DIN1(n20), .DIN2(n19), .Q(n18) );
+  nnd2s3 U6 ( .DIN1(init), .DIN2(n41), .Q(n42) );
+  and2s2 U7 ( .DIN1(init_val[2]), .DIN2(n62), .Q(n6) );
+  i1s5 U8 ( .DIN(reset), .Q(n41) );
+  i1s3 U9 ( .DIN(n21), .Q(n61) );
+  i1s1 U10 ( .DIN(n42), .Q(n62) );
+  mxi21s2 U11 ( .DIN1(n51), .DIN2(n52), .SIN(n35), .Q(n53) );
+  mxi21s2 U12 ( .DIN1(n8), .DIN2(n58), .SIN(n9), .Q(n60) );
+  or2s1 U13 ( .DIN1(n52), .DIN2(n35), .Q(n1) );
+  and2s1 U14 ( .DIN1(count[0]), .DIN2(count[1]), .Q(n2) );
+  or2s2 U15 ( .DIN1(n6), .DIN2(n50), .Q(n3) );
+  and2s2 U16 ( .DIN1(n36), .DIN2(n38), .Q(n4) );
+  nnd3s2 U17 ( .DIN1(n25), .DIN2(n24), .DIN3(n23), .Q(n5) );
+  and2s2 U18 ( .DIN1(bit_in), .DIN2(n2), .Q(n26) );
+  and2s2 U19 ( .DIN1(bit_in), .DIN2(n27), .Q(n34) );
+  nnd2s1 U20 ( .DIN1(bit_in), .DIN2(n7), .Q(n51) );
+  nor2s1 U21 ( .DIN1(n22), .DIN2(count[3]), .Q(n7) );
+  mx21s2 U22 ( .DIN1(n56), .DIN2(n57), .SIN(n9), .Q(n20) );
+  oai21s2 U23 ( .DIN1(n26), .DIN2(n21), .DIN3(n39), .Q(n14) );
+  nnd2s1 U24 ( .DIN1(n34), .DIN2(n58), .Q(n8) );
+  nnd3s2 U25 ( .DIN1(n11), .DIN2(n12), .DIN3(n13), .Q(n10) );
+  nnd2s2 U26 ( .DIN1(init_val[1]), .DIN2(n62), .Q(n11) );
+  nnd2s2 U27 ( .DIN1(n61), .DIN2(n47), .Q(n12) );
+  nnd2s1 U28 ( .DIN1(count[1]), .DIN2(n46), .Q(n13) );
+  nnd3s3 U29 ( .DIN1(enable), .DIN2(n41), .DIN3(n40), .Q(n21) );
+  nnd2s2 U30 ( .DIN1(n16), .DIN2(n17), .Q(n15) );
+  nnd2s2 U31 ( .DIN1(init_val[0]), .DIN2(n62), .Q(n16) );
+  mx21s2 U32 ( .DIN1(n44), .DIN2(n43), .SIN(count[0]), .Q(n17) );
+  nnd2s2 U33 ( .DIN1(init_val[4]), .DIN2(n62), .Q(n19) );
+  nnd3s3 U34 ( .DIN1(enable), .DIN2(n41), .DIN3(n40), .Q(n55) );
+  i1s3 U35 ( .DIN(n28), .Q(n48) );
+  oai21s3 U36 ( .DIN1(n21), .DIN2(n26), .DIN3(n54), .Q(n28) );
+  oai21s2 U37 ( .DIN1(n21), .DIN2(n34), .DIN3(n54), .Q(n59) );
+  nnd2s1 U38 ( .DIN1(count[0]), .DIN2(count[1]), .Q(n22) );
+  nnd2s1 U39 ( .DIN1(init_val[3]), .DIN2(n62), .Q(n23) );
+  nnd2s2 U40 ( .DIN1(n53), .DIN2(n61), .Q(n24) );
+  nnd2s1 U41 ( .DIN1(n14), .DIN2(count[3]), .Q(n25) );
+  nnd2s1 U42 ( .DIN1(n61), .DIN2(n34), .Q(n57) );
+  nor2s1 U43 ( .DIN1(n29), .DIN2(n1), .Q(n27) );
+  nnd2s1 U44 ( .DIN1(n61), .DIN2(n26), .Q(n49) );
+  nnd2s3 U45 ( .DIN1(n4), .DIN2(n37), .Q(n32) );
+  nnd2s2 U46 ( .DIN1(count[0]), .DIN2(count[1]), .Q(n29) );
+  nnd2s2 U47 ( .DIN1(n30), .DIN2(n39), .Q(n46) );
+  or2s1 U48 ( .DIN1(bit_in), .DIN2(n55), .Q(n30) );
+  nnd3s2 U49 ( .DIN1(n55), .DIN2(n42), .DIN3(n41), .Q(n54) );
+  nnd2s1 U50 ( .DIN1(n45), .DIN2(bit_in), .Q(n31) );
+  mxi21s2 U51 ( .DIN1(n45), .DIN2(n31), .SIN(count[0]), .Q(n47) );
+  oai21s1 U52 ( .DIN1(n34), .DIN2(n21), .DIN3(n54), .Q(n33) );
+  nnd2s2 U53 ( .DIN1(init_val[5]), .DIN2(n62), .Q(n36) );
+  nnd2s2 U54 ( .DIN1(n61), .DIN2(n60), .Q(n37) );
+  nnd2s1 U55 ( .DIN1(n33), .DIN2(count[5]), .Q(n38) );
+  nnd3s1 U56 ( .DIN1(n42), .DIN2(n41), .DIN3(n55), .Q(n39) );
+  nnd2s1 U57 ( .DIN1(n61), .DIN2(bit_in), .Q(n44) );
+  i1s2 U58 ( .DIN(n46), .Q(n43) );
+  ib1s2 U59 ( .DIN(init), .Q(n40) );
+endmodule
+
+
+module multiplexer_2 ( bin_in, selector, zero_select, bin_out );
+  input [5:0] bin_in;
+  input [2:0] selector;
+  input zero_select;
+  output bin_out;
+  wire   n8, n2, n3, n4, n5, n6, n7;
+
+  nb1s4 U2 ( .DIN(n8), .Q(bin_out) );
+  nor2s1 U3 ( .DIN1(n2), .DIN2(zero_select), .Q(n8) );
+  and2s1 U4 ( .DIN1(n7), .DIN2(n6), .Q(n2) );
+  dsmxc31s2 U5 ( .DIN1(n5), .DIN2(n4), .CLK(selector[0]), .Q(n6) );
+  mxi21s2 U6 ( .DIN1(bin_in[0]), .DIN2(bin_in[1]), .SIN(selector[0]), .Q(n3)
+         );
+  or3s1 U7 ( .DIN1(selector[1]), .DIN2(n3), .DIN3(selector[2]), .Q(n7) );
+  aoi22s2 U8 ( .DIN1(selector[1]), .DIN2(bin_in[2]), .DIN3(selector[2]), 
+        .DIN4(bin_in[4]), .Q(n5) );
+  aoi22s2 U9 ( .DIN1(bin_in[3]), .DIN2(selector[1]), .DIN3(bin_in[5]), .DIN4(
+        selector[2]), .Q(n4) );
+endmodule
+
+
+module processing_element_2 ( clock, reset, enable, init, selector, 
+        zero_select, init_val, weight_val, output_val );
+  input [2:0] selector;
+  input [5:0] init_val;
+  input [5:0] weight_val;
+  output [5:0] output_val;
+  input clock, reset, enable, init, zero_select;
+  wire   bit_med;
+
+  counter_2 counter_inst ( .clock(clock), .reset(reset), .enable(enable), 
+        .init(init), .bit_in(bit_med), .init_val(init_val), .count(output_val)
+         );
+  multiplexer_2 multiplexer_inst ( .bin_in(weight_val), .selector(selector), 
+        .zero_select(zero_select), .bin_out(bit_med) );
+endmodule
+
+
+module counter_1 ( clock, reset, enable, init, bit_in, init_val, count );
+  input [5:0] init_val;
+  output [5:0] count;
+  input clock, reset, enable, init, bit_in;
+  wire   net2138, net3176, net3177, net3179, net3186, net3190, net3193,
+         net3199, net3200, net3201, net3204, net3426, net5368, net3206,
+         net3210, net5362, net5361, net4752, net4101, net4100, net4017,
+         net3516, net3479, net3209, net3203, net3202, net3188, net3187, n1, n2,
+         n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, n14, n15, n16, n17,
+         n18, n19, n20, n21, n22, n23, n24, n25, n26, n27, n28, n29, n30, n31,
+         n32, n33, n34, n35, n36, n37;
+
+  dffs1 \count_reg[0]  ( .DIN(net2138), .CLK(clock), .Q(count[0]) );
+  dffs1 \count_reg[2]  ( .DIN(n37), .CLK(clock), .Q(count[2]), .QN(n26) );
+  dffs1 \count_reg[3]  ( .DIN(n7), .CLK(clock), .Q(count[3]), .QN(n31) );
+  dffs1 \count_reg[4]  ( .DIN(n16), .CLK(clock), .Q(count[4]), .QN(n19) );
+  dffs1 \count_reg[1]  ( .DIN(n2), .CLK(clock), .Q(count[1]), .QN(net3204) );
+  dffs1 \count_reg[5]  ( .DIN(n8), .CLK(clock), .Q(count[5]), .QN(n35) );
+  and2s2 U3 ( .DIN1(init_val[0]), .DIN2(net3176), .Q(n1) );
+  nor2s2 U4 ( .DIN1(n1), .DIN2(n10), .Q(net3206) );
+  i1s3 U5 ( .DIN(net3201), .Q(n2) );
+  nnd2s2 U6 ( .DIN1(init_val[1]), .DIN2(net3176), .Q(n3) );
+  nnd2s1 U7 ( .DIN1(net3177), .DIN2(net3202), .Q(n4) );
+  nnd2s2 U8 ( .DIN1(count[1]), .DIN2(net3203), .Q(n5) );
+  and3s2 U9 ( .DIN1(n3), .DIN2(n4), .DIN3(n5), .Q(net3201) );
+  i1s1 U10 ( .DIN(net3210), .Q(net3176) );
+  i1s3 U11 ( .DIN(n29), .Q(n37) );
+  i1s2 U12 ( .DIN(net3203), .Q(net3209) );
+  i1s3 U13 ( .DIN(init), .Q(n13) );
+  ib1s1 U14 ( .DIN(reset), .Q(net5362) );
+  nor2s2 U15 ( .DIN1(n6), .DIN2(net5368), .Q(net3426) );
+  ib1s1 U16 ( .DIN(n14), .Q(net4752) );
+  ib1s1 U17 ( .DIN(reset), .Q(n12) );
+  mxi21s2 U18 ( .DIN1(n34), .DIN2(n35), .SIN(n19), .Q(n36) );
+  nnd2s2 U19 ( .DIN1(net3426), .DIN2(n35), .Q(n34) );
+  ib1s1 U20 ( .DIN(net3193), .Q(net3199) );
+  or2s1 U21 ( .DIN1(n31), .DIN2(n26), .Q(n6) );
+  i1s3 U22 ( .DIN(reset), .Q(net5361) );
+  nnd3s2 U23 ( .DIN1(n20), .DIN2(n21), .DIN3(n22), .Q(n7) );
+  nnd3s2 U24 ( .DIN1(n25), .DIN2(n24), .DIN3(n23), .Q(n8) );
+  aoi21s3 U25 ( .DIN1(init_val[2]), .DIN2(net3176), .DIN3(n28), .Q(n29) );
+  mxi21s2 U26 ( .DIN1(n11), .DIN2(net3209), .SIN(count[0]), .Q(n10) );
+  nnd2s1 U27 ( .DIN1(net3177), .DIN2(net4752), .Q(n11) );
+  nnd2s1 U28 ( .DIN1(net4752), .DIN2(net3204), .Q(n9) );
+  ib1s1 U29 ( .DIN(bit_in), .Q(n14) );
+  nnd2s1 U30 ( .DIN1(n14), .DIN2(net4100), .Q(net4101) );
+  i1s8 U31 ( .DIN(n15), .Q(net3177) );
+  mxi21s2 U32 ( .DIN1(net3204), .DIN2(n9), .SIN(count[0]), .Q(net3202) );
+  and2s1 U33 ( .DIN1(count[1]), .DIN2(count[0]), .Q(net4017) );
+  nnd2s2 U34 ( .DIN1(net4101), .DIN2(net3516), .Q(net3203) );
+  i1s3 U35 ( .DIN(net3187), .Q(net4100) );
+  nnd2s1 U36 ( .DIN1(net4100), .DIN2(net5368), .Q(net3479) );
+  nnd2s2 U37 ( .DIN1(bit_in), .DIN2(net4017), .Q(net5368) );
+  nnd2s1 U38 ( .DIN1(bit_in), .DIN2(net4017), .Q(net3200) );
+  nnd3s3 U39 ( .DIN1(enable), .DIN2(net5361), .DIN3(n13), .Q(n15) );
+  oai21s3 U40 ( .DIN1(n15), .DIN2(net3426), .DIN3(net3188), .Q(net3179) );
+  nnd3s3 U41 ( .DIN1(n15), .DIN2(net3210), .DIN3(net5362), .Q(net3516) );
+  nnd3s3 U42 ( .DIN1(enable), .DIN2(net5361), .DIN3(n13), .Q(net3187) );
+  nnd2s2 U43 ( .DIN1(net3479), .DIN2(net3516), .Q(net3193) );
+  nnd3s1 U44 ( .DIN1(net3210), .DIN2(net3187), .DIN3(net5362), .Q(net3188) );
+  nnd2s2 U45 ( .DIN1(n12), .DIN2(init), .Q(net3210) );
+  i1s3 U46 ( .DIN(net3206), .Q(net2138) );
+  ib1s1 U47 ( .DIN(net3200), .Q(net3190) );
+  nnd2s3 U48 ( .DIN1(n17), .DIN2(n18), .Q(n16) );
+  nnd2s2 U49 ( .DIN1(init_val[4]), .DIN2(net3176), .Q(n17) );
+  mx21s3 U50 ( .DIN1(n33), .DIN2(net3186), .SIN(count[4]), .Q(n18) );
+  i1s3 U51 ( .DIN(net3179), .Q(net3186) );
+  nnd2s2 U52 ( .DIN1(net3190), .DIN2(n31), .Q(n30) );
+  nnd2s1 U53 ( .DIN1(net3177), .DIN2(net3426), .Q(n33) );
+  nnd2s2 U54 ( .DIN1(init_val[3]), .DIN2(net3176), .Q(n20) );
+  nnd2s2 U55 ( .DIN1(n32), .DIN2(net3177), .Q(n21) );
+  nnd2s1 U56 ( .DIN1(count[3]), .DIN2(net3193), .Q(n22) );
+  nnd2s2 U57 ( .DIN1(init_val[5]), .DIN2(net3176), .Q(n23) );
+  nnd2s2 U58 ( .DIN1(n36), .DIN2(net3177), .Q(n24) );
+  nnd2s1 U59 ( .DIN1(count[5]), .DIN2(net3179), .Q(n25) );
+  mxi21s1 U60 ( .DIN1(n31), .DIN2(n30), .SIN(count[2]), .Q(n32) );
+  nnd2s1 U61 ( .DIN1(net3177), .DIN2(net3190), .Q(n27) );
+  mxi21s2 U62 ( .DIN1(n27), .DIN2(net3199), .SIN(count[2]), .Q(n28) );
+endmodule
+
+
+module multiplexer_1 ( bin_in, selector, zero_select, bin_out );
+  input [5:0] bin_in;
+  input [2:0] selector;
+  input zero_select;
+  output bin_out;
+  wire   n1, n2, n3, n4, n5;
+
+  dsmxc31s2 U2 ( .DIN1(n3), .DIN2(n2), .CLK(selector[0]), .Q(n4) );
+  aoi21s3 U3 ( .DIN1(n5), .DIN2(n4), .DIN3(zero_select), .Q(bin_out) );
+  mxi21s2 U4 ( .DIN1(bin_in[0]), .DIN2(bin_in[1]), .SIN(selector[0]), .Q(n1)
+         );
+  or3s1 U5 ( .DIN1(selector[1]), .DIN2(n1), .DIN3(selector[2]), .Q(n5) );
+  aoi22s2 U6 ( .DIN1(selector[1]), .DIN2(bin_in[2]), .DIN3(selector[2]), 
+        .DIN4(bin_in[4]), .Q(n3) );
+  aoi22s2 U7 ( .DIN1(bin_in[3]), .DIN2(selector[1]), .DIN3(bin_in[5]), .DIN4(
+        selector[2]), .Q(n2) );
+endmodule
+
+
+module processing_element_1 ( clock, reset, enable, init, selector, 
+        zero_select, init_val, weight_val, output_val );
+  input [2:0] selector;
+  input [5:0] init_val;
+  input [5:0] weight_val;
+  output [5:0] output_val;
+  input clock, reset, enable, init, zero_select;
+  wire   bit_med;
+
+  counter_1 counter_inst ( .clock(clock), .reset(reset), .enable(enable), 
+        .init(init), .bit_in(bit_med), .init_val(init_val), .count(output_val)
+         );
+  multiplexer_1 multiplexer_inst ( .bin_in(weight_val), .selector(selector), 
+        .zero_select(zero_select), .bin_out(bit_med) );
+endmodule
+
+
+module counter_0 ( clock, reset, enable, init, bit_in, init_val, count );
+  input [5:0] init_val;
+  output [5:0] count;
+  input clock, reset, enable, init, bit_in;
+  wire   net2131, net3133, net3134, net3137, net3138, net3142, net3143,
+         net3144, net3147, net3149, net3151, net3158, net3159, net3160,
+         net3435, net3497, net4194, net4202, net4206, net4972, net4222,
+         net3433, net3167, n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12,
+         n13, n14, n15, n16, n17, n18, n19, n20, n21, n22, n23, n24, n25, n26,
+         n27, n28, n29, n30, n31, n32, n33, n34, n35, n36, n37, n38;
+
+  dffs1 \count_reg[2]  ( .DIN(n37), .CLK(clock), .Q(count[2]), .QN(net3435) );
+  dffs1 \count_reg[3]  ( .DIN(n4), .CLK(clock), .Q(count[3]), .QN(net3151) );
+  dffs1 \count_reg[4]  ( .DIN(n36), .CLK(clock), .Q(count[4]) );
+  dffs1 \count_reg[1]  ( .DIN(net2131), .CLK(clock), .Q(count[1]), .QN(n11) );
+  dffs1 \count_reg[0]  ( .DIN(n38), .CLK(clock), .Q(count[0]) );
+  dffs1 \count_reg[5]  ( .DIN(n3), .CLK(clock), .Q(count[5]), .QN(net3137) );
+  nnd3s1 U3 ( .DIN1(enable), .DIN2(n14), .DIN3(n15), .Q(n16) );
+  nnd3s3 U4 ( .DIN1(enable), .DIN2(n14), .DIN3(n15), .Q(net3144) );
+  i1s4 U5 ( .DIN(n18), .Q(n19) );
+  i1s3 U6 ( .DIN(n10), .Q(net3433) );
+  or2s2 U7 ( .DIN1(bit_in), .DIN2(net3144), .Q(n25) );
+  i1s3 U8 ( .DIN(n28), .Q(n38) );
+  nnd2s2 U9 ( .DIN1(net3137), .DIN2(net3433), .Q(net3138) );
+  i1s1 U10 ( .DIN(net3167), .Q(net3133) );
+  nnd2s2 U11 ( .DIN1(n6), .DIN2(bit_in), .Q(n10) );
+  ib1s1 U12 ( .DIN(n5), .Q(n6) );
+  ib1s1 U13 ( .DIN(net3158), .Q(net2131) );
+  and2s1 U14 ( .DIN1(count[0]), .DIN2(count[1]), .Q(n1) );
+  and2s2 U15 ( .DIN1(n25), .DIN2(net4972), .Q(n2) );
+  nnd3s2 U16 ( .DIN1(net4206), .DIN2(n24), .DIN3(n23), .Q(n3) );
+  i1s3 U17 ( .DIN(n17), .Q(net3143) );
+  i1s3 U18 ( .DIN(net4194), .Q(net4202) );
+  aoi21s2 U19 ( .DIN1(net3134), .DIN2(net3159), .DIN3(n7), .Q(net3158) );
+  nnd2s2 U20 ( .DIN1(n19), .DIN2(net3144), .Q(net4972) );
+  nnd2s3 U21 ( .DIN1(n19), .DIN2(net3144), .Q(n12) );
+  nnd3s2 U22 ( .DIN1(n20), .DIN2(n21), .DIN3(n22), .Q(n4) );
+  nnd2s2 U23 ( .DIN1(net3134), .DIN2(n35), .Q(n24) );
+  i1s3 U24 ( .DIN(n34), .Q(n36) );
+  i1s6 U25 ( .DIN(reset), .Q(n14) );
+  aoi21s3 U26 ( .DIN1(init_val[0]), .DIN2(net3133), .DIN3(n27), .Q(n28) );
+  nnd2s2 U27 ( .DIN1(n1), .DIN2(net4222), .Q(n5) );
+  oai21s2 U28 ( .DIN1(bit_in), .DIN2(net3497), .DIN3(net4972), .Q(net3160) );
+  oai21s3 U29 ( .DIN1(net3497), .DIN2(net3147), .DIN3(n12), .Q(net4194) );
+  oai21s3 U30 ( .DIN1(n16), .DIN2(net3433), .DIN3(n12), .Q(n17) );
+  nnd2s2 U31 ( .DIN1(n8), .DIN2(n9), .Q(n7) );
+  nnd2s2 U32 ( .DIN1(count[1]), .DIN2(net3160), .Q(n9) );
+  nnd2s2 U33 ( .DIN1(init_val[1]), .DIN2(net3133), .Q(n8) );
+  nnd2s1 U34 ( .DIN1(count[5]), .DIN2(n17), .Q(net4206) );
+  ib1s2 U35 ( .DIN(init), .Q(n15) );
+  nnd3s2 U36 ( .DIN1(enable), .DIN2(n14), .DIN3(n15), .Q(net3497) );
+  nnd2s1 U37 ( .DIN1(net3134), .DIN2(net3433), .Q(net3142) );
+  nor2s1 U38 ( .DIN1(net3151), .DIN2(net3435), .Q(net4222) );
+  nnd2s2 U39 ( .DIN1(n14), .DIN2(net3167), .Q(n18) );
+  nnd2s3 U40 ( .DIN1(n14), .DIN2(init), .Q(net3167) );
+  nnd2s2 U41 ( .DIN1(net3147), .DIN2(net3151), .Q(n13) );
+  mxi21s2 U42 ( .DIN1(n13), .DIN2(net3151), .SIN(net3435), .Q(net3149) );
+  and2s2 U43 ( .DIN1(bit_in), .DIN2(n1), .Q(net3147) );
+  i1s3 U44 ( .DIN(n32), .Q(n37) );
+  aoi21s3 U45 ( .DIN1(init_val[2]), .DIN2(net3133), .DIN3(n31), .Q(n32) );
+  nnd2s2 U46 ( .DIN1(init_val[3]), .DIN2(net3133), .Q(n20) );
+  nnd2s1 U47 ( .DIN1(net3134), .DIN2(net3149), .Q(n21) );
+  nnd2s1 U48 ( .DIN1(count[3]), .DIN2(net4194), .Q(n22) );
+  nnd2s2 U49 ( .DIN1(init_val[5]), .DIN2(net3133), .Q(n23) );
+  i1s3 U50 ( .DIN(net3497), .Q(net3134) );
+  aoi21s3 U51 ( .DIN1(init_val[4]), .DIN2(net3133), .DIN3(n33), .Q(n34) );
+  nnd2s1 U52 ( .DIN1(net3134), .DIN2(net3147), .Q(n30) );
+  nnd2s1 U53 ( .DIN1(net3134), .DIN2(bit_in), .Q(n26) );
+  nnd2s1 U54 ( .DIN1(n11), .DIN2(bit_in), .Q(n29) );
+  mxi21s2 U55 ( .DIN1(n26), .DIN2(n2), .SIN(count[0]), .Q(n27) );
+  mxi21s2 U56 ( .DIN1(n11), .DIN2(n29), .SIN(count[0]), .Q(net3159) );
+  mxi21s2 U57 ( .DIN1(n30), .DIN2(net4202), .SIN(count[2]), .Q(n31) );
+  mxi21s2 U58 ( .DIN1(net3142), .DIN2(net3143), .SIN(count[4]), .Q(n33) );
+  mxi21s2 U59 ( .DIN1(net3137), .DIN2(net3138), .SIN(count[4]), .Q(n35) );
+endmodule
+
+
+module multiplexer_0 ( bin_in, selector, zero_select, bin_out );
+  input [5:0] bin_in;
+  input [2:0] selector;
+  input zero_select;
+  output bin_out;
+  wire   n1, n2, n3, n4, n5, n6;
+
+  nor2s2 U2 ( .DIN1(n6), .DIN2(zero_select), .Q(bin_out) );
+  and2s1 U3 ( .DIN1(n1), .DIN2(n2), .Q(n6) );
+  dsmxc31s2 U4 ( .DIN1(n3), .DIN2(n4), .CLK(selector[0]), .Q(n2) );
+  aoi22s2 U5 ( .DIN1(bin_in[3]), .DIN2(selector[1]), .DIN3(bin_in[5]), .DIN4(
+        selector[2]), .Q(n4) );
+  aoi22s2 U6 ( .DIN1(selector[1]), .DIN2(bin_in[2]), .DIN3(selector[2]), 
+        .DIN4(bin_in[4]), .Q(n3) );
+  or3s1 U7 ( .DIN1(selector[1]), .DIN2(n5), .DIN3(selector[2]), .Q(n1) );
+  mxi21s2 U8 ( .DIN1(bin_in[0]), .DIN2(bin_in[1]), .SIN(selector[0]), .Q(n5)
+         );
+endmodule
+
+
+module processing_element_0 ( clock, reset, enable, init, selector, 
+        zero_select, init_val, weight_val, output_val );
+  input [2:0] selector;
+  input [5:0] init_val;
+  input [5:0] weight_val;
+  output [5:0] output_val;
+  input clock, reset, enable, init, zero_select;
+  wire   bit_med;
+
+  counter_0 counter_inst ( .clock(clock), .reset(reset), .enable(enable), 
+        .init(init), .bit_in(bit_med), .init_val(init_val), .count(output_val)
+         );
+  multiplexer_0 multiplexer_inst ( .bin_in(weight_val), .selector(selector), 
+        .zero_select(zero_select), .bin_out(bit_med) );
+endmodule
+
+
+module processing_unit ( clock, reset, start, input_req, input_val, 
+        input_ready, .weight_vals({\weight_vals[1][1][5] , 
+        \weight_vals[1][1][4] , \weight_vals[1][1][3] , \weight_vals[1][1][2] , 
+        \weight_vals[1][1][1] , \weight_vals[1][1][0] , \weight_vals[1][0][5] , 
+        \weight_vals[1][0][4] , \weight_vals[1][0][3] , \weight_vals[1][0][2] , 
+        \weight_vals[1][0][1] , \weight_vals[1][0][0] , \weight_vals[0][1][5] , 
+        \weight_vals[0][1][4] , \weight_vals[0][1][3] , \weight_vals[0][1][2] , 
+        \weight_vals[0][1][1] , \weight_vals[0][1][0] , \weight_vals[0][0][5] , 
+        \weight_vals[0][0][4] , \weight_vals[0][0][3] , \weight_vals[0][0][2] , 
+        \weight_vals[0][0][1] , \weight_vals[0][0][0] }), output_val, 
+        output_valid, done );
+  input [5:0] input_val;
+  output [5:0] output_val;
+  input clock, reset, start, input_ready, \weight_vals[1][1][5] ,
+         \weight_vals[1][1][4] , \weight_vals[1][1][3] ,
+         \weight_vals[1][1][2] , \weight_vals[1][1][1] ,
+         \weight_vals[1][1][0] , \weight_vals[1][0][5] ,
+         \weight_vals[1][0][4] , \weight_vals[1][0][3] ,
+         \weight_vals[1][0][2] , \weight_vals[1][0][1] ,
+         \weight_vals[1][0][0] , \weight_vals[0][1][5] ,
+         \weight_vals[0][1][4] , \weight_vals[0][1][3] ,
+         \weight_vals[0][1][2] , \weight_vals[0][1][1] ,
+         \weight_vals[0][1][0] , \weight_vals[0][0][5] ,
+         \weight_vals[0][0][4] , \weight_vals[0][0][3] ,
+         \weight_vals[0][0][2] , \weight_vals[0][0][1] ,
+         \weight_vals[0][0][0] ;
+  output input_req, output_valid, done;
+  wire   N25, N26, zero_flag, \height_index[1] , N76, N78, _1_net_,
+         zero_select, _3_net_, \output_vals[0][1][5] , \output_vals[0][1][4] ,
+         \output_vals[0][1][3] , \output_vals[0][1][2] ,
+         \output_vals[0][1][1] , \output_vals[0][1][0] , \init_vals[1][1][5] ,
+         \init_vals[1][1][4] , \init_vals[1][1][3] , \init_vals[1][1][2] ,
+         \init_vals[1][1][1] , \init_vals[1][1][0] , \init_vals[1][0][5] ,
+         \init_vals[1][0][4] , \init_vals[1][0][3] , \init_vals[1][0][2] ,
+         \init_vals[1][0][1] , \init_vals[1][0][0] , \init_vals[0][1][5] ,
+         \init_vals[0][1][4] , \init_vals[0][1][3] , \init_vals[0][1][2] ,
+         \init_vals[0][1][1] , \init_vals[0][1][0] , _7_net_, _8_net_,
+         _13_net_, _18_net_, \stored_partial_sums[0][3][5] ,
+         \stored_partial_sums[0][3][4] , \stored_partial_sums[0][3][3] ,
+         \stored_partial_sums[0][3][2] , \stored_partial_sums[0][3][1] ,
+         \stored_partial_sums[0][3][0] , \stored_partial_sums[0][2][5] ,
+         \stored_partial_sums[0][2][4] , \stored_partial_sums[0][2][3] ,
+         \stored_partial_sums[0][2][2] , \stored_partial_sums[0][2][1] ,
+         \stored_partial_sums[0][2][0] , \stored_partial_sums[0][1][5] ,
+         \stored_partial_sums[0][1][4] , \stored_partial_sums[0][1][3] ,
+         \stored_partial_sums[0][1][2] , \stored_partial_sums[0][1][1] ,
+         \stored_partial_sums[0][1][0] , \stored_partial_sums[0][0][5] ,
+         \stored_partial_sums[0][0][4] , \stored_partial_sums[0][0][3] ,
+         \stored_partial_sums[0][0][2] , \stored_partial_sums[0][0][1] ,
+         \stored_partial_sums[0][0][0] , n83, n84, n86, n87, n95, n96, n99,
+         n100, n101, n102, n103, n104, n105, n106, n107, n108, n109, n110,
+         n111, n112, n116, n117, n118, n119, n120, n121, n122, n126, n129,
+         n130, n143, n146, n147, n149, n150, n151, n152, n153, n154, n155,
+         n156, n157, n158, n159, n160, n161, n162, n163, n164, n165, n166,
+         n167, n168, n169, net3326, net3328, net3333, net3335, net3336,
+         net3349, net3358, net3361, net3362, net3363, net3369, net3465,
+         net3502, net3501, net3521, net4001, net4217, net4293, net4961,
+         net3339, net3340, net3327, n170, n171, n172, n173, n174, n175, n176,
+         n177, n178, n179, n180, n181, n182, n183, n185, n186, n187, n188,
+         n189, n190, n191, n192, n193, n194, n195, n196, n197, n198, n199,
+         n200, n201, n202, n203, n204, n205, n206, n207, n208, n209, n210,
+         n211, n212, n213, n214, n215, n216, n217, n218, n219, n220, n221,
+         n222, n223, n224, n225, n226, n227, n228;
+  wire   [2:0] state;
+  wire   [2:0] selector;
+
+  dffs2 \width_index_reg[0]  ( .DIN(n169), .CLK(clock), .Q(N25), .QN(n100) );
+  dffs2 \width_index_reg[1]  ( .DIN(n227), .CLK(clock), .Q(N26), .QN(n99) );
+  dffs2 \state_reg[0]  ( .DIN(N76), .CLK(clock), .Q(state[0]), .QN(n87) );
+  dffs2 \state_reg[2]  ( .DIN(N78), .CLK(clock), .Q(state[2]), .QN(n84) );
+  dffs2 \height_index_reg[0]  ( .DIN(n167), .CLK(clock), .Q(n170), .QN(n96) );
+  down_counter down_counter_inst ( .clock(clock), .reset(_1_net_), .enable(
+        n201), .count_init(input_val), .zero(zero_flag) );
+  FSM_selector FSM_selector_inst ( .clock(clock), .reset(_1_net_), .enable(
+        n201), .zero_select(zero_select) );
+  processing_element_3 \PE_row[0].PE_column[0].PEs  ( .clock(clock), .reset(
+        n176), .enable(_3_net_), .init(n83), .selector({1'b1, 1'b0, 1'b1}), 
+        .zero_select(zero_select), .init_val({1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 
+        1'b0}), .weight_val({\weight_vals[0][0][5] , \weight_vals[0][0][4] , 
+        \weight_vals[0][0][3] , \weight_vals[0][0][2] , \weight_vals[0][0][1] , 
+        \weight_vals[0][0][0] }), .output_val({\init_vals[0][1][5] , 
+        \init_vals[0][1][4] , \init_vals[0][1][3] , \init_vals[0][1][2] , 
+        \init_vals[0][1][1] , \init_vals[0][1][0] }) );
+  processing_element_2 \PE_row[0].PE_column[1].PEs  ( .clock(clock), .reset(
+        n174), .enable(_8_net_), .init(n83), .selector({1'b1, 1'b0, 1'b1}), 
+        .zero_select(zero_select), .init_val({\init_vals[0][1][5] , 
+        \init_vals[0][1][4] , \init_vals[0][1][3] , \init_vals[0][1][2] , 
+        \init_vals[0][1][1] , \init_vals[0][1][0] }), .weight_val({
+        \weight_vals[0][1][5] , \weight_vals[0][1][4] , \weight_vals[0][1][3] , 
+        \weight_vals[0][1][2] , \weight_vals[0][1][1] , \weight_vals[0][1][0] }), .output_val({\output_vals[0][1][5] , \output_vals[0][1][4] , 
+        \output_vals[0][1][3] , \output_vals[0][1][2] , \output_vals[0][1][1] , 
+        \output_vals[0][1][0] }) );
+  processing_element_1 \PE_row[1].PE_column[0].PEs  ( .clock(clock), .reset(
+        n202), .enable(_13_net_), .init(n83), .selector({1'b1, 1'b0, 1'b1}), 
+        .zero_select(zero_select), .init_val({\init_vals[1][0][5] , 
+        \init_vals[1][0][4] , \init_vals[1][0][3] , \init_vals[1][0][2] , 
+        \init_vals[1][0][1] , \init_vals[1][0][0] }), .weight_val({
+        \weight_vals[1][0][5] , \weight_vals[1][0][4] , \weight_vals[1][0][3] , 
+        \weight_vals[1][0][2] , \weight_vals[1][0][1] , \weight_vals[1][0][0] }), .output_val({\init_vals[1][1][5] , \init_vals[1][1][4] , 
+        \init_vals[1][1][3] , \init_vals[1][1][2] , \init_vals[1][1][1] , 
+        \init_vals[1][1][0] }) );
+  processing_element_0 \PE_row[1].PE_column[1].PEs  ( .clock(clock), .reset(
+        _7_net_), .enable(_18_net_), .init(n83), .selector({1'b1, 1'b0, 1'b1}), 
+        .zero_select(zero_select), .init_val({\init_vals[1][1][5] , 
+        \init_vals[1][1][4] , \init_vals[1][1][3] , \init_vals[1][1][2] , 
+        \init_vals[1][1][1] , \init_vals[1][1][0] }), .weight_val({
+        \weight_vals[1][1][5] , \weight_vals[1][1][4] , \weight_vals[1][1][3] , 
+        \weight_vals[1][1][2] , \weight_vals[1][1][1] , \weight_vals[1][1][0] }), .output_val(output_val) );
+  dffs1 \stored_partial_sums_reg[0][2][3]  ( .DIN(n164), .CLK(clock), .Q(
+        \stored_partial_sums[0][2][3] ), .QN(n103) );
+  dffs1 \stored_partial_sums_reg[0][2][2]  ( .DIN(n163), .CLK(clock), .Q(
+        \stored_partial_sums[0][2][2] ), .QN(n104) );
+  dffs1 \stored_partial_sums_reg[0][2][1]  ( .DIN(n162), .CLK(clock), .Q(
+        \stored_partial_sums[0][2][1] ), .QN(n105) );
+  dffs1 \stored_partial_sums_reg[0][2][0]  ( .DIN(n161), .CLK(clock), .Q(
+        \stored_partial_sums[0][2][0] ), .QN(n106) );
+  dffs1 \stored_partial_sums_reg[0][2][5]  ( .DIN(n166), .CLK(clock), .Q(
+        \stored_partial_sums[0][2][5] ), .QN(n101) );
+  dffs1 \stored_partial_sums_reg[0][2][4]  ( .DIN(n165), .CLK(clock), .Q(
+        \stored_partial_sums[0][2][4] ), .QN(n102) );
+  dffss2 \state_reg[1]  ( .DIN(1'b0), .SETB(n183), .CLK(clock), .Q(state[1]), 
+        .QN(n86) );
+  dffs1 \stored_partial_sums_reg[0][1][5]  ( .DIN(n160), .CLK(clock), .Q(
+        \stored_partial_sums[0][1][5] ), .QN(n107) );
+  dffs1 \stored_partial_sums_reg[0][1][4]  ( .DIN(n159), .CLK(clock), .Q(
+        \stored_partial_sums[0][1][4] ), .QN(n108) );
+  dffs1 \stored_partial_sums_reg[0][1][3]  ( .DIN(n158), .CLK(clock), .Q(
+        \stored_partial_sums[0][1][3] ), .QN(n109) );
+  dffs1 \stored_partial_sums_reg[0][1][2]  ( .DIN(n157), .CLK(clock), .Q(
+        \stored_partial_sums[0][1][2] ), .QN(n110) );
+  dffs1 \stored_partial_sums_reg[0][1][1]  ( .DIN(n156), .CLK(clock), .Q(
+        \stored_partial_sums[0][1][1] ), .QN(n111) );
+  dffs1 \stored_partial_sums_reg[0][1][0]  ( .DIN(n155), .CLK(clock), .Q(
+        \stored_partial_sums[0][1][0] ), .QN(n112) );
+  dffles1 \stored_partial_sums_reg[0][3][5]  ( .DIN(1'b0), .EB(n203), .CLK(
+        clock), .Q(\stored_partial_sums[0][3][5] ) );
+  dffles1 \stored_partial_sums_reg[0][3][4]  ( .DIN(1'b0), .EB(n203), .CLK(
+        clock), .Q(\stored_partial_sums[0][3][4] ) );
+  dffles1 \stored_partial_sums_reg[0][3][3]  ( .DIN(1'b0), .EB(n203), .CLK(
+        clock), .Q(\stored_partial_sums[0][3][3] ) );
+  dffles1 \stored_partial_sums_reg[0][3][2]  ( .DIN(1'b0), .EB(n203), .CLK(
+        clock), .Q(\stored_partial_sums[0][3][2] ) );
+  dffles1 \stored_partial_sums_reg[0][3][1]  ( .DIN(1'b0), .EB(n203), .CLK(
+        clock), .Q(\stored_partial_sums[0][3][1] ) );
+  dffles1 \stored_partial_sums_reg[0][3][0]  ( .DIN(1'b0), .EB(n203), .CLK(
+        clock), .Q(\stored_partial_sums[0][3][0] ) );
+  dffs1 \stored_partial_sums_reg[0][0][5]  ( .DIN(n154), .CLK(clock), .Q(
+        \stored_partial_sums[0][0][5] ) );
+  dffs1 \stored_partial_sums_reg[0][0][4]  ( .DIN(n153), .CLK(clock), .Q(
+        \stored_partial_sums[0][0][4] ) );
+  dffs1 \stored_partial_sums_reg[0][0][3]  ( .DIN(n152), .CLK(clock), .Q(
+        \stored_partial_sums[0][0][3] ) );
+  dffs1 \stored_partial_sums_reg[0][0][2]  ( .DIN(n151), .CLK(clock), .Q(
+        \stored_partial_sums[0][0][2] ) );
+  dffs1 \stored_partial_sums_reg[0][0][1]  ( .DIN(n150), .CLK(clock), .Q(
+        \stored_partial_sums[0][0][1] ) );
+  dffs1 \stored_partial_sums_reg[0][0][0]  ( .DIN(n149), .CLK(clock), .Q(
+        \stored_partial_sums[0][0][0] ) );
+  dffs1 \height_index_reg[1]  ( .DIN(n168), .CLK(clock), .Q(\height_index[1] ), 
+        .QN(n95) );
+  and2s2 U94 ( .DIN1(net3333), .DIN2(n173), .Q(_3_net_) );
+  and2s2 U95 ( .DIN1(net3333), .DIN2(net3335), .Q(_8_net_) );
+  ib1s1 U96 ( .DIN(n218), .Q(n219) );
+  nnd2s2 U97 ( .DIN1(n180), .DIN2(n203), .Q(n129) );
+  nnd2s2 U98 ( .DIN1(n129), .DIN2(n182), .Q(n130) );
+  oai21s2 U99 ( .DIN1(n95), .DIN2(net3358), .DIN3(n208), .Q(n168) );
+  i1s3 U100 ( .DIN(net3340), .Q(net3339) );
+  ib1s1 U101 ( .DIN(state[1]), .Q(net3521) );
+  ib1s1 U102 ( .DIN(\height_index[1] ), .Q(n172) );
+  and3s2 U103 ( .DIN1(n87), .DIN2(n86), .DIN3(state[2]), .Q(n171) );
+  nnd2s2 U104 ( .DIN1(n171), .DIN2(net3327), .Q(net3340) );
+  nnd2s2 U105 ( .DIN1(net4217), .DIN2(n171), .Q(net3336) );
+  hi1s1 U106 ( .DIN(n87), .Q(net4293) );
+  and2s2 U107 ( .DIN1(state[0]), .DIN2(n86), .Q(net4961) );
+  and2s2 U108 ( .DIN1(state[0]), .DIN2(n86), .Q(net4001) );
+  ib1s1 U109 ( .DIN(state[2]), .Q(net3501) );
+  nnd2s2 U110 ( .DIN1(n96), .DIN2(n172), .Q(net3327) );
+  and2s1 U111 ( .DIN1(net3326), .DIN2(net3327), .Q(output_valid) );
+  nnd2s2 U112 ( .DIN1(net3358), .DIN2(n172), .Q(net3361) );
+  nnd2s2 U113 ( .DIN1(net3349), .DIN2(n96), .Q(net3362) );
+  and2s2 U114 ( .DIN1(net3339), .DIN2(n173), .Q(_13_net_) );
+  and2s2 U115 ( .DIN1(net3339), .DIN2(net3335), .Q(_18_net_) );
+  nnd2s2 U116 ( .DIN1(N26), .DIN2(N25), .Q(n173) );
+  nnd2s1 U117 ( .DIN1(n170), .DIN2(\height_index[1] ), .Q(net4217) );
+  nnd2s3 U118 ( .DIN1(n226), .DIN2(n126), .Q(n202) );
+  nnd2s3 U119 ( .DIN1(n226), .DIN2(n126), .Q(n174) );
+  nnd2s3 U120 ( .DIN1(n84), .DIN2(net4961), .Q(n126) );
+  ib1s1 U121 ( .DIN(net3501), .Q(net3502) );
+  oai13s2 U122 ( .DIN2(n100), .DIN3(net3328), .DIN4(N26), .DIN1(n203), .Q(n175) );
+  nnd2s2 U123 ( .DIN1(n226), .DIN2(n177), .Q(n176) );
+  nnd2s1 U124 ( .DIN1(state[1]), .DIN2(net3502), .Q(n228) );
+  oai21s3 U125 ( .DIN1(n217), .DIN2(net3363), .DIN3(n203), .Q(net3358) );
+  nnd2s2 U126 ( .DIN1(n226), .DIN2(n143), .Q(_1_net_) );
+  nnd2s1 U127 ( .DIN1(net3349), .DIN2(n207), .Q(n208) );
+  nnd3s2 U128 ( .DIN1(state[1]), .DIN2(net3501), .DIN3(state[0]), .Q(n143) );
+  nnd2s3 U129 ( .DIN1(n177), .DIN2(n226), .Q(_7_net_) );
+  i1s8 U130 ( .DIN(n181), .Q(n203) );
+  nnd2s3 U131 ( .DIN1(n182), .DIN2(net3335), .Q(net3328) );
+  nnd2s2 U132 ( .DIN1(n182), .DIN2(n215), .Q(n216) );
+  nnd2s2 U133 ( .DIN1(n175), .DIN2(n182), .Q(n116) );
+  and2s2 U134 ( .DIN1(net3502), .DIN2(net4961), .Q(n182) );
+  nnd2s3 U135 ( .DIN1(net4001), .DIN2(n84), .Q(n177) );
+  nnd2s2 U136 ( .DIN1(n178), .DIN2(n203), .Q(n215) );
+  hi1s1 U137 ( .DIN(state[0]), .Q(net3369) );
+  or2s1 U138 ( .DIN1(N25), .DIN2(net3328), .Q(n178) );
+  oai22s1 U139 ( .DIN1(n220), .DIN2(n216), .DIN3(n112), .DIN4(n215), .Q(n155)
+         );
+  mxi21s1 U140 ( .DIN1(n179), .DIN2(N25), .SIN(net3349), .Q(n169) );
+  nnd2s1 U141 ( .DIN1(n203), .DIN2(N25), .Q(n179) );
+  oai21s2 U142 ( .DIN1(n116), .DIN2(n221), .DIN3(n118), .Q(n150) );
+  oai21s2 U143 ( .DIN1(n116), .DIN2(n222), .DIN3(n119), .Q(n151) );
+  oai21s2 U144 ( .DIN1(n116), .DIN2(n223), .DIN3(n120), .Q(n152) );
+  oai21s2 U145 ( .DIN1(n116), .DIN2(n224), .DIN3(n121), .Q(n153) );
+  oai21s2 U146 ( .DIN1(n116), .DIN2(n225), .DIN3(n122), .Q(n154) );
+  or2s1 U147 ( .DIN1(net3328), .DIN2(n217), .Q(n180) );
+  ib1s1 U148 ( .DIN(net3363), .Q(net3349) );
+  ib1s1 U149 ( .DIN(net3328), .Q(net3326) );
+  and2s1 U150 ( .DIN1(net4961), .DIN2(n84), .Q(n181) );
+  ib1s1 U151 ( .DIN(n228), .Q(n204) );
+  ib1s1 U152 ( .DIN(n211), .Q(n212) );
+  nb1s1 U153 ( .DIN(net3369), .Q(net3465) );
+  and2s1 U154 ( .DIN1(n100), .DIN2(n99), .Q(n198) );
+  oai21s2 U155 ( .DIN1(n116), .DIN2(n220), .DIN3(n117), .Q(n149) );
+  oai22s1 U156 ( .DIN1(n221), .DIN2(n216), .DIN3(n111), .DIN4(n215), .Q(n156)
+         );
+  oai22s1 U157 ( .DIN1(n222), .DIN2(n216), .DIN3(n110), .DIN4(n215), .Q(n157)
+         );
+  oai22s1 U158 ( .DIN1(n223), .DIN2(n216), .DIN3(n109), .DIN4(n215), .Q(n158)
+         );
+  oai22s1 U159 ( .DIN1(n224), .DIN2(n216), .DIN3(n108), .DIN4(n215), .Q(n159)
+         );
+  oai22s1 U160 ( .DIN1(n225), .DIN2(n216), .DIN3(n107), .DIN4(n215), .Q(n160)
+         );
+  or3s1 U161 ( .DIN1(n217), .DIN2(n96), .DIN3(n95), .Q(n211) );
+  ib1s1 U162 ( .DIN(\output_vals[0][1][0] ), .Q(n220) );
+  ib1s1 U163 ( .DIN(\output_vals[0][1][1] ), .Q(n221) );
+  ib1s1 U164 ( .DIN(\output_vals[0][1][2] ), .Q(n222) );
+  ib1s1 U165 ( .DIN(\output_vals[0][1][4] ), .Q(n224) );
+  ib1s1 U166 ( .DIN(\output_vals[0][1][3] ), .Q(n223) );
+  ib1s1 U167 ( .DIN(\output_vals[0][1][5] ), .Q(n225) );
+  mxi21s1 U168 ( .DIN1(n96), .DIN2(net3362), .SIN(net3358), .Q(n167) );
+  or2s1 U169 ( .DIN1(reset), .DIN2(n146), .Q(n183) );
+  ib1s1 U170 ( .DIN(reset), .Q(n226) );
+  nor2s1 U172 ( .DIN1(n99), .DIN2(N25), .Q(n196) );
+  nor2s1 U173 ( .DIN1(n99), .DIN2(n100), .Q(n195) );
+  aoi22s1 U174 ( .DIN1(\stored_partial_sums[0][2][0] ), .DIN2(n196), .DIN3(
+        \stored_partial_sums[0][3][0] ), .DIN4(n195), .Q(n186) );
+  nor2s1 U175 ( .DIN1(n100), .DIN2(N26), .Q(n197) );
+  aoi22s1 U176 ( .DIN1(\stored_partial_sums[0][0][0] ), .DIN2(n198), .DIN3(
+        \stored_partial_sums[0][1][0] ), .DIN4(n197), .Q(n185) );
+  nnd2s1 U177 ( .DIN1(n186), .DIN2(n185), .Q(\init_vals[1][0][0] ) );
+  aoi22s1 U178 ( .DIN1(\stored_partial_sums[0][2][1] ), .DIN2(n196), .DIN3(
+        \stored_partial_sums[0][3][1] ), .DIN4(n195), .Q(n188) );
+  aoi22s1 U179 ( .DIN1(\stored_partial_sums[0][0][1] ), .DIN2(n198), .DIN3(
+        \stored_partial_sums[0][1][1] ), .DIN4(n197), .Q(n187) );
+  nnd2s1 U180 ( .DIN1(n188), .DIN2(n187), .Q(\init_vals[1][0][1] ) );
+  aoi22s1 U181 ( .DIN1(\stored_partial_sums[0][2][2] ), .DIN2(n196), .DIN3(
+        \stored_partial_sums[0][3][2] ), .DIN4(n195), .Q(n190) );
+  aoi22s1 U182 ( .DIN1(\stored_partial_sums[0][0][2] ), .DIN2(n198), .DIN3(
+        \stored_partial_sums[0][1][2] ), .DIN4(n197), .Q(n189) );
+  nnd2s1 U183 ( .DIN1(n190), .DIN2(n189), .Q(\init_vals[1][0][2] ) );
+  aoi22s1 U184 ( .DIN1(\stored_partial_sums[0][2][3] ), .DIN2(n196), .DIN3(
+        \stored_partial_sums[0][3][3] ), .DIN4(n195), .Q(n192) );
+  aoi22s1 U185 ( .DIN1(\stored_partial_sums[0][0][3] ), .DIN2(n198), .DIN3(
+        \stored_partial_sums[0][1][3] ), .DIN4(n197), .Q(n191) );
+  nnd2s1 U186 ( .DIN1(n192), .DIN2(n191), .Q(\init_vals[1][0][3] ) );
+  aoi22s1 U187 ( .DIN1(\stored_partial_sums[0][2][4] ), .DIN2(n196), .DIN3(
+        \stored_partial_sums[0][3][4] ), .DIN4(n195), .Q(n194) );
+  aoi22s1 U188 ( .DIN1(\stored_partial_sums[0][0][4] ), .DIN2(n198), .DIN3(
+        \stored_partial_sums[0][1][4] ), .DIN4(n197), .Q(n193) );
+  nnd2s1 U189 ( .DIN1(n194), .DIN2(n193), .Q(\init_vals[1][0][4] ) );
+  aoi22s1 U190 ( .DIN1(\stored_partial_sums[0][2][5] ), .DIN2(n196), .DIN3(
+        \stored_partial_sums[0][3][5] ), .DIN4(n195), .Q(n200) );
+  aoi22s1 U191 ( .DIN1(\stored_partial_sums[0][0][5] ), .DIN2(n198), .DIN3(
+        \stored_partial_sums[0][1][5] ), .DIN4(n197), .Q(n199) );
+  nnd2s1 U192 ( .DIN1(n200), .DIN2(n199), .Q(\init_vals[1][0][5] ) );
+  nnd2s1 U193 ( .DIN1(net3502), .DIN2(n209), .Q(n210) );
+  and3s1 U194 ( .DIN1(net3369), .DIN2(net3521), .DIN3(net3502), .Q(n201) );
+  aoi21s1 U195 ( .DIN1(n143), .DIN2(n210), .DIN3(reset), .Q(N78) );
+  i1s3 U196 ( .DIN(net3336), .Q(net3333) );
+  aoi22s1 U197 ( .DIN1(zero_flag), .DIN2(n201), .DIN3(input_ready), .DIN4(
+        input_req), .Q(n147) );
+  nor2s1 U198 ( .DIN1(net3369), .DIN2(n228), .Q(done) );
+  i1s8 U199 ( .DIN(n143), .Q(n83) );
+  oai22s1 U200 ( .DIN1(n129), .DIN2(n106), .DIN3(n220), .DIN4(n130), .Q(n161)
+         );
+  oai22s1 U201 ( .DIN1(n129), .DIN2(n105), .DIN3(n221), .DIN4(n130), .Q(n162)
+         );
+  oai22s1 U202 ( .DIN1(n129), .DIN2(n104), .DIN3(n222), .DIN4(n130), .Q(n163)
+         );
+  oai22s1 U203 ( .DIN1(n129), .DIN2(n103), .DIN3(n223), .DIN4(n130), .Q(n164)
+         );
+  oai22s1 U204 ( .DIN1(n129), .DIN2(n102), .DIN3(n224), .DIN4(n130), .Q(n165)
+         );
+  oai22s1 U205 ( .DIN1(n129), .DIN2(n101), .DIN3(n225), .DIN4(n130), .Q(n166)
+         );
+  oai21s1 U206 ( .DIN1(net4293), .DIN2(n211), .DIN3(state[1]), .Q(n209) );
+  xnr2s1 U207 ( .DIN1(state[1]), .DIN2(net4293), .Q(n146) );
+  and3s1 U208 ( .DIN1(net3465), .DIN2(n84), .DIN3(state[1]), .Q(input_req) );
+  nnd2s2 U209 ( .DIN1(n204), .DIN2(net3465), .Q(net3363) );
+  nnd2s2 U210 ( .DIN1(N26), .DIN2(n203), .Q(n206) );
+  mxi21s2 U211 ( .DIN1(N26), .DIN2(n99), .SIN(N25), .Q(n205) );
+  mxi21s2 U212 ( .DIN1(n206), .DIN2(n205), .SIN(net3349), .Q(n227) );
+  nnd2s2 U213 ( .DIN1(N25), .DIN2(N26), .Q(n217) );
+  mxi21s2 U214 ( .DIN1(net3361), .DIN2(n95), .SIN(n96), .Q(n207) );
+  nnd4s1 U215 ( .DIN1(start), .DIN2(net3465), .DIN3(n84), .DIN4(net3521), .Q(
+        n214) );
+  nnd2s2 U216 ( .DIN1(net3349), .DIN2(n212), .Q(n213) );
+  aoi13s2 U217 ( .DIN2(n147), .DIN3(n214), .DIN4(n213), .DIN1(reset), .Q(N76)
+         );
+  nnd2s2 U218 ( .DIN1(n100), .DIN2(n99), .Q(net3335) );
+  oai13s2 U219 ( .DIN2(n100), .DIN3(net3328), .DIN4(N26), .DIN1(n203), .Q(n218) );
+  nnd2s2 U220 ( .DIN1(\stored_partial_sums[0][0][5] ), .DIN2(n219), .Q(n122)
+         );
+  nnd2s2 U221 ( .DIN1(\stored_partial_sums[0][0][4] ), .DIN2(n219), .Q(n121)
+         );
+  nnd2s2 U222 ( .DIN1(\stored_partial_sums[0][0][3] ), .DIN2(n219), .Q(n120)
+         );
+  nnd2s2 U223 ( .DIN1(\stored_partial_sums[0][0][2] ), .DIN2(n219), .Q(n119)
+         );
+  nnd2s2 U224 ( .DIN1(\stored_partial_sums[0][0][1] ), .DIN2(n219), .Q(n118)
+         );
+  nnd2s2 U225 ( .DIN1(\stored_partial_sums[0][0][0] ), .DIN2(n219), .Q(n117)
+         );
+endmodule
+
