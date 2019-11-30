@@ -9,7 +9,7 @@ Report : power
         -analysis_effort low
 Design : processing_unit
 Version: O-2018.06
-Date   : Sat Nov 30 17:08:37 2019
+Date   : Sat Nov 30 17:53:37 2019
 ****************************************
 
 
@@ -39,19 +39,19 @@ Power-specific unit information :
                                        Switch   Int      Leak     Total
 Hierarchy                              Power    Power    Power    Power    %
 --------------------------------------------------------------------------------
-processing_unit                           1.187    6.707 1.65e+04    7.894 100.0
-  PE_row[1].PE_column[1].PEs (processing_element_0)    0.161    0.668 1.98e+03    0.829  10.5
-    multiplexer_inst (multiplexer_0)   1.99e-02 5.06e-02  308.511 7.05e-02   0.9
-    counter_inst (counter_0)              0.141    0.617 1.67e+03    0.758   9.6
-  PE_row[1].PE_column[0].PEs (processing_element_1)    0.141    0.622 1.88e+03    0.763   9.7
-    multiplexer_inst (multiplexer_1)   1.28e-02 4.39e-02  316.000 5.68e-02   0.7
-    counter_inst (counter_1)              0.128    0.578 1.57e+03    0.706   8.9
-  PE_row[0].PE_column[1].PEs (processing_element_2)    0.138    0.634 2.00e+03    0.772   9.8
-    multiplexer_inst (multiplexer_2)   1.88e-02 6.00e-02  371.618 7.88e-02   1.0
-    counter_inst (counter_2)              0.119    0.574 1.63e+03    0.693   8.8
-  PE_row[0].PE_column[0].PEs (processing_element_3)    0.209    0.803 2.46e+03    1.012  12.8
-    multiplexer_inst (multiplexer_3)   1.27e-02 4.41e-02  316.000 5.67e-02   0.7
-    counter_inst (counter_3)              0.196    0.759 2.15e+03    0.955  12.1
-  FSM_selector_inst (FSM_selector)     9.35e-02    0.606 1.36e+03    0.700   8.9
-  down_counter_inst (down_counter)        0.169    0.806 1.21e+03    0.974  12.3
+processing_unit                           1.198    6.994 1.67e+04    8.192 100.0
+  PE_row[1].PE_column[1].PEs (processing_element_0)    0.131    0.671 2.05e+03    0.802   9.8
+    multiplexer_inst (multiplexer_0)   1.40e-02 4.65e-02  316.000 6.04e-02   0.7
+    counter_inst (counter_0)              0.117    0.625 1.74e+03    0.742   9.1
+  PE_row[1].PE_column[0].PEs (processing_element_1)    0.121    0.601 1.73e+03    0.722   8.8
+    multiplexer_inst (multiplexer_1)   1.22e-02 4.58e-02  316.000 5.80e-02   0.7
+    counter_inst (counter_1)              0.109    0.555 1.41e+03    0.664   8.1
+  PE_row[0].PE_column[1].PEs (processing_element_2)    0.121    0.639 1.96e+03    0.760   9.3
+    multiplexer_inst (multiplexer_2)   1.55e-02 5.15e-02  308.511 6.70e-02   0.8
+    counter_inst (counter_2)              0.106    0.587 1.65e+03    0.693   8.5
+  PE_row[0].PE_column[0].PEs (processing_element_3)    0.194    0.803 1.83e+03    0.997  12.2
+    multiplexer_inst (multiplexer_3)   1.19e-02 4.68e-02  316.000 5.87e-02   0.7
+    counter_inst (counter_3)              0.182    0.757 1.52e+03    0.938  11.5
+  FSM_selector_inst (FSM_selector)        0.101    0.661 1.35e+03    0.763   9.3
+  down_counter_inst (down_counter)        0.218    0.913 1.24e+03    1.130  13.8
 1

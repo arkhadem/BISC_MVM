@@ -10,7 +10,7 @@ Report : timing
         -transition_time
 Design : processing_unit
 Version: O-2018.06
-Date   : Sat Nov 30 17:08:37 2019
+Date   : Sat Nov 30 17:53:37 2019
 ****************************************
 
  * Some/all delay information is back-annotated.
@@ -18,464 +18,7 @@ Date   : Sat Nov 30 17:08:37 2019
 Operating Conditions: nom_pvt   Library: lec25dscc25_TT
 Wire Load Model Mode: top
 
-  Startpoint: state_reg[1]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]
-            (rising edge-triggered flip-flop clocked by clock)
-  Path Group: clock
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  clock clock (rise edge)                                           0.00       0.00
-  clock network delay (ideal)                                       0.00       0.00
-  state_reg[1]/CLK (dffss2)                               0.00      0.00       0.00 r
-  state_reg[1]/QN (dffss2)                                0.19      0.18       0.18 f
-  n86 (net)                                     3                   0.00       0.18 f
-  U108/DIN2 (and2s2)                                      0.19      0.00       0.19 f
-  U108/Q (and2s2)                                         0.11      0.17       0.35 f
-  net4001 (net)                                 1                   0.00       0.35 f
-  U135/DIN1 (nnd2s3)                                      0.11      0.01       0.36 f
-  U135/Q (nnd2s3)                                         0.20      0.07       0.43 r
-  n177 (net)                                    2                   0.00       0.43 r
-  U129/DIN1 (nnd2s3)                                      0.20      0.00       0.43 r
-  U129/Q (nnd2s3)                                         0.22      0.07       0.50 f
-  _7_net_ (net)                                 1                   0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/reset (processing_element_0)           0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/reset (net)                            0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/counter_inst/reset (counter_0)         0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/counter_inst/reset (net)               0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U25/DIN (i1s6)     0.22     0.01     0.51 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U25/Q (i1s6)     0.16     0.08       0.59 r
-  PE_row[1].PE_column[1].PEs/counter_inst/n14 (net)     5           0.00       0.59 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U40/DIN1 (nnd2s3)     0.16     0.00     0.60 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U40/Q (nnd2s3)     0.12     0.05     0.64 f
-  PE_row[1].PE_column[1].PEs/counter_inst/net3167 (net)     2       0.00       0.64 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U39/DIN2 (nnd2s2)     0.12     0.00     0.65 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U39/Q (nnd2s2)     0.21     0.10     0.74 r
-  PE_row[1].PE_column[1].PEs/counter_inst/n18 (net)     1           0.00       0.74 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U5/DIN (i1s4)     0.21     0.01      0.75 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U5/Q (i1s4)     0.11      0.05       0.80 f
-  PE_row[1].PE_column[1].PEs/counter_inst/n19 (net)     2           0.00       0.80 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U21/DIN1 (nnd2s3)     0.11     0.00     0.80 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U21/Q (nnd2s3)     0.17     0.06     0.86 r
-  PE_row[1].PE_column[1].PEs/counter_inst/n12 (net)     2           0.00       0.86 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U29/DIN3 (oai21s3)     0.17     0.00     0.86 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U29/Q (oai21s3)     0.29     0.13     0.99 f
-  PE_row[1].PE_column[1].PEs/counter_inst/net4194 (net)     2       0.00       0.99 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U18/DIN (i1s3)     0.29     0.00     0.99 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U18/Q (i1s3)     0.14     0.06       1.06 r
-  PE_row[1].PE_column[1].PEs/counter_inst/net4202 (net)     1       0.00       1.06 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U57/DIN2 (mxi21s2)     0.14     0.00     1.06 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U57/Q (mxi21s2)     0.17     0.12     1.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/n31 (net)     1           0.00       1.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U45/DIN3 (aoi21s3)     0.17     0.00     1.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U45/Q (aoi21s3)     0.31     0.07     1.26 r
-  PE_row[1].PE_column[1].PEs/counter_inst/n32 (net)     1           0.00       1.26 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U44/DIN (i1s3)     0.31     0.00     1.26 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U44/Q (i1s3)     0.13     0.06       1.32 f
-  PE_row[1].PE_column[1].PEs/counter_inst/n37 (net)     1           0.00       1.32 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN (dffs1)     0.13     0.01     1.32 f
-  data arrival time                                                            1.32
-
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/CLK (dffs1)     0.00     1.46 r
-  library setup time                                               -0.14       1.32
-  data required time                                                           1.32
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.32
-  data arrival time                                                           -1.32
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  0.00
-
-
-  Startpoint: state_reg[2]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: PE_row[0].PE_column[1].PEs/counter_inst/count_reg[0]
-            (rising edge-triggered flip-flop clocked by clock)
-  Path Group: clock
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  clock clock (rise edge)                                           0.00       0.00
-  clock network delay (ideal)                                       0.00       0.00
-  state_reg[2]/CLK (dffs2)                                0.00      0.00       0.00 r
-  state_reg[2]/Q (dffs2)                                  0.17      0.17       0.17 f
-  state[2] (net)                                2                   0.00       0.17 f
-  U103/DIN3 (and3s2)                                      0.17      0.00       0.18 f
-  U103/Q (and3s2)                                         0.12      0.21       0.38 f
-  n171 (net)                                    2                   0.00       0.38 f
-  U105/DIN2 (nnd2s2)                                      0.12      0.00       0.38 f
-  U105/Q (nnd2s2)                                         0.18      0.09       0.47 r
-  net3336 (net)                                 1                   0.00       0.47 r
-  U196/DIN (i1s3)                                         0.18      0.00       0.48 r
-  U196/Q (i1s3)                                           0.10      0.05       0.52 f
-  net3333 (net)                                 2                   0.00       0.52 f
-  U95/DIN1 (and2s2)                                       0.10      0.00       0.53 f
-  U95/Q (and2s2)                                          0.15      0.16       0.68 f
-  _8_net_ (net)                                 2                   0.00       0.68 f
-  PE_row[0].PE_column[1].PEs/enable (processing_element_2)          0.00       0.68 f
-  PE_row[0].PE_column[1].PEs/enable (net)                           0.00       0.68 f
-  PE_row[0].PE_column[1].PEs/counter_inst/enable (counter_2)        0.00       0.68 f
-  PE_row[0].PE_column[1].PEs/counter_inst/enable (net)              0.00       0.68 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U34/DIN1 (nnd3s3)     0.15     0.00     0.69 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U34/Q (nnd3s3)     0.23     0.07     0.76 r
-  PE_row[0].PE_column[1].PEs/counter_inst/n55 (net)     3           0.00       0.76 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U56/DIN3 (nnd3s1)     0.23     0.00     0.76 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U56/Q (nnd3s1)     0.26     0.12     0.88 f
-  PE_row[0].PE_column[1].PEs/counter_inst/n39 (net)     2           0.00       0.88 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U47/DIN2 (nnd2s2)     0.26     0.00     0.89 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U47/Q (nnd2s2)     0.20     0.11     0.99 r
-  PE_row[0].PE_column[1].PEs/counter_inst/n46 (net)     2           0.00       0.99 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U58/DIN (i1s2)     0.20     0.00     1.00 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U58/Q (i1s2)     0.13     0.06       1.06 f
-  PE_row[0].PE_column[1].PEs/counter_inst/n43 (net)     1           0.00       1.06 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U32/DIN2 (mx21s2)     0.13     0.00     1.06 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U32/Q (mx21s2)     0.11     0.17     1.23 f
-  PE_row[0].PE_column[1].PEs/counter_inst/n17 (net)     1           0.00       1.23 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U30/DIN2 (nnd2s2)     0.11     0.00     1.23 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U30/Q (nnd2s2)     0.19     0.09     1.32 r
-  PE_row[0].PE_column[1].PEs/counter_inst/n15 (net)     1           0.00       1.32 r
-  PE_row[0].PE_column[1].PEs/counter_inst/count_reg[0]/DIN (dffs1)     0.19     0.01     1.33 r
-  data arrival time                                                            1.33
-
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  PE_row[0].PE_column[1].PEs/counter_inst/count_reg[0]/CLK (dffs1)     0.00     1.46 r
-  library setup time                                               -0.13       1.33
-  data required time                                                           1.33
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.33
-  data arrival time                                                           -1.33
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  0.00
-
-
   Startpoint: state_reg[0]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: PE_row[1].PE_column[0].PEs/counter_inst/count_reg[4]
-            (rising edge-triggered flip-flop clocked by clock)
-  Path Group: clock
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  clock clock (rise edge)                                           0.00       0.00
-  clock network delay (ideal)                                       0.00       0.00
-  state_reg[0]/CLK (dffs2)                                0.00      0.00       0.00 r
-  state_reg[0]/Q (dffs2)                                  0.19      0.19       0.19 f
-  state[0] (net)                                4                   0.00       0.19 f
-  state_reg[0]/QN (dffs2)                                 0.12      0.06       0.25 r
-  n87 (net)                                     2                   0.00       0.25 r
-  U103/DIN1 (and3s2)                                      0.12      0.00       0.25 r
-  U103/Q (and3s2)                                         0.16      0.14       0.39 r
-  n171 (net)                                    2                   0.00       0.39 r
-  U104/DIN1 (nnd2s2)                                      0.16      0.00       0.39 r
-  U104/Q (nnd2s2)                                         0.15      0.07       0.46 f
-  net3340 (net)                                 1                   0.00       0.46 f
-  U100/DIN (i1s3)                                         0.15      0.00       0.46 f
-  U100/Q (i1s3)                                           0.11      0.05       0.51 r
-  net3339 (net)                                 2                   0.00       0.51 r
-  U114/DIN1 (and2s2)                                      0.11      0.00       0.51 r
-  U114/Q (and2s2)                                         0.19      0.14       0.65 r
-  _13_net_ (net)                                2                   0.00       0.65 r
-  PE_row[1].PE_column[0].PEs/enable (processing_element_1)          0.00       0.65 r
-  PE_row[1].PE_column[0].PEs/enable (net)                           0.00       0.65 r
-  PE_row[1].PE_column[0].PEs/counter_inst/enable (counter_1)        0.00       0.65 r
-  PE_row[1].PE_column[0].PEs/counter_inst/enable (net)              0.00       0.65 r
-  PE_row[1].PE_column[0].PEs/counter_inst/U42/DIN1 (nnd3s3)     0.19     0.00     0.66 r
-  PE_row[1].PE_column[0].PEs/counter_inst/U42/Q (nnd3s3)     0.17     0.07     0.73 f
-  PE_row[1].PE_column[0].PEs/counter_inst/net3187 (net)     2       0.00       0.73 f
-  PE_row[1].PE_column[0].PEs/counter_inst/U44/DIN2 (nnd3s1)     0.17     0.00     0.73 f
-  PE_row[1].PE_column[0].PEs/counter_inst/U44/Q (nnd3s1)     0.27     0.11     0.84 r
-  PE_row[1].PE_column[0].PEs/counter_inst/net3188 (net)     1       0.00       0.84 r
-  PE_row[1].PE_column[0].PEs/counter_inst/U40/DIN3 (oai21s3)     0.27     0.00     0.85 r
-  PE_row[1].PE_column[0].PEs/counter_inst/U40/Q (oai21s3)     0.29     0.14     0.98 f
-  PE_row[1].PE_column[0].PEs/counter_inst/net3179 (net)     2       0.00       0.98 f
-  PE_row[1].PE_column[0].PEs/counter_inst/U51/DIN (i1s3)     0.29     0.00     0.99 f
-  PE_row[1].PE_column[0].PEs/counter_inst/U51/Q (i1s3)     0.14     0.07       1.05 r
-  PE_row[1].PE_column[0].PEs/counter_inst/net3186 (net)     1       0.00       1.05 r
-  PE_row[1].PE_column[0].PEs/counter_inst/U50/DIN2 (mx21s3)     0.14     0.01     1.06 r
-  PE_row[1].PE_column[0].PEs/counter_inst/U50/Q (mx21s3)     0.13     0.19     1.25 r
-  PE_row[1].PE_column[0].PEs/counter_inst/n18 (net)     1           0.00       1.25 r
-  PE_row[1].PE_column[0].PEs/counter_inst/U48/DIN2 (nnd2s3)     0.13     0.00     1.25 r
-  PE_row[1].PE_column[0].PEs/counter_inst/U48/Q (nnd2s3)     0.15     0.06     1.31 f
-  PE_row[1].PE_column[0].PEs/counter_inst/n16 (net)     1           0.00       1.31 f
-  PE_row[1].PE_column[0].PEs/counter_inst/count_reg[4]/DIN (dffs1)     0.15     0.01     1.32 f
-  data arrival time                                                            1.32
-
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  PE_row[1].PE_column[0].PEs/counter_inst/count_reg[4]/CLK (dffs1)     0.00     1.46 r
-  library setup time                                               -0.14       1.32
-  data required time                                                           1.32
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.32
-  data arrival time                                                           -1.32
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  0.00
-
-
-  Startpoint: FSM_selector_inst/count_reg[2]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]
-            (rising edge-triggered flip-flop clocked by clock)
-  Path Group: clock
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  clock clock (rise edge)                                           0.00       0.00
-  clock network delay (ideal)                                       0.00       0.00
-  FSM_selector_inst/count_reg[2]/CLK (dffs2)              0.00      0.00       0.00 r
-  FSM_selector_inst/count_reg[2]/Q (dffs2)                0.15      0.14       0.14 r
-  FSM_selector_inst/n8 (net)                    1                   0.00       0.14 r
-  FSM_selector_inst/count_reg[2]/QN (dffs2)               0.10      0.06       0.20 f
-  FSM_selector_inst/n12 (net)                   1                   0.00       0.20 f
-  FSM_selector_inst/U33/DIN4 (nor6s3)                     0.10      0.01       0.20 f
-  FSM_selector_inst/U33/Q (nor6s3)                        0.14      0.27       0.48 r
-  FSM_selector_inst/zero_select (net)           4                   0.00       0.48 r
-  FSM_selector_inst/zero_select (FSM_selector)                      0.00       0.48 r
-  zero_select (net)                                                 0.00       0.48 r
-  PE_row[0].PE_column[0].PEs/zero_select (processing_element_3)     0.00       0.48 r
-  PE_row[0].PE_column[0].PEs/zero_select (net)                      0.00       0.48 r
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/zero_select (multiplexer_3)     0.00     0.48 r
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/zero_select (net)     0.00       0.48 r
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/U2/DIN3 (aoi21s3)     0.14     0.00     0.48 r
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/U2/Q (aoi21s3)     0.30     0.12     0.60 f
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/bin_out (net)     4     0.00     0.60 f
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/bin_out (multiplexer_3)     0.00     0.60 f
-  PE_row[0].PE_column[0].PEs/bit_med (net)                          0.00       0.60 f
-  PE_row[0].PE_column[0].PEs/counter_inst/bit_in (counter_3)        0.00       0.60 f
-  PE_row[0].PE_column[0].PEs/counter_inst/bit_in (net)              0.00       0.60 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U55/DIN1 (and2s2)     0.30     0.00     0.60 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U55/Q (and2s2)     0.13     0.19     0.79 f
-  PE_row[0].PE_column[0].PEs/counter_inst/net3276 (net)     5       0.00       0.79 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U33/DIN2 (nnd2s1)     0.13     0.00     0.79 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U33/Q (nnd2s1)     0.21     0.10     0.88 r
-  PE_row[0].PE_column[0].PEs/counter_inst/n22 (net)     1           0.00       0.88 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U24/DIN1 (nnd2s2)     0.21     0.00     0.89 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U24/Q (nnd2s2)     0.13     0.05     0.94 f
-  PE_row[0].PE_column[0].PEs/counter_inst/n23 (net)     1           0.00       0.94 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U53/DIN1 (and2s2)     0.13     0.00     0.94 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U53/Q (and2s2)     0.13     0.15     1.09 f
-  PE_row[0].PE_column[0].PEs/counter_inst/n30 (net)     1           0.00       1.09 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U54/DIN2 (mxi21s3)     0.13     0.01     1.10 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U54/Q (mxi21s3)     0.10     0.09     1.19 r
-  PE_row[0].PE_column[0].PEs/counter_inst/n32 (net)     1           0.00       1.19 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U18/DIN2 (or2s2)     0.10     0.00     1.19 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U18/Q (or2s2)     0.14     0.14      1.33 r
-  PE_row[0].PE_column[0].PEs/counter_inst/n6 (net)     1            0.00       1.33 r
-  PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/DIN (dffs1)     0.14     0.01     1.33 r
-  data arrival time                                                            1.33
-
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/CLK (dffs1)     0.00     1.46 r
-  library setup time                                               -0.13       1.33
-  data required time                                                           1.33
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.33
-  data arrival time                                                           -1.33
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  0.00
-
-
-  Startpoint: FSM_selector_inst/count_reg[2]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: PE_row[0].PE_column[0].PEs/counter_inst/count_reg[3]
-            (rising edge-triggered flip-flop clocked by clock)
-  Path Group: clock
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  clock clock (rise edge)                                           0.00       0.00
-  clock network delay (ideal)                                       0.00       0.00
-  FSM_selector_inst/count_reg[2]/CLK (dffs2)              0.00      0.00       0.00 r
-  FSM_selector_inst/count_reg[2]/Q (dffs2)                0.15      0.14       0.14 r
-  FSM_selector_inst/n8 (net)                    1                   0.00       0.14 r
-  FSM_selector_inst/count_reg[2]/QN (dffs2)               0.10      0.06       0.20 f
-  FSM_selector_inst/n12 (net)                   1                   0.00       0.20 f
-  FSM_selector_inst/U33/DIN4 (nor6s3)                     0.10      0.01       0.20 f
-  FSM_selector_inst/U33/Q (nor6s3)                        0.14      0.27       0.48 r
-  FSM_selector_inst/zero_select (net)           4                   0.00       0.48 r
-  FSM_selector_inst/zero_select (FSM_selector)                      0.00       0.48 r
-  zero_select (net)                                                 0.00       0.48 r
-  PE_row[0].PE_column[0].PEs/zero_select (processing_element_3)     0.00       0.48 r
-  PE_row[0].PE_column[0].PEs/zero_select (net)                      0.00       0.48 r
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/zero_select (multiplexer_3)     0.00     0.48 r
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/zero_select (net)     0.00       0.48 r
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/U2/DIN3 (aoi21s3)     0.14     0.00     0.48 r
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/U2/Q (aoi21s3)     0.30     0.12     0.60 f
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/bin_out (net)     4     0.00     0.60 f
-  PE_row[0].PE_column[0].PEs/multiplexer_inst/bin_out (multiplexer_3)     0.00     0.60 f
-  PE_row[0].PE_column[0].PEs/bit_med (net)                          0.00       0.60 f
-  PE_row[0].PE_column[0].PEs/counter_inst/bit_in (counter_3)        0.00       0.60 f
-  PE_row[0].PE_column[0].PEs/counter_inst/bit_in (net)              0.00       0.60 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U55/DIN1 (and2s2)     0.30     0.00     0.60 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U55/Q (and2s2)     0.13     0.19     0.79 f
-  PE_row[0].PE_column[0].PEs/counter_inst/net3276 (net)     5       0.00       0.79 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U41/DIN (i1s1)     0.13     0.00     0.79 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U41/Q (i1s1)     0.16     0.07       0.86 r
-  PE_row[0].PE_column[0].PEs/counter_inst/n21 (net)     1           0.00       0.86 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U44/DIN2 (nnd2s2)     0.16     0.00     0.86 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U44/Q (nnd2s2)     0.16     0.08     0.94 f
-  PE_row[0].PE_column[0].PEs/counter_inst/n24 (net)     1           0.00       0.94 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U52/DIN1 (nnd2s3)     0.16     0.01     0.94 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U52/Q (nnd2s3)     0.19     0.07     1.01 r
-  PE_row[0].PE_column[0].PEs/counter_inst/n17 (net)     2           0.00       1.01 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U42/DIN1 (and2s2)     0.19     0.00     1.01 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U42/Q (and2s2)     0.10     0.10     1.12 r
-  PE_row[0].PE_column[0].PEs/counter_inst/net4158 (net)     1       0.00       1.12 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U61/DIN2 (nor2s1)     0.10     0.00     1.12 r
-  PE_row[0].PE_column[0].PEs/counter_inst/U61/Q (nor2s1)     0.23     0.09     1.21 f
-  PE_row[0].PE_column[0].PEs/counter_inst/n39 (net)     1           0.00       1.21 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U59/DIN2 (nnd2s2)     0.23     0.00     1.21 f
-  PE_row[0].PE_column[0].PEs/counter_inst/U59/Q (nnd2s2)     0.22     0.11     1.32 r
-  PE_row[0].PE_column[0].PEs/counter_inst/n37 (net)     1           0.00       1.32 r
-  PE_row[0].PE_column[0].PEs/counter_inst/count_reg[3]/DIN (dffs1)     0.22     0.01     1.33 r
-  data arrival time                                                            1.33
-
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  PE_row[0].PE_column[0].PEs/counter_inst/count_reg[3]/CLK (dffs1)     0.00     1.46 r
-  library setup time                                               -0.13       1.33
-  data required time                                                           1.33
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.33
-  data arrival time                                                           -1.33
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  0.00
-
-
-  Startpoint: state_reg[0]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: FSM_selector_inst/count_reg[2]
-            (rising edge-triggered flip-flop clocked by clock)
-  Path Group: clock
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  clock clock (rise edge)                                           0.00       0.00
-  clock network delay (ideal)                                       0.00       0.00
-  state_reg[0]/CLK (dffs2)                                0.00      0.00       0.00 r
-  state_reg[0]/Q (dffs2)                                  0.19      0.19       0.19 f
-  state[0] (net)                                4                   0.00       0.19 f
-  U137/DIN (hi1s1)                                        0.19      0.00       0.19 f
-  U137/Q (hi1s1)                                          0.47      0.21       0.40 r
-  net3369 (net)                                 3                   0.00       0.40 r
-  U194/DIN1 (and3s1)                                      0.47      0.00       0.40 r
-  U194/Q (and3s1)                                         0.35      0.26       0.66 r
-  n201 (net)                                    3                   0.00       0.66 r
-  FSM_selector_inst/enable (FSM_selector)                           0.00       0.66 r
-  FSM_selector_inst/enable (net)                                    0.00       0.66 r
-  FSM_selector_inst/U10/DIN1 (nnd2s2)                     0.35      0.00       0.66 r
-  FSM_selector_inst/U10/Q (nnd2s2)                        0.33      0.16       0.82 f
-  FSM_selector_inst/n42 (net)                   7                   0.00       0.82 f
-  FSM_selector_inst/U34/DIN1 (nnd2s2)                     0.33      0.00       0.83 f
-  FSM_selector_inst/U34/Q (nnd2s2)                        0.23      0.12       0.95 r
-  FSM_selector_inst/n27 (net)                   2                   0.00       0.95 r
-  FSM_selector_inst/U35/DIN (ib1s2)                       0.23      0.00       0.95 r
-  FSM_selector_inst/U35/Q (ib1s2)                         0.17      0.09       1.04 f
-  FSM_selector_inst/n40 (net)                   5                   0.00       1.04 f
-  FSM_selector_inst/U30/DIN1 (nnd2s1)                     0.17      0.00       1.04 f
-  FSM_selector_inst/U30/Q (nnd2s1)                        0.21      0.07       1.10 r
-  FSM_selector_inst/n30 (net)                   1                   0.00       1.10 r
-  FSM_selector_inst/U37/DIN3 (oai21s2)                    0.21      0.00       1.11 r
-  FSM_selector_inst/U37/Q (oai21s2)                       0.38      0.18       1.28 f
-  FSM_selector_inst/n21 (net)                   1                   0.00       1.28 f
-  FSM_selector_inst/count_reg[2]/DIN (dffs2)              0.38      0.01       1.29 f
-  data arrival time                                                            1.29
-
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  FSM_selector_inst/count_reg[2]/CLK (dffs2)                        0.00       1.46 r
-  library setup time                                               -0.17       1.29
-  data required time                                                           1.29
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.29
-  data arrival time                                                           -1.29
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  0.00
-
-
-  Startpoint: state_reg[1]
               (rising edge-triggered flip-flop clocked by clock)
   Endpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]
             (rising edge-triggered flip-flop clocked by clock)
@@ -498,293 +41,712 @@ Attributes:
   ---------------------------------------------------------------------------------------------------------
   clock clock (rise edge)                                           0.00       0.00
   clock network delay (ideal)                                       0.00       0.00
-  state_reg[1]/CLK (dffss2)                               0.00      0.00       0.00 r
-  state_reg[1]/QN (dffss2)                                0.19      0.18       0.18 f
-  n86 (net)                                     3                   0.00       0.18 f
-  U108/DIN2 (and2s2)                                      0.19      0.00       0.19 f
-  U108/Q (and2s2)                                         0.11      0.17       0.35 f
-  net4001 (net)                                 1                   0.00       0.35 f
-  U135/DIN1 (nnd2s3)                                      0.11      0.01       0.36 f
-  U135/Q (nnd2s3)                                         0.20      0.07       0.43 r
-  n177 (net)                                    2                   0.00       0.43 r
-  U129/DIN1 (nnd2s3)                                      0.20      0.00       0.43 r
-  U129/Q (nnd2s3)                                         0.22      0.07       0.50 f
-  _7_net_ (net)                                 1                   0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/reset (processing_element_0)           0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/reset (net)                            0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/counter_inst/reset (counter_0)         0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/counter_inst/reset (net)               0.00       0.50 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U25/DIN (i1s6)     0.22     0.01     0.51 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U25/Q (i1s6)     0.16     0.08       0.59 r
-  PE_row[1].PE_column[1].PEs/counter_inst/n14 (net)     5           0.00       0.59 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U40/DIN1 (nnd2s3)     0.16     0.00     0.60 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U40/Q (nnd2s3)     0.12     0.05     0.64 f
-  PE_row[1].PE_column[1].PEs/counter_inst/net3167 (net)     2       0.00       0.64 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U39/DIN2 (nnd2s2)     0.12     0.00     0.65 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U39/Q (nnd2s2)     0.21     0.10     0.74 r
-  PE_row[1].PE_column[1].PEs/counter_inst/n18 (net)     1           0.00       0.74 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U5/DIN (i1s4)     0.21     0.01      0.75 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U5/Q (i1s4)     0.11      0.05       0.80 f
-  PE_row[1].PE_column[1].PEs/counter_inst/n19 (net)     2           0.00       0.80 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U21/DIN1 (nnd2s3)     0.11     0.00     0.80 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U21/Q (nnd2s3)     0.17     0.06     0.86 r
-  PE_row[1].PE_column[1].PEs/counter_inst/n12 (net)     2           0.00       0.86 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U30/DIN3 (oai21s3)     0.17     0.00     0.86 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U30/Q (oai21s3)     0.29     0.13     0.99 f
-  PE_row[1].PE_column[1].PEs/counter_inst/n17 (net)     2           0.00       0.99 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U17/DIN (i1s3)     0.29     0.00     0.99 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U17/Q (i1s3)     0.14     0.06       1.06 r
-  PE_row[1].PE_column[1].PEs/counter_inst/net3143 (net)     1       0.00       1.06 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U58/DIN2 (mxi21s2)     0.14     0.00     1.06 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U58/Q (mxi21s2)     0.17     0.12     1.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/n33 (net)     1           0.00       1.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U51/DIN3 (aoi21s3)     0.17     0.00     1.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/U51/Q (aoi21s3)     0.31     0.07     1.26 r
-  PE_row[1].PE_column[1].PEs/counter_inst/n34 (net)     1           0.00       1.26 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U24/DIN (i1s3)     0.31     0.00     1.26 r
-  PE_row[1].PE_column[1].PEs/counter_inst/U24/Q (i1s3)     0.13     0.06       1.32 f
-  PE_row[1].PE_column[1].PEs/counter_inst/n36 (net)     1           0.00       1.32 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN (dffs1)     0.13     0.01     1.32 f
-  data arrival time                                                            1.32
+  state_reg[0]/CLK (dffs2)                                0.00      0.00       0.00 r
+  state_reg[0]/Q (dffs2)                                  0.18      0.15       0.15 r
+  state[0] (net)                                2                   0.00       0.15 r
+  U94/DIN (i1s2)                                          0.18      0.00       0.16 r
+  U94/Q (i1s2)                                            0.11      0.06       0.21 f
+  net4257 (net)                                 1                   0.00       0.21 f
+  U222/DIN2 (nnd3s2)                                      0.11      0.00       0.22 f
+  U222/Q (nnd3s2)                                         0.29      0.12       0.33 r
+  n221 (net)                                    2                   0.00       0.33 r
+  U95/DIN (i1s3)                                          0.29      0.00       0.34 r
+  U95/Q (i1s3)                                            0.15      0.07       0.40 f
+  n85 (net)                                     3                   0.00       0.40 f
+  U143/DIN1 (nnd2s3)                                      0.15      0.00       0.41 f
+  U143/Q (nnd2s3)                                         0.18      0.07       0.48 r
+  n237 (net)                                    1                   0.00       0.48 r
+  U130/DIN (i1s4)                                         0.18      0.01       0.48 r
+  U130/Q (i1s4)                                           0.10      0.05       0.53 f
+  n238 (net)                                    2                   0.00       0.53 f
+  U139/DIN1 (and2s3)                                      0.10      0.00       0.53 f
+  U139/Q (and2s3)                                         0.11      0.14       0.67 f
+  _18_net_ (net)                                5                   0.00       0.67 f
+  PE_row[1].PE_column[1].PEs/enable (processing_element_0)          0.00       0.67 f
+  PE_row[1].PE_column[1].PEs/enable (net)                           0.00       0.67 f
+  PE_row[1].PE_column[1].PEs/counter_inst/enable (counter_0)        0.00       0.67 f
+  PE_row[1].PE_column[1].PEs/counter_inst/enable (net)              0.00       0.67 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U18/DIN1 (nnd3s3)     0.11     0.00     0.67 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U18/Q (nnd3s3)     0.22     0.07     0.74 r
+  PE_row[1].PE_column[1].PEs/counter_inst/net3296 (net)     1       0.00       0.74 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U31/DIN (i1s4)     0.22     0.01     0.75 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U31/Q (i1s4)     0.13     0.06       0.81 f
+  PE_row[1].PE_column[1].PEs/counter_inst/net4499 (net)     3       0.00       0.81 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U20/DIN1 (nnd2s3)     0.13     0.00     0.81 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U20/Q (nnd2s3)     0.15     0.06     0.87 r
+  PE_row[1].PE_column[1].PEs/counter_inst/n23 (net)     2           0.00       0.87 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U15/DIN1 (nnd2s2)     0.15     0.00     0.88 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U15/Q (nnd2s2)     0.16     0.07     0.94 f
+  PE_row[1].PE_column[1].PEs/counter_inst/n8 (net)     1            0.00       0.94 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U7/DIN (ib1s2)     0.16     0.00     0.94 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U7/Q (ib1s2)     0.12     0.05       1.00 r
+  PE_row[1].PE_column[1].PEs/counter_inst/net3295 (net)     1       0.00       1.00 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U14/DIN2 (mx21s3)     0.12     0.01     1.00 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U14/Q (mx21s3)     0.13     0.19     1.19 r
+  PE_row[1].PE_column[1].PEs/counter_inst/n7 (net)     1            0.00       1.19 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U12/DIN2 (nnd2s3)     0.13     0.00     1.20 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U12/Q (nnd2s3)     0.13     0.06     1.26 f
+  PE_row[1].PE_column[1].PEs/counter_inst/n5 (net)     1            0.00       1.26 f
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN (dffs1)     0.13     0.01     1.26 f
+  data arrival time                                                            1.26
 
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/CLK (dffs1)     0.00     1.46 r
-  library setup time                                               -0.14       1.32
-  data required time                                                           1.32
+  clock clock (rise edge)                                           1.40       1.40
+  clock network delay (ideal)                                       0.00       1.40
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/CLK (dffs1)     0.00     1.40 r
+  library setup time                                               -0.14       1.26
+  data required time                                                           1.26
   ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.32
-  data arrival time                                                           -1.32
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  0.00
-
-
-  Startpoint: FSM_selector_inst/count_reg[2]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: PE_row[0].PE_column[1].PEs/counter_inst/count_reg[5]
-            (rising edge-triggered flip-flop clocked by clock)
-  Path Group: clock
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  clock clock (rise edge)                                           0.00       0.00
-  clock network delay (ideal)                                       0.00       0.00
-  FSM_selector_inst/count_reg[2]/CLK (dffs2)              0.00      0.00       0.00 r
-  FSM_selector_inst/count_reg[2]/Q (dffs2)                0.15      0.14       0.14 r
-  FSM_selector_inst/n8 (net)                    1                   0.00       0.14 r
-  FSM_selector_inst/count_reg[2]/QN (dffs2)               0.10      0.06       0.20 f
-  FSM_selector_inst/n12 (net)                   1                   0.00       0.20 f
-  FSM_selector_inst/U33/DIN4 (nor6s3)                     0.10      0.01       0.20 f
-  FSM_selector_inst/U33/Q (nor6s3)                        0.14      0.27       0.48 r
-  FSM_selector_inst/zero_select (net)           4                   0.00       0.48 r
-  FSM_selector_inst/zero_select (FSM_selector)                      0.00       0.48 r
-  zero_select (net)                                                 0.00       0.48 r
-  PE_row[0].PE_column[1].PEs/zero_select (processing_element_2)     0.00       0.48 r
-  PE_row[0].PE_column[1].PEs/zero_select (net)                      0.00       0.48 r
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/zero_select (multiplexer_2)     0.00     0.48 r
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/zero_select (net)     0.00       0.48 r
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/U3/DIN2 (nor2s1)     0.14     0.00     0.48 r
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/U3/Q (nor2s1)     0.23     0.10     0.58 f
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/n8 (net)     1        0.00       0.58 f
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/U2/DIN (nb1s4)     0.23     0.00     0.58 f
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/U2/Q (nb1s4)     0.11     0.14     0.72 f
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/bin_out (net)     6     0.00     0.72 f
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/bin_out (multiplexer_2)     0.00     0.72 f
-  PE_row[0].PE_column[1].PEs/bit_med (net)                          0.00       0.72 f
-  PE_row[0].PE_column[1].PEs/counter_inst/bit_in (counter_2)        0.00       0.72 f
-  PE_row[0].PE_column[1].PEs/counter_inst/bit_in (net)              0.00       0.72 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U19/DIN1 (and2s2)     0.11     0.00     0.72 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U19/Q (and2s2)     0.12     0.14     0.86 f
-  PE_row[0].PE_column[1].PEs/counter_inst/n34 (net)     4           0.00       0.86 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U52/DIN1 (oai21s1)     0.12     0.00     0.86 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U52/Q (oai21s1)     0.32     0.14     1.00 r
-  PE_row[0].PE_column[1].PEs/counter_inst/n33 (net)     1           0.00       1.00 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U55/DIN1 (nnd2s1)     0.32     0.00     1.00 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U55/Q (nnd2s1)     0.20     0.09     1.09 f
-  PE_row[0].PE_column[1].PEs/counter_inst/n38 (net)     1           0.00       1.09 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U16/DIN2 (and2s2)     0.20     0.00     1.09 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U16/Q (and2s2)     0.11     0.17     1.26 f
-  PE_row[0].PE_column[1].PEs/counter_inst/n4 (net)     1            0.00       1.26 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U45/DIN1 (nnd2s3)     0.11     0.01     1.27 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U45/Q (nnd2s3)     0.17     0.06     1.32 r
-  PE_row[0].PE_column[1].PEs/counter_inst/n32 (net)     1           0.00       1.32 r
-  PE_row[0].PE_column[1].PEs/counter_inst/count_reg[5]/DIN (dffs1)     0.17     0.01     1.33 r
-  data arrival time                                                            1.33
-
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  PE_row[0].PE_column[1].PEs/counter_inst/count_reg[5]/CLK (dffs1)     0.00     1.46 r
-  library setup time                                               -0.13       1.33
-  data required time                                                           1.33
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.33
-  data arrival time                                                           -1.33
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  0.00
-
-
-  Startpoint: down_counter_inst/Count_reg[1]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: down_counter_inst/Count_reg[5]
-            (rising edge-triggered flip-flop clocked by clock)
-  Path Group: clock
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  clock clock (rise edge)                                           0.00       0.00
-  clock network delay (ideal)                                       0.00       0.00
-  down_counter_inst/Count_reg[1]/CLK (dffs1)              0.00      0.00       0.00 r
-  down_counter_inst/Count_reg[1]/Q (dffs1)                0.20      0.17       0.17 r
-  down_counter_inst/Count[1] (net)              1                   0.00       0.17 r
-  down_counter_inst/U33/DIN1 (nor2s1)                     0.20      0.00       0.17 r
-  down_counter_inst/U33/Q (nor2s1)                        0.26      0.15       0.32 f
-  down_counter_inst/n29 (net)                   2                   0.00       0.32 f
-  down_counter_inst/U20/DIN (i1s2)                        0.26      0.00       0.33 f
-  down_counter_inst/U20/Q (i1s2)                          0.14      0.06       0.39 r
-  down_counter_inst/n33 (net)                   2                   0.00       0.39 r
-  down_counter_inst/U35/DIN1 (nor2s1)                     0.14      0.00       0.39 r
-  down_counter_inst/U35/Q (nor2s1)                        0.25      0.14       0.53 f
-  down_counter_inst/n30 (net)                   2                   0.00       0.53 f
-  down_counter_inst/U21/DIN (i1s2)                        0.25      0.00       0.53 f
-  down_counter_inst/U21/Q (i1s2)                          0.17      0.08       0.62 r
-  down_counter_inst/n34 (net)                   2                   0.00       0.62 r
-  down_counter_inst/U12/DIN1 (nor2s2)                     0.17      0.00       0.62 r
-  down_counter_inst/U12/Q (nor2s2)                        0.21      0.12       0.74 f
-  down_counter_inst/n31 (net)                   2                   0.00       0.74 f
-  down_counter_inst/U22/DIN (i1s2)                        0.21      0.00       0.74 f
-  down_counter_inst/U22/Q (i1s2)                          0.13      0.06       0.80 r
-  down_counter_inst/n35 (net)                   2                   0.00       0.80 r
-  down_counter_inst/U30/DIN2 (or2s2)                      0.13      0.00       0.80 r
-  down_counter_inst/U30/Q (or2s2)                         0.11      0.12       0.93 r
-  down_counter_inst/n28 (net)                   1                   0.00       0.93 r
-  down_counter_inst/U29/DIN2 (xor2s1)                     0.11      0.00       0.93 r
-  down_counter_inst/U29/Q (xor2s1)                        0.16      0.14       1.07 r
-  down_counter_inst/N10 (net)                   1                   0.00       1.07 r
-  down_counter_inst/U11/DIN1 (aoi22s1)                    0.16      0.00       1.07 r
-  down_counter_inst/U11/Q (aoi22s1)                       0.37      0.11       1.18 f
-  down_counter_inst/n15 (net)                   1                   0.00       1.18 f
-  down_counter_inst/U10/DIN2 (nnd2s2)                     0.37      0.00       1.18 f
-  down_counter_inst/U10/Q (nnd2s2)                        0.25      0.14       1.32 r
-  down_counter_inst/n23 (net)                   1                   0.00       1.32 r
-  down_counter_inst/Count_reg[5]/DIN (dffs1)              0.25      0.01       1.32 r
-  data arrival time                                                            1.32
-
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  down_counter_inst/Count_reg[5]/CLK (dffs1)                        0.00       1.46 r
-  library setup time                                               -0.13       1.33
-  data required time                                                           1.33
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.33
-  data arrival time                                                           -1.32
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  0.00
-
-
-  Startpoint: FSM_selector_inst/count_reg[2]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: PE_row[0].PE_column[1].PEs/counter_inst/count_reg[4]
-            (rising edge-triggered flip-flop clocked by clock)
-  Path Group: clock
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  clock clock (rise edge)                                           0.00       0.00
-  clock network delay (ideal)                                       0.00       0.00
-  FSM_selector_inst/count_reg[2]/CLK (dffs2)              0.00      0.00       0.00 r
-  FSM_selector_inst/count_reg[2]/Q (dffs2)                0.15      0.16       0.16 f
-  FSM_selector_inst/n8 (net)                    1                   0.00       0.16 f
-  FSM_selector_inst/count_reg[2]/QN (dffs2)               0.12      0.06       0.22 r
-  FSM_selector_inst/n12 (net)                   1                   0.00       0.22 r
-  FSM_selector_inst/U33/DIN4 (nor6s3)                     0.12      0.01       0.22 r
-  FSM_selector_inst/U33/Q (nor6s3)                        0.12      0.29       0.52 f
-  FSM_selector_inst/zero_select (net)           4                   0.00       0.52 f
-  FSM_selector_inst/zero_select (FSM_selector)                      0.00       0.52 f
-  zero_select (net)                                                 0.00       0.52 f
-  PE_row[0].PE_column[1].PEs/zero_select (processing_element_2)     0.00       0.52 f
-  PE_row[0].PE_column[1].PEs/zero_select (net)                      0.00       0.52 f
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/zero_select (multiplexer_2)     0.00     0.52 f
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/zero_select (net)     0.00       0.52 f
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/U3/DIN2 (nor2s1)     0.12     0.00     0.52 f
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/U3/Q (nor2s1)     0.24     0.09     0.61 r
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/n8 (net)     1        0.00       0.61 r
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/U2/DIN (nb1s4)     0.24     0.00     0.61 r
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/U2/Q (nb1s4)     0.15     0.13     0.74 r
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/bin_out (net)     6     0.00     0.74 r
-  PE_row[0].PE_column[1].PEs/multiplexer_inst/bin_out (multiplexer_2)     0.00     0.74 r
-  PE_row[0].PE_column[1].PEs/bit_med (net)                          0.00       0.74 r
-  PE_row[0].PE_column[1].PEs/counter_inst/bit_in (counter_2)        0.00       0.74 r
-  PE_row[0].PE_column[1].PEs/counter_inst/bit_in (net)              0.00       0.74 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U19/DIN1 (and2s2)     0.15     0.00     0.74 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U19/Q (and2s2)     0.14     0.12     0.86 r
-  PE_row[0].PE_column[1].PEs/counter_inst/n34 (net)     4           0.00       0.86 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U37/DIN2 (oai21s2)     0.14     0.00     0.87 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U37/Q (oai21s2)     0.27     0.11     0.97 f
-  PE_row[0].PE_column[1].PEs/counter_inst/n59 (net)     1           0.00       0.97 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U4/DIN (i1s2)     0.27     0.00      0.97 f
-  PE_row[0].PE_column[1].PEs/counter_inst/U4/Q (i1s2)     0.16      0.07       1.05 r
-  PE_row[0].PE_column[1].PEs/counter_inst/n56 (net)     1           0.00       1.05 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U22/DIN1 (mx21s2)     0.16     0.00     1.05 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U22/Q (mx21s2)     0.14     0.18     1.23 r
-  PE_row[0].PE_column[1].PEs/counter_inst/n20 (net)     1           0.00       1.23 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U5/DIN1 (nnd2s2)     0.14     0.00     1.24 r
-  PE_row[0].PE_column[1].PEs/counter_inst/U5/Q (nnd2s2)     0.17     0.07      1.31 f
-  PE_row[0].PE_column[1].PEs/counter_inst/n18 (net)     1           0.00       1.31 f
-  PE_row[0].PE_column[1].PEs/counter_inst/count_reg[4]/DIN (dffs1)     0.17     0.01     1.31 f
-  data arrival time                                                            1.31
-
-  clock clock (rise edge)                                           1.46       1.46
-  clock network delay (ideal)                                       0.00       1.46
-  PE_row[0].PE_column[1].PEs/counter_inst/count_reg[4]/CLK (dffs1)     0.00     1.46 r
-  library setup time                                               -0.14       1.32
-  data required time                                                           1.32
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.32
-  data arrival time                                                           -1.31
+  data required time                                                           1.26
+  data arrival time                                                           -1.26
   ---------------------------------------------------------------------------------------------------------
   slack (MET)                                                                  0.00
 
 
   Startpoint: state_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: PE_row[0].PE_column[0].PEs/counter_inst/count_reg[2]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  state_reg[1]/CLK (dffs2)                                0.00      0.00       0.00 r
+  state_reg[1]/Q (dffs2)                                  0.15      0.16       0.16 f
+  state[1] (net)                                1                   0.00       0.16 f
+  state_reg[1]/QN (dffs2)                                 0.15      0.07       0.23 r
+  n86 (net)                                     2                   0.00       0.23 r
+  U158/DIN (i1s4)                                         0.15      0.01       0.24 r
+  U158/Q (i1s4)                                           0.11      0.05       0.29 f
+  net4405 (net)                                 4                   0.00       0.29 f
+  U156/DIN1 (nnd2s3)                                      0.11      0.00       0.30 f
+  U156/Q (nnd2s3)                                         0.18      0.06       0.36 r
+  n179 (net)                                    1                   0.00       0.36 r
+  U160/DIN (i1s4)                                         0.18      0.01       0.36 r
+  U160/Q (i1s4)                                           0.12      0.05       0.42 f
+  n180 (net)                                    3                   0.00       0.42 f
+  U159/DIN1 (and2s3)                                      0.12      0.00       0.42 f
+  U159/Q (and2s3)                                         0.12      0.14       0.56 f
+  n177 (net)                                    4                   0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/init (processing_element_3)            0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/init (net)                             0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/counter_inst/init (counter_3)          0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/counter_inst/init (net)                0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U18/DIN (i1s3)     0.12     0.00     0.57 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U18/Q (i1s3)     0.11     0.05       0.62 r
+  PE_row[0].PE_column[0].PEs/counter_inst/n17 (net)     2           0.00       0.62 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U7/DIN3 (nnd3s2)     0.11     0.00     0.62 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U7/Q (nnd3s2)     0.19     0.09      0.71 f
+  PE_row[0].PE_column[0].PEs/counter_inst/n14 (net)     2           0.00       0.71 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U44/DIN2 (or2s2)     0.19     0.00     0.71 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U44/Q (or2s2)     0.10     0.15      0.86 f
+  PE_row[0].PE_column[0].PEs/counter_inst/net4414 (net)     1       0.00       0.86 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U31/DIN1 (nnd2s2)     0.10     0.00     0.86 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U31/Q (nnd2s2)     0.21     0.07     0.93 r
+  PE_row[0].PE_column[0].PEs/counter_inst/net3431 (net)     1       0.00       0.93 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U30/DIN (i1s3)     0.21     0.00     0.94 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U30/Q (i1s3)     0.12     0.06       1.00 f
+  PE_row[0].PE_column[0].PEs/counter_inst/net3437 (net)     2       0.00       1.00 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U60/DIN2 (mxi21s2)     0.12     0.00     1.00 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U60/Q (mxi21s2)     0.16     0.11     1.11 r
+  PE_row[0].PE_column[0].PEs/counter_inst/n35 (net)     1           0.00       1.11 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U45/DIN3 (aoi21s3)     0.16     0.00     1.11 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U45/Q (aoi21s3)     0.14     0.08     1.19 f
+  PE_row[0].PE_column[0].PEs/counter_inst/n36 (net)     1           0.00       1.19 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U57/DIN (i1s2)     0.14     0.00     1.19 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U57/Q (i1s2)     0.16     0.07       1.26 r
+  PE_row[0].PE_column[0].PEs/counter_inst/n43 (net)     1           0.00       1.26 r
+  PE_row[0].PE_column[0].PEs/counter_inst/count_reg[2]/DIN (dffs1)     0.16     0.01     1.27 r
+  data arrival time                                                            1.27
+
+  clock clock (rise edge)                                           1.40       1.40
+  clock network delay (ideal)                                       0.00       1.40
+  PE_row[0].PE_column[0].PEs/counter_inst/count_reg[2]/CLK (dffs1)     0.00     1.40 r
+  library setup time                                               -0.13       1.27
+  data required time                                                           1.27
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.27
+  data arrival time                                                           -1.27
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.00
+
+
+  Startpoint: state_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: width_index_reg[1]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                        Fanout     Trans      Incr       Path      Attributes
+  ------------------------------------------------------------------------------------------
+  clock clock (rise edge)                            0.00       0.00
+  clock network delay (ideal)                        0.00       0.00
+  state_reg[2]/CLK (dffs2)                 0.00      0.00       0.00 r
+  state_reg[2]/Q (dffs2)                   0.16      0.17       0.17 f
+  state[2] (net)                 2                   0.00       0.17 f
+  state_reg[2]/QN (dffs2)                  0.19      0.09       0.26 r
+  n84 (net)                      4                   0.00       0.26 r
+  U122/DIN (nb1s2)                         0.19      0.00       0.26 r
+  U122/Q (nb1s2)                           0.15      0.13       0.39 r
+  net4426 (net)                  4                   0.00       0.39 r
+  U146/DIN1 (nnd2s1)                       0.15      0.00       0.39 r
+  U146/Q (nnd2s1)                          0.30      0.14       0.53 f
+  net4452 (net)                  5                   0.00       0.53 f
+  U99/DIN (i1s1)                           0.30      0.00       0.53 f
+  U99/Q (i1s1)                             0.18      0.08       0.61 r
+  net4347 (net)                  1                   0.00       0.61 r
+  U114/DIN (ib1s1)                         0.18      0.00       0.62 r
+  U114/Q (ib1s1)                           0.27      0.14       0.75 f
+  net4348 (net)                  8                   0.00       0.75 f
+  U181/DIN2 (and2s1)                       0.27      0.00       0.75 f
+  U181/Q (and2s1)                          0.12      0.21       0.96 f
+  n185 (net)                     1                   0.00       0.96 f
+  U168/DIN1 (dsmxc31s1)                    0.12      0.00       0.96 f
+  U168/Q (dsmxc31s1)                       0.29      0.27       1.23 f
+  n255 (net)                     1                   0.00       1.23 f
+  width_index_reg[1]/DIN (dffs2)           0.29      0.01       1.24 f
+  data arrival time                                             1.24
+
+  clock clock (rise edge)                            1.40       1.40
+  clock network delay (ideal)                        0.00       1.40
+  width_index_reg[1]/CLK (dffs2)                     0.00       1.40 r
+  library setup time                                -0.16       1.24
+  data required time                                            1.24
+  ------------------------------------------------------------------------------------------
+  data required time                                            1.24
+  data arrival time                                            -1.24
+  ------------------------------------------------------------------------------------------
+  slack (MET)                                                   0.00
+
+
+  Startpoint: state_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  state_reg[1]/CLK (dffs2)                                0.00      0.00       0.00 r
+  state_reg[1]/Q (dffs2)                                  0.15      0.16       0.16 f
+  state[1] (net)                                1                   0.00       0.16 f
+  state_reg[1]/QN (dffs2)                                 0.15      0.07       0.23 r
+  n86 (net)                                     2                   0.00       0.23 r
+  U158/DIN (i1s4)                                         0.15      0.01       0.24 r
+  U158/Q (i1s4)                                           0.11      0.05       0.29 f
+  net4405 (net)                                 4                   0.00       0.29 f
+  U156/DIN1 (nnd2s3)                                      0.11      0.00       0.30 f
+  U156/Q (nnd2s3)                                         0.18      0.06       0.36 r
+  n179 (net)                                    1                   0.00       0.36 r
+  U160/DIN (i1s4)                                         0.18      0.01       0.36 r
+  U160/Q (i1s4)                                           0.12      0.05       0.42 f
+  n180 (net)                                    3                   0.00       0.42 f
+  U159/DIN1 (and2s3)                                      0.12      0.00       0.42 f
+  U159/Q (and2s3)                                         0.12      0.14       0.56 f
+  n177 (net)                                    4                   0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/init (processing_element_3)            0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/init (net)                             0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/counter_inst/init (counter_3)          0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/counter_inst/init (net)                0.00       0.56 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U17/DIN (i1s1)     0.12     0.00     0.56 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U17/Q (i1s1)     0.21     0.09       0.65 r
+  PE_row[0].PE_column[0].PEs/counter_inst/n3 (net)     2            0.00       0.65 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U34/DIN2 (nnd3s2)     0.21     0.00     0.66 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U34/Q (nnd3s2)     0.27     0.12     0.78 f
+  PE_row[0].PE_column[0].PEs/counter_inst/n16 (net)     4           0.00       0.78 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U20/DIN3 (oai21s3)     0.27     0.00     0.78 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U20/Q (oai21s3)     0.30     0.15     0.93 r
+  PE_row[0].PE_column[0].PEs/counter_inst/net3417 (net)     1       0.00       0.93 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U19/DIN (i1s3)     0.30     0.00     0.93 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U19/Q (i1s3)     0.13     0.05       0.99 f
+  PE_row[0].PE_column[0].PEs/counter_inst/net3424 (net)     1       0.00       0.99 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U35/DIN1 (mxi21s2)     0.13     0.00     0.99 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U35/Q (mxi21s2)     0.16     0.11     1.10 r
+  PE_row[0].PE_column[0].PEs/counter_inst/n15 (net)     1           0.00       1.10 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U36/DIN3 (aoi21s3)     0.16     0.00     1.11 r
+  PE_row[0].PE_column[0].PEs/counter_inst/U36/Q (aoi21s3)     0.18     0.10     1.21 f
+  PE_row[0].PE_column[0].PEs/counter_inst/net3421 (net)     1       0.00       1.21 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U42/DIN (i1s3)     0.18     0.00     1.21 f
+  PE_row[0].PE_column[0].PEs/counter_inst/U42/Q (i1s3)     0.12     0.05       1.26 r
+  PE_row[0].PE_column[0].PEs/counter_inst/net2125 (net)     1       0.00       1.26 r
+  PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/DIN (dffs1)     0.12     0.01     1.27 r
+  data arrival time                                                            1.27
+
+  clock clock (rise edge)                                           1.40       1.40
+  clock network delay (ideal)                                       0.00       1.40
+  PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/CLK (dffs1)     0.00     1.40 r
+  library setup time                                               -0.13       1.27
+  data required time                                                           1.27
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.27
+  data arrival time                                                           -1.27
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.00
+
+
+  Startpoint: state_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  state_reg[0]/CLK (dffs2)                                0.00      0.00       0.00 r
+  state_reg[0]/Q (dffs2)                                  0.17      0.17       0.17 f
+  state[0] (net)                                2                   0.00       0.17 f
+  U144/DIN2 (and2s2)                                      0.17      0.00       0.17 f
+  U144/Q (and2s2)                                         0.13      0.18       0.36 f
+  net4178 (net)                                 3                   0.00       0.36 f
+  U100/DIN1 (nnd2s3)                                      0.13      0.00       0.36 f
+  U100/Q (nnd2s3)                                         0.24      0.09       0.45 r
+  n171 (net)                                    3                   0.00       0.45 r
+  U96/DIN2 (nnd2s3)                                       0.24      0.00       0.46 r
+  U96/Q (nnd2s3)                                          0.25      0.09       0.55 f
+  net4508 (net)                                 1                   0.00       0.55 f
+  PE_row[1].PE_column[1].PEs/reset (processing_element_0)           0.00       0.55 f
+  PE_row[1].PE_column[1].PEs/reset (net)                            0.00       0.55 f
+  PE_row[1].PE_column[1].PEs/counter_inst/reset (counter_0)         0.00       0.55 f
+  PE_row[1].PE_column[1].PEs/counter_inst/reset (net)               0.00       0.55 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U19/DIN (ib1s6)     0.25     0.01     0.57 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U19/Q (ib1s6)     0.09     0.07      0.63 r
+  PE_row[1].PE_column[1].PEs/counter_inst/net3320 (net)     8       0.00       0.63 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U51/DIN1 (nnd2s2)     0.09     0.00     0.64 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U51/Q (nnd2s2)     0.19     0.08     0.72 f
+  PE_row[1].PE_column[1].PEs/counter_inst/net3319 (net)     3       0.00       0.72 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U38/DIN (i1s8)     0.19     0.00     0.72 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U38/Q (i1s8)     0.09     0.17       0.89 r
+  PE_row[1].PE_column[1].PEs/counter_inst/net3285 (net)     6       0.00       0.89 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U22/DIN2 (nnd2s2)     0.09     0.00     0.89 r
+  PE_row[1].PE_column[1].PEs/counter_inst/U22/Q (nnd2s2)     0.22     0.07     0.96 f
+  PE_row[1].PE_column[1].PEs/counter_inst/n28 (net)     2           0.00       0.96 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U37/DIN2 (and2s2)     0.22     0.00     0.96 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U37/Q (and2s2)     0.09     0.16     1.13 f
+  PE_row[1].PE_column[1].PEs/counter_inst/n17 (net)     1           0.00       1.13 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U36/DIN2 (aoi21s3)     0.09     0.00     1.13 f
+  PE_row[1].PE_column[1].PEs/counter_inst/U36/Q (aoi21s3)     0.28     0.12     1.25 r
+  PE_row[1].PE_column[1].PEs/counter_inst/n27 (net)     1           0.00       1.25 r
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN (dffs1)     0.28     0.01     1.26 r
+  data arrival time                                                            1.26
+
+  clock clock (rise edge)                                           1.40       1.40
+  clock network delay (ideal)                                       0.00       1.40
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/CLK (dffs1)     0.00     1.40 r
+  library setup time                                               -0.14       1.26
+  data required time                                                           1.26
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.26
+  data arrival time                                                           -1.26
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.01
+
+
+  Startpoint: state_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: FSM_selector_inst/count_reg[2]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  state_reg[2]/CLK (dffs2)                                0.00      0.00       0.00 r
+  state_reg[2]/Q (dffs2)                                  0.16      0.17       0.17 f
+  state[2] (net)                                2                   0.00       0.17 f
+  state_reg[2]/QN (dffs2)                                 0.19      0.09       0.26 r
+  n84 (net)                                     4                   0.00       0.26 r
+  U122/DIN (nb1s2)                                        0.19      0.00       0.26 r
+  U122/Q (nb1s2)                                          0.15      0.13       0.39 r
+  net4426 (net)                                 4                   0.00       0.39 r
+  U213/DIN2 (nnd3s2)                                      0.15      0.00       0.39 r
+  U213/Q (nnd3s2)                                         0.25      0.11       0.50 f
+  net3526 (net)                                 2                   0.00       0.50 f
+  U150/DIN2 (nnd2s3)                                      0.25      0.00       0.50 f
+  U150/Q (nnd2s3)                                         0.24      0.12       0.63 r
+  _1_net_ (net)                                 3                   0.00       0.63 r
+  FSM_selector_inst/reset (FSM_selector)                            0.00       0.63 r
+  FSM_selector_inst/reset (net)                                     0.00       0.63 r
+  FSM_selector_inst/U11/DIN (i1s3)                        0.24      0.00       0.63 r
+  FSM_selector_inst/U11/Q (i1s3)                          0.14      0.06       0.70 f
+  FSM_selector_inst/n25 (net)                   2                   0.00       0.70 f
+  FSM_selector_inst/U31/DIN2 (nnd2s3)                     0.14      0.00       0.70 f
+  FSM_selector_inst/U31/Q (nnd2s3)                        0.29      0.13       0.83 r
+  FSM_selector_inst/net3452 (net)               7                   0.00       0.83 r
+  FSM_selector_inst/U10/DIN1 (nnd2s2)                     0.29      0.00       0.84 r
+  FSM_selector_inst/U10/Q (nnd2s2)                        0.24      0.11       0.95 f
+  FSM_selector_inst/net3475 (net)               2                   0.00       0.95 f
+  FSM_selector_inst/U9/DIN (i1s3)                         0.24      0.00       0.95 f
+  FSM_selector_inst/U9/Q (i1s3)                           0.16      0.07       1.02 r
+  FSM_selector_inst/net3454 (net)               5                   0.00       1.02 r
+  FSM_selector_inst/U12/DIN1 (nnd2s1)                     0.16      0.00       1.03 r
+  FSM_selector_inst/U12/Q (nnd2s1)                        0.12      0.06       1.08 f
+  FSM_selector_inst/n27 (net)                   1                   0.00       1.08 f
+  FSM_selector_inst/U44/DIN3 (oai21s2)                    0.12      0.00       1.08 f
+  FSM_selector_inst/U44/Q (oai21s2)                       0.40      0.17       1.25 r
+  FSM_selector_inst/n21 (net)                   1                   0.00       1.25 r
+  FSM_selector_inst/count_reg[2]/DIN (dffs1)              0.40      0.01       1.25 r
+  data arrival time                                                            1.25
+
+  clock clock (rise edge)                                           1.40       1.40
+  clock network delay (ideal)                                       0.00       1.40
+  FSM_selector_inst/count_reg[2]/CLK (dffs1)                        0.00       1.40 r
+  library setup time                                               -0.14       1.26
+  data required time                                                           1.26
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.26
+  data arrival time                                                           -1.25
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.01
+
+
+  Startpoint: state_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: PE_row[1].PE_column[0].PEs/counter_inst/count_reg[2]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  state_reg[0]/CLK (dffs2)                                0.00      0.00       0.00 r
+  state_reg[0]/Q (dffs2)                                  0.18      0.15       0.15 r
+  state[0] (net)                                2                   0.00       0.15 r
+  U94/DIN (i1s2)                                          0.18      0.00       0.16 r
+  U94/Q (i1s2)                                            0.11      0.06       0.21 f
+  net4257 (net)                                 1                   0.00       0.21 f
+  U222/DIN2 (nnd3s2)                                      0.11      0.00       0.22 f
+  U222/Q (nnd3s2)                                         0.29      0.12       0.33 r
+  n221 (net)                                    2                   0.00       0.33 r
+  U95/DIN (i1s3)                                          0.29      0.00       0.34 r
+  U95/Q (i1s3)                                            0.15      0.07       0.40 f
+  n85 (net)                                     3                   0.00       0.40 f
+  U143/DIN1 (nnd2s3)                                      0.15      0.00       0.41 f
+  U143/Q (nnd2s3)                                         0.18      0.07       0.48 r
+  n237 (net)                                    1                   0.00       0.48 r
+  U130/DIN (i1s4)                                         0.18      0.01       0.48 r
+  U130/Q (i1s4)                                           0.10      0.05       0.53 f
+  n238 (net)                                    2                   0.00       0.53 f
+  U115/DIN1 (and2s2)                                      0.10      0.00       0.53 f
+  U115/Q (and2s2)                                         0.16      0.16       0.69 f
+  _13_net_ (net)                                4                   0.00       0.69 f
+  PE_row[1].PE_column[0].PEs/enable (processing_element_1)          0.00       0.69 f
+  PE_row[1].PE_column[0].PEs/enable (net)                           0.00       0.69 f
+  PE_row[1].PE_column[0].PEs/counter_inst/enable (counter_1)        0.00       0.69 f
+  PE_row[1].PE_column[0].PEs/counter_inst/enable (net)              0.00       0.69 f
+  PE_row[1].PE_column[0].PEs/counter_inst/U33/DIN1 (nnd3s3)     0.16     0.00     0.70 f
+  PE_row[1].PE_column[0].PEs/counter_inst/U33/Q (nnd3s3)     0.29     0.10     0.80 r
+  PE_row[1].PE_column[0].PEs/counter_inst/n33 (net)     1           0.00       0.80 r
+  PE_row[1].PE_column[0].PEs/counter_inst/U15/DIN (ib1s6)     0.29     0.01     0.81 r
+  PE_row[1].PE_column[0].PEs/counter_inst/U15/Q (ib1s6)     0.06     0.03      0.84 f
+  PE_row[1].PE_column[0].PEs/counter_inst/n44 (net)     7           0.00       0.84 f
+  PE_row[1].PE_column[0].PEs/counter_inst/U27/DIN1 (and2s1)     0.06     0.00     0.84 f
+  PE_row[1].PE_column[0].PEs/counter_inst/U27/Q (and2s1)     0.20     0.20     1.04 f
+  PE_row[1].PE_column[0].PEs/counter_inst/n7 (net)     1            0.00       1.04 f
+  PE_row[1].PE_column[0].PEs/counter_inst/U26/DIN1 (mxi21s2)     0.20     0.00     1.05 f
+  PE_row[1].PE_column[0].PEs/counter_inst/U26/Q (mxi21s2)     0.17     0.12     1.17 r
+  PE_row[1].PE_column[0].PEs/counter_inst/n37 (net)     1           0.00       1.17 r
+  PE_row[1].PE_column[0].PEs/counter_inst/U53/DIN1 (nnd2s2)     0.17     0.00     1.17 r
+  PE_row[1].PE_column[0].PEs/counter_inst/U53/Q (nnd2s2)     0.17     0.07     1.25 f
+  PE_row[1].PE_column[0].PEs/counter_inst/n35 (net)     1           0.00       1.25 f
+  PE_row[1].PE_column[0].PEs/counter_inst/count_reg[2]/DIN (dffs1)     0.17     0.01     1.25 f
+  data arrival time                                                            1.25
+
+  clock clock (rise edge)                                           1.40       1.40
+  clock network delay (ideal)                                       0.00       1.40
+  PE_row[1].PE_column[0].PEs/counter_inst/count_reg[2]/CLK (dffs1)     0.00     1.40 r
+  library setup time                                               -0.14       1.26
+  data required time                                                           1.26
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.26
+  data arrival time                                                           -1.25
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.01
+
+
+  Startpoint: state_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: down_counter_inst/Count_reg[2]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  state_reg[2]/CLK (dffs2)                                0.00      0.00       0.00 r
+  state_reg[2]/Q (dffs2)                                  0.16      0.17       0.17 f
+  state[2] (net)                                2                   0.00       0.17 f
+  state_reg[2]/QN (dffs2)                                 0.19      0.09       0.26 r
+  n84 (net)                                     4                   0.00       0.26 r
+  U122/DIN (nb1s2)                                        0.19      0.00       0.26 r
+  U122/Q (nb1s2)                                          0.15      0.13       0.39 r
+  net4426 (net)                                 4                   0.00       0.39 r
+  U213/DIN2 (nnd3s2)                                      0.15      0.00       0.39 r
+  U213/Q (nnd3s2)                                         0.25      0.11       0.50 f
+  net3526 (net)                                 2                   0.00       0.50 f
+  U150/DIN2 (nnd2s3)                                      0.25      0.00       0.50 f
+  U150/Q (nnd2s3)                                         0.24      0.12       0.63 r
+  _1_net_ (net)                                 3                   0.00       0.63 r
+  down_counter_inst/reset (down_counter)                            0.00       0.63 r
+  down_counter_inst/reset (net)                                     0.00       0.63 r
+  down_counter_inst/U6/DIN (i1s3)                         0.24      0.00       0.63 r
+  down_counter_inst/U6/Q (i1s3)                           0.16      0.08       0.71 f
+  down_counter_inst/n14 (net)                   3                   0.00       0.71 f
+  down_counter_inst/U5/DIN3 (nnd3s3)                      0.16      0.01       0.72 f
+  down_counter_inst/U5/Q (nnd3s3)                         0.25      0.12       0.84 r
+  down_counter_inst/n40 (net)                   4                   0.00       0.84 r
+  down_counter_inst/U12/DIN (nb1s2)                       0.25      0.00       0.84 r
+  down_counter_inst/U12/Q (nb1s2)                         0.17      0.14       0.99 r
+  down_counter_inst/n11 (net)                   5                   0.00       0.99 r
+  down_counter_inst/U35/DIN2 (oai221s2)                   0.17      0.00       0.99 r
+  down_counter_inst/U35/Q (oai221s2)                      0.52      0.21       1.20 f
+  down_counter_inst/n20 (net)                   1                   0.00       1.20 f
+  down_counter_inst/Count_reg[2]/DIN (dffs1)              0.52      0.01       1.21 f
+  data arrival time                                                            1.21
+
+  clock clock (rise edge)                                           1.40       1.40
+  clock network delay (ideal)                                       0.00       1.40
+  down_counter_inst/Count_reg[2]/CLK (dffs1)                        0.00       1.40 r
+  library setup time                                               -0.19       1.21
+  data required time                                                           1.21
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.21
+  data arrival time                                                           -1.21
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.01
+
+
+  Startpoint: state_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: down_counter_inst/Count_reg[3]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  state_reg[2]/CLK (dffs2)                                0.00      0.00       0.00 r
+  state_reg[2]/Q (dffs2)                                  0.16      0.17       0.17 f
+  state[2] (net)                                2                   0.00       0.17 f
+  state_reg[2]/QN (dffs2)                                 0.19      0.09       0.26 r
+  n84 (net)                                     4                   0.00       0.26 r
+  U122/DIN (nb1s2)                                        0.19      0.00       0.26 r
+  U122/Q (nb1s2)                                          0.15      0.13       0.39 r
+  net4426 (net)                                 4                   0.00       0.39 r
+  U213/DIN2 (nnd3s2)                                      0.15      0.00       0.39 r
+  U213/Q (nnd3s2)                                         0.25      0.11       0.50 f
+  net3526 (net)                                 2                   0.00       0.50 f
+  U150/DIN2 (nnd2s3)                                      0.25      0.00       0.50 f
+  U150/Q (nnd2s3)                                         0.24      0.12       0.63 r
+  _1_net_ (net)                                 3                   0.00       0.63 r
+  down_counter_inst/reset (down_counter)                            0.00       0.63 r
+  down_counter_inst/reset (net)                                     0.00       0.63 r
+  down_counter_inst/U6/DIN (i1s3)                         0.24      0.00       0.63 r
+  down_counter_inst/U6/Q (i1s3)                           0.16      0.08       0.71 f
+  down_counter_inst/n14 (net)                   3                   0.00       0.71 f
+  down_counter_inst/U5/DIN3 (nnd3s3)                      0.16      0.01       0.72 f
+  down_counter_inst/U5/Q (nnd3s3)                         0.25      0.12       0.84 r
+  down_counter_inst/n40 (net)                   4                   0.00       0.84 r
+  down_counter_inst/U12/DIN (nb1s2)                       0.25      0.00       0.84 r
+  down_counter_inst/U12/Q (nb1s2)                         0.17      0.14       0.99 r
+  down_counter_inst/n11 (net)                   5                   0.00       0.99 r
+  down_counter_inst/U37/DIN2 (oai221s2)                   0.17      0.00       0.99 r
+  down_counter_inst/U37/Q (oai221s2)                      0.52      0.21       1.20 f
+  down_counter_inst/n21 (net)                   1                   0.00       1.20 f
+  down_counter_inst/Count_reg[3]/DIN (dffs1)              0.52      0.01       1.21 f
+  data arrival time                                                            1.21
+
+  clock clock (rise edge)                                           1.40       1.40
+  clock network delay (ideal)                                       0.00       1.40
+  down_counter_inst/Count_reg[3]/CLK (dffs1)                        0.00       1.40 r
+  library setup time                                               -0.19       1.21
+  data required time                                                           1.21
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.21
+  data arrival time                                                           -1.21
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.01
+
+
+  Startpoint: state_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: down_counter_inst/Count_reg[4]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  state_reg[2]/CLK (dffs2)                                0.00      0.00       0.00 r
+  state_reg[2]/Q (dffs2)                                  0.16      0.17       0.17 f
+  state[2] (net)                                2                   0.00       0.17 f
+  state_reg[2]/QN (dffs2)                                 0.19      0.09       0.26 r
+  n84 (net)                                     4                   0.00       0.26 r
+  U122/DIN (nb1s2)                                        0.19      0.00       0.26 r
+  U122/Q (nb1s2)                                          0.15      0.13       0.39 r
+  net4426 (net)                                 4                   0.00       0.39 r
+  U213/DIN2 (nnd3s2)                                      0.15      0.00       0.39 r
+  U213/Q (nnd3s2)                                         0.25      0.11       0.50 f
+  net3526 (net)                                 2                   0.00       0.50 f
+  U150/DIN2 (nnd2s3)                                      0.25      0.00       0.50 f
+  U150/Q (nnd2s3)                                         0.24      0.12       0.63 r
+  _1_net_ (net)                                 3                   0.00       0.63 r
+  down_counter_inst/reset (down_counter)                            0.00       0.63 r
+  down_counter_inst/reset (net)                                     0.00       0.63 r
+  down_counter_inst/U6/DIN (i1s3)                         0.24      0.00       0.63 r
+  down_counter_inst/U6/Q (i1s3)                           0.16      0.08       0.71 f
+  down_counter_inst/n14 (net)                   3                   0.00       0.71 f
+  down_counter_inst/U5/DIN3 (nnd3s3)                      0.16      0.01       0.72 f
+  down_counter_inst/U5/Q (nnd3s3)                         0.25      0.12       0.84 r
+  down_counter_inst/n40 (net)                   4                   0.00       0.84 r
+  down_counter_inst/U12/DIN (nb1s2)                       0.25      0.00       0.84 r
+  down_counter_inst/U12/Q (nb1s2)                         0.17      0.14       0.99 r
+  down_counter_inst/n11 (net)                   5                   0.00       0.99 r
+  down_counter_inst/U39/DIN2 (oai221s2)                   0.17      0.00       0.99 r
+  down_counter_inst/U39/Q (oai221s2)                      0.51      0.21       1.20 f
+  down_counter_inst/n22 (net)                   1                   0.00       1.20 f
+  down_counter_inst/Count_reg[4]/DIN (dffs1)              0.51      0.01       1.21 f
+  data arrival time                                                            1.21
+
+  clock clock (rise edge)                                           1.40       1.40
+  clock network delay (ideal)                                       0.00       1.40
+  down_counter_inst/Count_reg[4]/CLK (dffs1)                        0.00       1.40 r
+  library setup time                                               -0.19       1.21
+  data required time                                                           1.21
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.21
+  data arrival time                                                           -1.21
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.01
+
+
+  Startpoint: state_reg[2]
               (rising edge-triggered flip-flop clocked by clock)
   Endpoint: output_valid
             (output port)
@@ -805,38 +767,40 @@ Attributes:
 
   Point                        Fanout     Trans      Incr       Path      Attributes
   ------------------------------------------------------------------------------------------
-  state_reg[1]/CLK (dffss2)                0.00      0.00       0.00 r
-  state_reg[1]/QN (dffss2)                 0.19      0.18       0.18 f
-  n86 (net)                      3                   0.00       0.18 f
-  U107/DIN2 (and2s2)                       0.19      0.00       0.19 f
-  U107/Q (and2s2)                          0.13      0.18       0.37 f
-  net4961 (net)                  3                   0.00       0.37 f
-  U134/DIN2 (and2s2)                       0.13      0.00       0.37 f
-  U134/Q (and2s2)                          0.16      0.19       0.56 f
-  n182 (net)                     4                   0.00       0.56 f
-  U131/DIN1 (nnd2s3)                       0.16      0.00       0.57 f
-  U131/Q (nnd2s3)                          0.22      0.08       0.65 r
-  net3328 (net)                  5                   0.00       0.65 r
-  U149/DIN (ib1s1)                         0.22      0.00       0.65 r
-  U149/Q (ib1s1)                           0.10      0.04       0.69 f
-  net3326 (net)                  1                   0.00       0.69 f
-  U111/DIN1 (and2s1)                       0.10      0.00       0.69 f
-  U111/Q (and2s1)                          0.09      0.14       0.83 f
-  output_valid (net)             1                   0.00       0.83 f
-  output_valid (out)                       0.09      0.00       0.83 f
-  data arrival time                                             0.83
+  state_reg[2]/CLK (dffs2)                 0.00      0.00       0.00 r
+  state_reg[2]/Q (dffs2)                   0.16      0.17       0.17 f
+  state[2] (net)                 2                   0.00       0.17 f
+  state_reg[2]/QN (dffs2)                  0.19      0.09       0.26 r
+  n84 (net)                      4                   0.00       0.26 r
+  U127/DIN (i1s1)                          0.19      0.00       0.26 r
+  U127/Q (i1s1)                            0.22      0.11       0.37 f
+  net4454 (net)                  2                   0.00       0.37 f
+  U145/DIN1 (and2s2)                       0.22      0.00       0.37 f
+  U145/Q (and2s2)                          0.12      0.16       0.54 f
+  net4195 (net)                  2                   0.00       0.54 f
+  U142/DIN1 (nnd2s3)                       0.12      0.00       0.54 f
+  U142/Q (nnd2s3)                          0.22      0.07       0.61 r
+  n245 (net)                     4                   0.00       0.61 r
+  U175/DIN (hi1s1)                         0.22      0.00       0.61 r
+  U175/Q (hi1s1)                           0.19      0.09       0.71 f
+  n247 (net)                     1                   0.00       0.71 f
+  U174/DIN1 (and2s1)                       0.19      0.00       0.71 f
+  U174/Q (and2s1)                          0.09      0.16       0.86 f
+  output_valid (net)             1                   0.00       0.86 f
+  output_valid (out)                       0.09      0.00       0.86 f
+  data arrival time                                             0.86
 
-  max_delay                                          1.46       1.46
-  output external delay                              0.00       1.46
-  data required time                                            1.46
+  max_delay                                          1.40       1.40
+  output external delay                              0.00       1.40
+  data required time                                            1.40
   ------------------------------------------------------------------------------------------
-  data required time                                            1.46
-  data arrival time                                            -0.83
+  data required time                                            1.40
+  data arrival time                                            -0.86
   ------------------------------------------------------------------------------------------
-  slack (MET)                                                   0.63
+  slack (MET)                                                   0.54
 
 
-  Startpoint: state_reg[0]
+  Startpoint: state_reg[1]
               (rising edge-triggered flip-flop clocked by clock)
   Endpoint: input_req (output port)
   Path Group: output_grp
@@ -856,32 +820,37 @@ Attributes:
 
   Point                        Fanout     Trans      Incr       Path      Attributes
   ------------------------------------------------------------------------------------------
-  state_reg[0]/CLK (dffs2)                 0.00      0.00       0.00 r
-  state_reg[0]/Q (dffs2)                   0.22      0.17       0.17 r
-  state[0] (net)                 4                   0.00       0.17 r
-  U137/DIN (hi1s1)                         0.22      0.00       0.17 r
-  U137/Q (hi1s1)                           0.47      0.22       0.40 f
-  net3369 (net)                  3                   0.00       0.40 f
-  U153/DIN (nb1s1)                         0.47      0.00       0.40 f
-  U153/Q (nb1s1)                           0.15      0.20       0.60 f
-  net3465 (net)                  3                   0.00       0.60 f
-  U208/DIN1 (and3s1)                       0.15      0.00       0.60 f
-  U208/Q (and3s1)                          0.14      0.18       0.77 f
-  input_req (net)                2                   0.00       0.77 f
-  input_req (out)                          0.14      0.00       0.77 f
-  data arrival time                                             0.77
+  state_reg[1]/CLK (dffs2)                 0.00      0.00       0.00 r
+  state_reg[1]/Q (dffs2)                   0.15      0.16       0.16 f
+  state[1] (net)                 1                   0.00       0.16 f
+  state_reg[1]/QN (dffs2)                  0.15      0.07       0.23 r
+  n86 (net)                      2                   0.00       0.23 r
+  U158/DIN (i1s4)                          0.15      0.01       0.24 r
+  U158/Q (i1s4)                            0.11      0.05       0.29 f
+  net4405 (net)                  4                   0.00       0.29 f
+  U164/DIN (hi1s1)                         0.11      0.00       0.29 f
+  U164/Q (hi1s1)                           0.43      0.19       0.48 r
+  net4321 (net)                  2                   0.00       0.48 r
+  U119/DIN (ib1s1)                         0.43      0.00       0.48 r
+  U119/Q (ib1s1)                           0.21      0.10       0.58 f
+  net3672 (net)                  3                   0.00       0.58 f
+  U192/DIN1 (and3s1)                       0.21      0.00       0.58 f
+  U192/Q (and3s1)                          0.15      0.20       0.78 f
+  input_req (net)                2                   0.00       0.78 f
+  input_req (out)                          0.15      0.00       0.78 f
+  data arrival time                                             0.78
 
-  max_delay                                          1.46       1.46
-  output external delay                              0.00       1.46
-  data required time                                            1.46
+  max_delay                                          1.40       1.40
+  output external delay                              0.00       1.40
+  data required time                                            1.40
   ------------------------------------------------------------------------------------------
-  data required time                                            1.46
-  data arrival time                                            -0.77
+  data required time                                            1.40
+  data arrival time                                            -0.78
   ------------------------------------------------------------------------------------------
-  slack (MET)                                                   0.69
+  slack (MET)                                                   0.62
 
 
-  Startpoint: state_reg[2]
+  Startpoint: state_reg[1]
               (rising edge-triggered flip-flop clocked by clock)
   Endpoint: done (output port)
   Path Group: output_grp
@@ -901,32 +870,72 @@ Attributes:
 
   Point                        Fanout     Trans      Incr       Path      Attributes
   ------------------------------------------------------------------------------------------
-  state_reg[2]/CLK (dffs2)                 0.00      0.00       0.00 r
-  state_reg[2]/Q (dffs2)                   0.17      0.17       0.17 f
-  state[2] (net)                 2                   0.00       0.17 f
-  U109/DIN (ib1s1)                         0.17      0.00       0.17 f
-  U109/Q (ib1s1)                           0.19      0.09       0.26 r
-  net3501 (net)                  2                   0.00       0.26 r
-  U121/DIN (ib1s1)                         0.19      0.00       0.26 r
-  U121/Q (ib1s1)                           0.20      0.10       0.36 f
-  net3502 (net)                  4                   0.00       0.36 f
-  U124/DIN2 (nnd2s1)                       0.20      0.00       0.36 f
-  U124/Q (nnd2s1)                          0.26      0.12       0.49 r
-  n228 (net)                     2                   0.00       0.49 r
-  U198/DIN2 (nor2s1)                       0.26      0.00       0.49 r
-  U198/Q (nor2s1)                          0.21      0.06       0.55 f
-  done (net)                     1                   0.00       0.55 f
-  done (out)                               0.21      0.00       0.55 f
-  data arrival time                                             0.55
+  state_reg[1]/CLK (dffs2)                 0.00      0.00       0.00 r
+  state_reg[1]/Q (dffs2)                   0.15      0.16       0.16 f
+  state[1] (net)                 1                   0.00       0.16 f
+  state_reg[1]/QN (dffs2)                  0.15      0.07       0.23 r
+  n86 (net)                      2                   0.00       0.23 r
+  U158/DIN (i1s4)                          0.15      0.01       0.24 r
+  U158/Q (i1s4)                            0.11      0.05       0.29 f
+  net4405 (net)                  4                   0.00       0.29 f
+  U191/DIN1 (and2s1)                       0.11      0.00       0.29 f
+  U191/Q (and2s1)                          0.18      0.20       0.49 f
+  n188 (net)                     2                   0.00       0.49 f
+  U193/DIN1 (and2s1)                       0.18      0.00       0.49 f
+  U193/Q (and2s1)                          0.09      0.16       0.65 f
+  done (net)                     1                   0.00       0.65 f
+  done (out)                               0.09      0.00       0.65 f
+  data arrival time                                             0.65
 
-  max_delay                                          1.46       1.46
-  output external delay                              0.00       1.46
-  data required time                                            1.46
+  max_delay                                          1.40       1.40
+  output external delay                              0.00       1.40
+  data required time                                            1.40
   ------------------------------------------------------------------------------------------
-  data required time                                            1.46
-  data arrival time                                            -0.55
+  data required time                                            1.40
+  data arrival time                                            -0.65
   ------------------------------------------------------------------------------------------
-  slack (MET)                                                   0.91
+  slack (MET)                                                   0.75
+
+
+  Startpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: output_val[2]
+            (output port)
+  Path Group: output_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  processing_unit    tsmcwire              lec25dscc25_TT
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/CLK (dffs1)     0.00     0.00     0.00 r
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/Q (dffs1)     0.23     0.22     0.22 f
+  PE_row[1].PE_column[1].PEs/counter_inst/count[2] (net)     4      0.00       0.22 f
+  PE_row[1].PE_column[1].PEs/counter_inst/count[2] (counter_0)      0.00       0.22 f
+  PE_row[1].PE_column[1].PEs/output_val[2] (net)                    0.00       0.22 f
+  PE_row[1].PE_column[1].PEs/output_val[2] (processing_element_0)     0.00     0.22 f
+  output_val[2] (net)                                               0.00       0.22 f
+  output_val[2] (out)                                     0.23      0.00       0.22 f
+  data arrival time                                                            0.22
+
+  max_delay                                                         1.40       1.40
+  output external delay                                             0.00       1.40
+  data required time                                                           1.40
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.40
+  data arrival time                                                           -0.22
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  1.18
 
 
   Startpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]
@@ -951,23 +960,23 @@ Attributes:
   Point                                       Fanout     Trans      Incr       Path      Attributes
   ---------------------------------------------------------------------------------------------------------
   PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]/CLK (dffs1)     0.00     0.00     0.00 r
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]/Q (dffs1)     0.20     0.21     0.21 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count[0] (net)     4      0.00       0.21 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count[0] (counter_0)      0.00       0.21 f
-  PE_row[1].PE_column[1].PEs/output_val[0] (net)                    0.00       0.21 f
-  PE_row[1].PE_column[1].PEs/output_val[0] (processing_element_0)     0.00     0.21 f
-  output_val[0] (net)                                               0.00       0.21 f
-  output_val[0] (out)                                     0.20      0.00       0.21 f
-  data arrival time                                                            0.21
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]/Q (dffs1)     0.23     0.22     0.22 f
+  PE_row[1].PE_column[1].PEs/counter_inst/count[0] (net)     4      0.00       0.22 f
+  PE_row[1].PE_column[1].PEs/counter_inst/count[0] (counter_0)      0.00       0.22 f
+  PE_row[1].PE_column[1].PEs/output_val[0] (net)                    0.00       0.22 f
+  PE_row[1].PE_column[1].PEs/output_val[0] (processing_element_0)     0.00     0.22 f
+  output_val[0] (net)                                               0.00       0.22 f
+  output_val[0] (out)                                     0.23      0.00       0.22 f
+  data arrival time                                                            0.22
 
-  max_delay                                                         1.46       1.46
-  output external delay                                             0.00       1.46
-  data required time                                                           1.46
+  max_delay                                                         1.40       1.40
+  output external delay                                             0.00       1.40
+  data required time                                                           1.40
   ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.46
-  data arrival time                                                           -0.21
+  data required time                                                           1.40
+  data arrival time                                                           -0.22
   ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  1.25
+  slack (MET)                                                                  1.18
 
 
   Startpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]
@@ -992,23 +1001,23 @@ Attributes:
   Point                                       Fanout     Trans      Incr       Path      Attributes
   ---------------------------------------------------------------------------------------------------------
   PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/CLK (dffs1)     0.00     0.00     0.00 r
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/Q (dffs1)     0.19     0.20     0.20 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count[4] (net)     3      0.00       0.20 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count[4] (counter_0)      0.00       0.20 f
-  PE_row[1].PE_column[1].PEs/output_val[4] (net)                    0.00       0.20 f
-  PE_row[1].PE_column[1].PEs/output_val[4] (processing_element_0)     0.00     0.20 f
-  output_val[4] (net)                                               0.00       0.20 f
-  output_val[4] (out)                                     0.19      0.00       0.20 f
-  data arrival time                                                            0.20
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/Q (dffs1)     0.20     0.21     0.21 f
+  PE_row[1].PE_column[1].PEs/counter_inst/count[4] (net)     3      0.00       0.21 f
+  PE_row[1].PE_column[1].PEs/counter_inst/count[4] (counter_0)      0.00       0.21 f
+  PE_row[1].PE_column[1].PEs/output_val[4] (net)                    0.00       0.21 f
+  PE_row[1].PE_column[1].PEs/output_val[4] (processing_element_0)     0.00     0.21 f
+  output_val[4] (net)                                               0.00       0.21 f
+  output_val[4] (out)                                     0.20      0.00       0.21 f
+  data arrival time                                                            0.21
 
-  max_delay                                                         1.46       1.46
-  output external delay                                             0.00       1.46
-  data required time                                                           1.46
+  max_delay                                                         1.40       1.40
+  output external delay                                             0.00       1.40
+  data required time                                                           1.40
   ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.46
-  data arrival time                                                           -0.20
+  data required time                                                           1.40
+  data arrival time                                                           -0.21
   ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  1.26
+  slack (MET)                                                                  1.19
 
 
   Startpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[1]
@@ -1042,19 +1051,19 @@ Attributes:
   output_val[1] (out)                                     0.19      0.00       0.20 f
   data arrival time                                                            0.20
 
-  max_delay                                                         1.46       1.46
-  output external delay                                             0.00       1.46
-  data required time                                                           1.46
+  max_delay                                                         1.40       1.40
+  output external delay                                             0.00       1.40
+  data required time                                                           1.40
   ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.46
+  data required time                                                           1.40
   data arrival time                                                           -0.20
   ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  1.26
+  slack (MET)                                                                  1.20
 
 
-  Startpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]
+  Startpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[3]
               (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: output_val[2]
+  Endpoint: output_val[3]
             (output port)
   Path Group: output_grp
   Path Type: max
@@ -1073,24 +1082,24 @@ Attributes:
 
   Point                                       Fanout     Trans      Incr       Path      Attributes
   ---------------------------------------------------------------------------------------------------------
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/CLK (dffs1)     0.00     0.00     0.00 r
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/Q (dffs1)     0.17     0.18     0.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count[2] (net)     2      0.00       0.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count[2] (counter_0)      0.00       0.18 f
-  PE_row[1].PE_column[1].PEs/output_val[2] (net)                    0.00       0.18 f
-  PE_row[1].PE_column[1].PEs/output_val[2] (processing_element_0)     0.00     0.18 f
-  output_val[2] (net)                                               0.00       0.18 f
-  output_val[2] (out)                                     0.17      0.00       0.18 f
-  data arrival time                                                            0.18
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[3]/CLK (dffs1)     0.00     0.00     0.00 r
+  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[3]/Q (dffs1)     0.19     0.20     0.20 f
+  PE_row[1].PE_column[1].PEs/counter_inst/count[3] (net)     3      0.00       0.20 f
+  PE_row[1].PE_column[1].PEs/counter_inst/count[3] (counter_0)      0.00       0.20 f
+  PE_row[1].PE_column[1].PEs/output_val[3] (net)                    0.00       0.20 f
+  PE_row[1].PE_column[1].PEs/output_val[3] (processing_element_0)     0.00     0.20 f
+  output_val[3] (net)                                               0.00       0.20 f
+  output_val[3] (out)                                     0.19      0.00       0.20 f
+  data arrival time                                                            0.20
 
-  max_delay                                                         1.46       1.46
-  output external delay                                             0.00       1.46
-  data required time                                                           1.46
+  max_delay                                                         1.40       1.40
+  output external delay                                             0.00       1.40
+  data required time                                                           1.40
   ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.46
-  data arrival time                                                           -0.18
+  data required time                                                           1.40
+  data arrival time                                                           -0.20
   ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  1.28
+  slack (MET)                                                                  1.20
 
 
   Startpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[5]
@@ -1124,55 +1133,14 @@ Attributes:
   output_val[5] (out)                                     0.16      0.00       0.18 f
   data arrival time                                                            0.18
 
-  max_delay                                                         1.46       1.46
-  output external delay                                             0.00       1.46
-  data required time                                                           1.46
+  max_delay                                                         1.40       1.40
+  output external delay                                             0.00       1.40
+  data required time                                                           1.40
   ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.46
+  data required time                                                           1.40
   data arrival time                                                           -0.18
   ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  1.28
-
-
-  Startpoint: PE_row[1].PE_column[1].PEs/counter_inst/count_reg[3]
-              (rising edge-triggered flip-flop clocked by clock)
-  Endpoint: output_val[3]
-            (output port)
-  Path Group: output_grp
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  processing_unit    tsmcwire              lec25dscc25_TT
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                       Fanout     Trans      Incr       Path      Attributes
-  ---------------------------------------------------------------------------------------------------------
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[3]/CLK (dffs1)     0.00     0.00     0.00 r
-  PE_row[1].PE_column[1].PEs/counter_inst/count_reg[3]/Q (dffs1)     0.16     0.18     0.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count[3] (net)     2      0.00       0.18 f
-  PE_row[1].PE_column[1].PEs/counter_inst/count[3] (counter_0)      0.00       0.18 f
-  PE_row[1].PE_column[1].PEs/output_val[3] (net)                    0.00       0.18 f
-  PE_row[1].PE_column[1].PEs/output_val[3] (processing_element_0)     0.00     0.18 f
-  output_val[3] (net)                                               0.00       0.18 f
-  output_val[3] (out)                                     0.16      0.00       0.18 f
-  data arrival time                                                            0.18
-
-  max_delay                                                         1.46       1.46
-  output external delay                                             0.00       1.46
-  data required time                                                           1.46
-  ---------------------------------------------------------------------------------------------------------
-  data required time                                                           1.46
-  data arrival time                                                           -0.18
-  ---------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                  1.28
+  slack (MET)                                                                  1.22
 
 
 1

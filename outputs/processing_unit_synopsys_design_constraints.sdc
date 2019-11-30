@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc on Sat Nov 30 17:08:37 2019
+# Created by write_sdc on Sat Nov 30 17:53:37 2019
 
 ###################################################################
 set sdc_version 2.1
@@ -42,7 +42,7 @@ set_driving_cell -lib_cell dffacs1 [get_ports {weight_vals[0][0][3]}]
 set_driving_cell -lib_cell dffacs1 [get_ports {weight_vals[0][0][2]}]
 set_driving_cell -lib_cell dffacs1 [get_ports {weight_vals[0][0][1]}]
 set_driving_cell -lib_cell dffacs1 [get_ports {weight_vals[0][0][0]}]
-create_clock [get_ports clock]  -period 1.46  -waveform {0 0.73}
+create_clock [get_ports clock]  -period 1.4  -waveform {0 0.7}
 group_path -name input_grp  -from [list [get_ports clock] [get_ports reset] [get_ports start] [get_ports  \
 {input_val[5]}] [get_ports {input_val[4]}] [get_ports {input_val[3]}]          \
 [get_ports {input_val[2]}] [get_ports {input_val[1]}] [get_ports               \
@@ -63,13 +63,13 @@ group_path -name output_grp  -to [list [get_ports input_req] [get_ports {output_
 {output_val[4]}] [get_ports {output_val[3]}] [get_ports {output_val[2]}]       \
 [get_ports {output_val[1]}] [get_ports {output_val[0]}] [get_ports             \
 output_valid] [get_ports done]]
-set_max_delay 1.46  -to [get_ports input_req]
-set_max_delay 1.46  -to [get_ports {output_val[5]}]
-set_max_delay 1.46  -to [get_ports {output_val[4]}]
-set_max_delay 1.46  -to [get_ports {output_val[3]}]
-set_max_delay 1.46  -to [get_ports {output_val[2]}]
-set_max_delay 1.46  -to [get_ports {output_val[1]}]
-set_max_delay 1.46  -to [get_ports {output_val[0]}]
-set_max_delay 1.46  -to [get_ports output_valid]
-set_max_delay 1.46  -to [get_ports done]
+set_max_delay 1.4  -to [get_ports input_req]
+set_max_delay 1.4  -to [get_ports {output_val[5]}]
+set_max_delay 1.4  -to [get_ports {output_val[4]}]
+set_max_delay 1.4  -to [get_ports {output_val[3]}]
+set_max_delay 1.4  -to [get_ports {output_val[2]}]
+set_max_delay 1.4  -to [get_ports {output_val[1]}]
+set_max_delay 1.4  -to [get_ports {output_val[0]}]
+set_max_delay 1.4  -to [get_ports output_valid]
+set_max_delay 1.4  -to [get_ports done]
 set_resistance 0  [get_nets reset]
