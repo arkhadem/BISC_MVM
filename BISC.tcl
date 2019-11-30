@@ -16,7 +16,7 @@ read_file -f sverilog [list "sys_defs.svh counter.sv down_counter.sv FSM_selecto
 set design_name processing_unit
 set clock_name clock
 set reset_name reset
-set CLK_PERIOD 1.9
+set CLK_PERIOD 1.8
 
 
 #/***********************************************************/
