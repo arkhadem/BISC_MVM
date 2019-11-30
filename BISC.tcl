@@ -167,7 +167,6 @@ if {  $dc_shell_status != [list] } {
 
   remove_design -all
   read_file -format verilog $output_path/$netlist_file
-  redirect -append $rep_file { report_reference -nosplit }
   quit
 } else {
    quit
