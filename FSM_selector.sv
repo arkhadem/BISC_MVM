@@ -15,7 +15,7 @@ module FSM_selector(
     reg [4:0] values [0:32767];
 
     initial begin
-        $readmemh("C:/Users/arkhadem/Dropbox/Reading/codes/BISC/Selector_data.data", values);
+        $readmemh("Selector_data.data", values);
     end
 
     always@(posedge clock) begin
