@@ -3,30 +3,30 @@
 Report : area
 Design : processing_unit
 Version: O-2018.06
-Date   : Sat Nov 30 17:53:37 2019
+Date   : Sat Nov 30 21:38:03 2019
 ****************************************
 
 Library(s) Used:
 
     lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
 
-Number of ports:                          276
-Number of nets:                           888
-Number of cells:                          589
-Number of combinational cells:            495
-Number of sequential cells:                80
+Number of ports:                          335
+Number of nets:                           918
+Number of cells:                          590
+Number of combinational cells:            482
+Number of sequential cells:                91
 Number of macros/black boxes:               0
-Number of buf/inv:                         96
-Number of references:                      41
+Number of buf/inv:                        112
+Number of references:                      16
 
-Combinational area:              25712.642307
-Buf/Inv area:                     4852.226410
-Noncombinational area:           11023.273773
+Combinational area:              25273.041534
+Buf/Inv area:                     5681.668003
+Noncombinational area:           11106.217773
 Macro/Black Box area:                0.000000
-Net Interconnect area:             268.429945
+Net Interconnect area:             253.490033
 
-Total cell area:                 36735.916080
-Total area:                      37004.346025
+Total cell area:                 36379.259308
+Total area:                      36632.749341
 
 Hierarchical area distribution
 ------------------------------
@@ -35,23 +35,26 @@ Hierarchical area distribution
                                   -------------------  ------------------------------ 
 Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
                                   Total       Total    national    national    boxes   Design
---------------------------------  ----------  -------  ----------  ----------  ------  --------------------
-processing_unit                   36735.9161    100.0   7838.2091   5250.3619  0.0000  processing_unit
-FSM_selector_inst                  2969.3944      8.1   1957.4784   1011.9160  0.0000  FSM_selector
-PE_row[0].PE_column[0].PEs         4387.7404     11.9      0.0000      0.0000  0.0000  processing_element_3
-PE_row[0].PE_column[0].PEs/counter_inst  4006.1980    10.9  3060.6340   945.5640 0.0000 counter_3
+--------------------------------  ----------  -------  ----------  ----------  ------  ---------------------
+processing_unit                   36379.2593    100.0    953.8560      0.0000  0.0000  processing_unit
+FSM_selector_inst                  3077.2204      8.5   2032.1284   1045.0920  0.0000  FSM_selector
+PE_row[0].PE_column[0].PEs         3873.4876     10.6      0.0000      0.0000  0.0000  processing_element_3
+PE_row[0].PE_column[0].PEs/counter_inst  3491.9452     9.6  2546.3812   945.5640 0.0000 counter_3
 PE_row[0].PE_column[0].PEs/multiplexer_inst   381.5424     1.0   381.5424     0.0000 0.0000 multiplexer_3
-PE_row[0].PE_column[1].PEs         4603.3951     12.5      0.0000      0.0000  0.0000  processing_element_2
-PE_row[0].PE_column[1].PEs/counter_inst  4188.6752    11.4  3243.1112   945.5640 0.0000 counter_2
-PE_row[0].PE_column[1].PEs/multiplexer_inst   414.7200     1.1   414.7200     0.0000 0.0000 multiplexer_2
-PE_row[1].PE_column[0].PEs         4163.7910     11.3      0.0000      0.0000  0.0000  processing_element_1
-PE_row[1].PE_column[0].PEs/counter_inst  3782.2486    10.3  2836.6846   945.5640 0.0000 counter_1
+PE_row[0].PE_column[1].PEs         4445.8020     12.2      0.0000      0.0000  0.0000  processing_element_2
+PE_row[0].PE_column[1].PEs/counter_inst  4089.1428    11.2  3143.5788   945.5640 0.0000 counter_2
+PE_row[0].PE_column[1].PEs/multiplexer_inst   356.6592     1.0   356.6592     0.0000 0.0000 multiplexer_2
+PE_row[1].PE_column[0].PEs         4122.3196     11.3      0.0000      0.0000  0.0000  processing_element_1
+PE_row[1].PE_column[0].PEs/counter_inst  3740.7772    10.3  2795.2132   945.5640 0.0000 counter_1
 PE_row[1].PE_column[0].PEs/multiplexer_inst   381.5424     1.0   381.5424     0.0000 0.0000 multiplexer_1
-PE_row[1].PE_column[1].PEs         4678.0442     12.7      0.0000      0.0000  0.0000  processing_element_0
-PE_row[1].PE_column[1].PEs/counter_inst  4296.5018    11.7  3350.9378   945.5640 0.0000 counter_0
-PE_row[1].PE_column[1].PEs/multiplexer_inst   381.5424     1.0   381.5424     0.0000 0.0000 multiplexer_0
-down_counter_inst                  2844.9800      7.7   1866.2400    978.7400  0.0000  down_counter
---------------------------------  ----------  -------  ----------  ----------  ------  --------------------
-Total                                                  25712.6423  11023.2738  0.0000
+PE_row[1].PE_column[1].PEs         4437.5076     12.2      0.0000      0.0000  0.0000  processing_element_0
+PE_row[1].PE_column[1].PEs/counter_inst  4039.3764    11.1  3093.8124   945.5640 0.0000 counter_0
+PE_row[1].PE_column[1].PEs/multiplexer_inst   398.1312     1.1   398.1312     0.0000 0.0000 multiplexer_0
+controller_inst                    2579.5576      7.1   1974.0676    605.4900  0.0000  controller
+down_counter_inst                  2762.0376      7.6   1816.4736    945.5640  0.0000  down_counter
+index_counter_inst                 1401.7520      3.9    705.0240    696.7280  0.0000  index_counter
+partial_result_buffer_inst         8725.7190     24.0   4694.6312   4031.0879  0.0000  partial_result_buffer
+--------------------------------  ----------  -------  ----------  ----------  ------  ---------------------
+Total                                                  25273.0415  11106.2178  0.0000
 
 1

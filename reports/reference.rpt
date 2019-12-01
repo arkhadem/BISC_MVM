@@ -3,7 +3,7 @@
 Report : reference
 Design : processing_unit
 Version: O-2018.06
-Date   : Sat Nov 30 17:53:37 2019
+Date   : Sat Nov 30 21:38:04 2019
 ****************************************
 
 Attributes:
@@ -19,188 +19,237 @@ Attributes:
 
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-FSM_selector                   2969.394421       1   2969.394421  h, n
-and2s1             lec25dscc25_TT    49.766399       7   348.364796
-and2s2             lec25dscc25_TT    58.060799      11   638.668785
-and2s3             lec25dscc25_TT    99.532799       2   199.065598
+FSM_selector                   3077.220436       1   3077.220436  h, n
+and2s2             lec25dscc25_TT    58.060799       6   348.364792
 and3s1             lec25dscc25_TT    66.355202       1    66.355202
-aoi21s1            lec25dscc25_TT    49.766399       1    49.766399
-aoi21s2            lec25dscc25_TT    49.766399       1    49.766399
-aoi22s1            lec25dscc25_TT    58.060799      12   696.729584
-aoi22s2            lec25dscc25_TT    58.060799       1    58.060799
-aoi42s1            lec25dscc25_TT    74.649597       1    74.649597
-dffles1            lec25dscc25_TT   199.065994       6  1194.395966 n
-dffs1              lec25dscc25_TT   157.593994      18  2836.691895 n
-dffs2              lec25dscc25_TT   174.182007       7  1219.274048 n
-down_counter                   2844.979977       1   2844.979977  h, n
-dsmxc31s1          lec25dscc25_TT    66.355202       3   199.065605
-hi1s1              lec25dscc25_TT    33.177601       5   165.888004
-i1s1               lec25dscc25_TT    33.177601       4   132.710403
-i1s2               lec25dscc25_TT    41.472000       1    41.472000
-i1s3               lec25dscc25_TT    41.472000       2    82.944000
-i1s4               lec25dscc25_TT    49.766399       3   149.299198
-i1s8               lec25dscc25_TT   199.065994       3   597.197983
-ib1s1              lec25dscc25_TT    33.177601      14   464.486412
-mxi21s1            lec25dscc25_TT    66.355202       1    66.355202
-mxi21s2            lec25dscc25_TT    66.355202       1    66.355202
-nb1s2              lec25dscc25_TT    49.766399       1    49.766399
-nnd2s1             lec25dscc25_TT    41.472000      11   456.192001
-nnd2s2             lec25dscc25_TT    41.472000      26  1078.272003
-nnd2s3             lec25dscc25_TT    58.060799       7   406.425591
-nnd3s2             lec25dscc25_TT    49.766399       2    99.532799
-nor2s1             lec25dscc25_TT    41.472000       4   165.888000
-nor2s2             lec25dscc25_TT    58.060799       1    58.060799
-oai13s1            lec25dscc25_TT    58.060799       1    58.060799
-oai21s1            lec25dscc25_TT    49.766399       1    49.766399
-oai21s2            lec25dscc25_TT    49.766399      21  1045.094387
-oai21s3            lec25dscc25_TT    82.944000       1    82.944000
-or3s1              lec25dscc25_TT    58.060799       1    58.060799
-processing_element_0           4678.044155       1   4678.044155  h, n
-processing_element_1           4163.790970       1   4163.790970  h, n
-processing_element_2           4603.395149       1   4603.395149  h, n
-processing_element_3           4387.740356       1   4387.740356  h, n
-xor2s1             lec25dscc25_TT    82.944000       1    82.944000
+controller                     2579.557613       1   2579.557613  h, n
+down_counter                   2762.037556       1   2762.037556  h, n
+ib1s1              lec25dscc25_TT    33.177601       2    66.355202
+index_counter                  1401.752029       1   1401.752029  h, n
+nnd2s2             lec25dscc25_TT    41.472000       2    82.944000
+or2s1              lec25dscc25_TT    49.766399       3   149.299198
+or2s2              lec25dscc25_TT    58.060799       1    58.060799
+or2s3              lec25dscc25_TT    91.238403       2   182.476807
+partial_result_buffer          8725.719036       1   8725.719036  h, n
+processing_element_0           4437.507553       1   4437.507553  h, n
+processing_element_1           4122.319565       1   4122.319565  h, n
+processing_element_2           4445.801952       1   4445.801952  h, n
+processing_element_3           3873.487568       1   3873.487568  h, n
 -----------------------------------------------------------------------------
-Total 41 references                                 36735.916080
+Total 16 references                                 36379.259308
 
 ****************************************
 Design: FSM_selector 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-and2s2             lec25dscc25_TT    58.060799       1    58.060799
-and4s3             lec25dscc25_TT   124.416000       1   124.416000
-dffs1              lec25dscc25_TT   157.593994       2   315.187988 n
-dffs2              lec25dscc25_TT   174.182007       4   696.728027 n
+dffs2              lec25dscc25_TT   174.182007       6  1045.092041 n
 hi1s1              lec25dscc25_TT    33.177601       1    33.177601
 i1s1               lec25dscc25_TT    33.177601       1    33.177601
-i1s3               lec25dscc25_TT    41.472000       2    82.944000
-ib1s1              lec25dscc25_TT    33.177601       6   199.065605
-mxi21s1            lec25dscc25_TT    66.355202       1    66.355202
-nnd2s1             lec25dscc25_TT    41.472000       6   248.832001
-nnd2s2             lec25dscc25_TT    41.472000       4   165.888000
+ib1s1              lec25dscc25_TT    33.177601       5   165.888004
+ib1s2              lec25dscc25_TT    41.472000       2    82.944000
+nb1s1              lec25dscc25_TT    41.472000       3   124.416000
+nnd2s1             lec25dscc25_TT    41.472000       4   165.888000
+nnd2s2             lec25dscc25_TT    41.472000       7   290.304001
 nnd2s3             lec25dscc25_TT    58.060799       1    58.060799
-nnd3s2             lec25dscc25_TT    49.766399       1    49.766399
-nor2s2             lec25dscc25_TT    58.060799       1    58.060799
-oai21s2            lec25dscc25_TT    49.766399       1    49.766399
-oai21s3            lec25dscc25_TT    82.944000       2   165.888000
-or2s1              lec25dscc25_TT    49.766399       3   149.299198
-xnr2s1             lec25dscc25_TT    82.944000       2   165.888000
+nor6s3             lec25dscc25_TT   240.537994       1   240.537994
+oai21s2            lec25dscc25_TT    49.766399       2    99.532799
+oai22s1            lec25dscc25_TT    58.060799       1    58.060799
+or2s1              lec25dscc25_TT    49.766399       5   248.831997
+xnr2s1             lec25dscc25_TT    82.944000       1    82.944000
+xnr2s2             lec25dscc25_TT    99.532799       1    99.532799
 xor2s1             lec25dscc25_TT    82.944000       3   248.832001
 -----------------------------------------------------------------------------
-Total 19 references                                  2969.394421
+Total 16 references                                  3077.220436
+
+****************************************
+Design: controller 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+and2s1             lec25dscc25_TT    49.766399       5   248.831997
+and2s2             lec25dscc25_TT    58.060799       3   174.182396
+aoi21s1            lec25dscc25_TT    49.766399       1    49.766399
+aoi22s1            lec25dscc25_TT    58.060799       1    58.060799
+aoi23s1            lec25dscc25_TT    66.355202       1    66.355202
+dffs2              lec25dscc25_TT   174.182007       1   174.182007 n
+dffscs2            lec25dscc25_TT   215.654007       2   431.308014 n
+hi1s1              lec25dscc25_TT    33.177601       2    66.355202
+hnb1s1             lec25dscc25_TT    58.060799       1    58.060799
+i1s1               lec25dscc25_TT    33.177601       5   165.888004
+i1s3               lec25dscc25_TT    41.472000       3   124.416000
+i1s8               lec25dscc25_TT   199.065994       1   199.065994
+ib1s1              lec25dscc25_TT    33.177601       7   232.243206
+nb1s1              lec25dscc25_TT    41.472000       1    41.472000
+nnd2s2             lec25dscc25_TT    41.472000       3   124.416000
+nnd2s3             lec25dscc25_TT    58.060799       2   116.121597
+nnd4s1             lec25dscc25_TT    58.060799       1    58.060799
+nor2s1             lec25dscc25_TT    41.472000       2    82.944000
+nor2s2             lec25dscc25_TT    58.060799       1    58.060799
+oai21s1            lec25dscc25_TT    49.766399       1    49.766399
+-----------------------------------------------------------------------------
+Total 20 references                                  2579.557613
 
 ****************************************
 Design: down_counter 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-aoi21s1            lec25dscc25_TT    49.766399       3   149.299198
-aoi21s2            lec25dscc25_TT    49.766399       1    49.766399
-dffs1              lec25dscc25_TT   157.593994       4   630.375977 n
-dffs2              lec25dscc25_TT   174.182007       2   348.364014 n
-hi1s1              lec25dscc25_TT    33.177601       2    66.355202
-i1s3               lec25dscc25_TT    41.472000       3   124.416000
-ib1s1              lec25dscc25_TT    33.177601       2    66.355202
-nb1s2              lec25dscc25_TT    49.766399       1    49.766399
-nnd2s1             lec25dscc25_TT    41.472000       7   290.304001
-nnd2s2             lec25dscc25_TT    41.472000       6   248.832001
+and2s2             lec25dscc25_TT    58.060799       1    58.060799
+and3s1             lec25dscc25_TT    66.355202       1    66.355202
+aoi22s1            lec25dscc25_TT    58.060799       4   232.243195
+aoi22s3            lec25dscc25_TT    82.944000       1    82.944000
+dffs1              lec25dscc25_TT   157.593994       6   945.563965 n
+i1s1               lec25dscc25_TT    33.177601       1    33.177601
+i1s3               lec25dscc25_TT    41.472000       2    82.944000
+ib1s1              lec25dscc25_TT    33.177601       4   132.710403
+nnd2s1             lec25dscc25_TT    41.472000       1    41.472000
+nnd2s2             lec25dscc25_TT    41.472000       4   165.888000
 nnd3s2             lec25dscc25_TT    49.766399       1    49.766399
-nnd3s3             lec25dscc25_TT    82.944000       1    82.944000
-nor2s1             lec25dscc25_TT    41.472000       1    41.472000
-oai221s2           lec25dscc25_TT    74.649597       5   373.247986
+nnd4s1             lec25dscc25_TT    58.060799       1    58.060799
+nor2s1             lec25dscc25_TT    41.472000       2    82.944000
+nor2s2             lec25dscc25_TT    58.060799       2   116.121597
+oai21s1            lec25dscc25_TT    49.766399       3   149.299198
+oai21s2            lec25dscc25_TT    49.766399       4   199.065598
+oai21s3            lec25dscc25_TT    82.944000       1    82.944000
+xor2s1             lec25dscc25_TT    82.944000       1    82.944000
+xor2s2             lec25dscc25_TT    99.532799       1    99.532799
+-----------------------------------------------------------------------------
+Total 19 references                                  2762.037556
+
+****************************************
+Design: index_counter 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+and2s1             lec25dscc25_TT    49.766399       1    49.766399
+aoi23s2            lec25dscc25_TT    66.355202       1    66.355202
+aoi211s1           lec25dscc25_TT    58.060799       1    58.060799
+dffs2              lec25dscc25_TT   174.182007       4   696.728027 n
+hi1s1              lec25dscc25_TT    33.177601       1    33.177601
+i1s1               lec25dscc25_TT    33.177601       1    33.177601
+ib1s1              lec25dscc25_TT    33.177601       1    33.177601
+mxi21s2            lec25dscc25_TT    66.355202       1    66.355202
+nnd2s1             lec25dscc25_TT    41.472000       1    41.472000
+nnd2s2             lec25dscc25_TT    41.472000       2    82.944000
+nnd3s2             lec25dscc25_TT    49.766399       1    49.766399
+nor2s2             lec25dscc25_TT    58.060799       1    58.060799
+oai21s2            lec25dscc25_TT    49.766399       1    49.766399
+xor2s1             lec25dscc25_TT    82.944000       1    82.944000
+-----------------------------------------------------------------------------
+Total 14 references                                  1401.752029
+
+****************************************
+Design: partial_result_buffer 
+****************************************
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+and2s1             lec25dscc25_TT    49.766399       1    49.766399
+aoi22s1            lec25dscc25_TT    58.060799      12   696.729584
+dffles1            lec25dscc25_TT   199.065994       6  1194.395966 n
+dffs1              lec25dscc25_TT   157.593994      18  2836.691895 n
+i1s3               lec25dscc25_TT    41.472000       1    41.472000
+i1s8               lec25dscc25_TT   199.065994       2   398.131989
+ib1s1              lec25dscc25_TT    33.177601      17   564.019215
+nnd2s1             lec25dscc25_TT    41.472000      11   456.192001
+nnd2s2             lec25dscc25_TT    41.472000      16   663.552002
+nnd2s3             lec25dscc25_TT    58.060799       2   116.121597
+nor2s1             lec25dscc25_TT    41.472000       4   165.888000
+nor2s2             lec25dscc25_TT    58.060799       1    58.060799
+oai21s1            lec25dscc25_TT    49.766399       1    49.766399
+oai21s2            lec25dscc25_TT    49.766399      15   746.495991
+oai21s3            lec25dscc25_TT    82.944000       7   580.608002
 or2s1              lec25dscc25_TT    49.766399       1    49.766399
 or2s2              lec25dscc25_TT    58.060799       1    58.060799
-or4s1              lec25dscc25_TT    82.944000       1    82.944000
-xnr2s1             lec25dscc25_TT    82.944000       1    82.944000
 -----------------------------------------------------------------------------
-Total 18 references                                  2844.979977
+Total 17 references                                  8725.719036
 
 ****************************************
 Design: processing_element_0 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-counter_0                      4296.501759       1   4296.501759  h, n
-multiplexer_0                   381.542397       1    381.542397  h
+counter_0                      4039.376354       1   4039.376354  h, n
+multiplexer_0                   398.131199       1    398.131199  h
 -----------------------------------------------------------------------------
-Total 2 references                                   4678.044155
+Total 2 references                                   4437.507553
 
 ****************************************
 Design: counter_0 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-and2s1             lec25dscc25_TT    49.766399       1    49.766399
-and2s2             lec25dscc25_TT    58.060799       6   348.364792
-and3s1             lec25dscc25_TT    66.355202       2   132.710403
-aoi21s3            lec25dscc25_TT    74.649597       2   149.299194
+and2s1             lec25dscc25_TT    49.766399       3   149.299198
+and2s2             lec25dscc25_TT    58.060799       1    58.060799
+aoi21s3            lec25dscc25_TT    74.649597       1    74.649597
 dffs1              lec25dscc25_TT   157.593994       6   945.563965 n
-i1s3               lec25dscc25_TT    41.472000       1    41.472000
-i1s4               lec25dscc25_TT    49.766399       1    49.766399
+hi1s1              lec25dscc25_TT    33.177601       1    33.177601
+i1s1               lec25dscc25_TT    33.177601       1    33.177601
+i1s3               lec25dscc25_TT    41.472000       2    82.944000
 i1s5               lec25dscc25_TT    49.766399       1    49.766399
-i1s8               lec25dscc25_TT   199.065994       1   199.065994
-ib1s1              lec25dscc25_TT    33.177601       3    99.532803
-ib1s2              lec25dscc25_TT    41.472000       1    41.472000
-ib1s6              lec25dscc25_TT   107.827003       1   107.827003
-mx21s3             lec25dscc25_TT    91.238403       1    91.238403
-mxi21s2            lec25dscc25_TT    66.355202       3   199.065605
-nnd2s1             lec25dscc25_TT    41.472000      14   580.608002
-nnd2s2             lec25dscc25_TT    41.472000      14   580.608002
-nnd2s3             lec25dscc25_TT    58.060799       2   116.121597
-nnd3s1             lec25dscc25_TT    49.766399       1    49.766399
-nnd3s2             lec25dscc25_TT    49.766399       6   298.598396
+i1s8               lec25dscc25_TT   199.065994       3   597.197983
+ib1s1              lec25dscc25_TT    33.177601       4   132.710403
+mxi21s2            lec25dscc25_TT    66.355202       6   398.131210
+nb1s1              lec25dscc25_TT    41.472000       1    41.472000
+nnd2s1             lec25dscc25_TT    41.472000      13   539.136002
+nnd2s2             lec25dscc25_TT    41.472000      10   414.720001
+nnd3s2             lec25dscc25_TT    49.766399       4   199.065598
 nnd3s3             lec25dscc25_TT    82.944000       1    82.944000
-nor2s1             lec25dscc25_TT    41.472000       2    82.944000
+nor2s1             lec25dscc25_TT    41.472000       1    41.472000
+or2s1              lec25dscc25_TT    49.766399       1    49.766399
+or2s2              lec25dscc25_TT    58.060799       2   116.121597
 -----------------------------------------------------------------------------
-Total 21 references                                  4296.501759
+Total 19 references                                  4039.376354
 
 ****************************************
 Design: multiplexer_0 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-aoi21s3            lec25dscc25_TT    74.649597       1    74.649597
+and2s1             lec25dscc25_TT    49.766399       1    49.766399
 aoi22s2            lec25dscc25_TT    58.060799       2   116.121597
 dsmxc31s2          lec25dscc25_TT    66.355202       1    66.355202
 mxi21s2            lec25dscc25_TT    66.355202       1    66.355202
+nor2s1             lec25dscc25_TT    41.472000       1    41.472000
 or3s1              lec25dscc25_TT    58.060799       1    58.060799
 -----------------------------------------------------------------------------
-Total 5 references                                    381.542397
+Total 6 references                                    398.131199
 
 ****************************************
 Design: processing_element_1 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-counter_1                      3782.248573       1   3782.248573  h, n
+counter_1                      3740.777168       1   3740.777168  h, n
 multiplexer_1                   381.542397       1    381.542397  h
 -----------------------------------------------------------------------------
-Total 2 references                                   4163.790970
+Total 2 references                                   4122.319565
 
 ****************************************
 Design: counter_1 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-and2s1             lec25dscc25_TT    49.766399       4   199.065598
+and2s1             lec25dscc25_TT    49.766399       3   149.299198
 and2s2             lec25dscc25_TT    58.060799       2   116.121597
-and3s2             lec25dscc25_TT    99.532799       1    99.532799
+aoi21s3            lec25dscc25_TT    74.649597       1    74.649597
 dffs1              lec25dscc25_TT   157.593994       6   945.563965 n
-i1s3               lec25dscc25_TT    41.472000       1    41.472000
-i1s4               lec25dscc25_TT    49.766399       1    49.766399
+hi1s1              lec25dscc25_TT    33.177601       1    33.177601
+i1s1               lec25dscc25_TT    33.177601       1    33.177601
+i1s2               lec25dscc25_TT    41.472000       1    41.472000
+i1s3               lec25dscc25_TT    41.472000       4   165.888000
+i1s8               lec25dscc25_TT   199.065994       1   199.065994
 ib1s1              lec25dscc25_TT    33.177601       6   199.065605
-ib1s6              lec25dscc25_TT   107.827003       1   107.827003
-mxi21s2            lec25dscc25_TT    66.355202       6   398.131210
-nnd2s1             lec25dscc25_TT    41.472000       9   373.248001
-nnd2s2             lec25dscc25_TT    41.472000      13   539.136002
-nnd3s1             lec25dscc25_TT    49.766399       2    99.532799
-nnd3s2             lec25dscc25_TT    49.766399       6   298.598396
+ib1s2              lec25dscc25_TT    41.472000       1    41.472000
+mx21s2             lec25dscc25_TT    82.944000       1    82.944000
+mxi21s2            lec25dscc25_TT    66.355202       5   331.776009
+nnd2s1             lec25dscc25_TT    41.472000      15   622.080002
+nnd2s2             lec25dscc25_TT    41.472000       9   373.248001
+nnd3s2             lec25dscc25_TT    49.766399       4   199.065598
 nnd3s3             lec25dscc25_TT    82.944000       1    82.944000
-oai21s3            lec25dscc25_TT    82.944000       1    82.944000
-or2s1              lec25dscc25_TT    49.766399       3   149.299198
+or2s1              lec25dscc25_TT    49.766399       1    49.766399
 -----------------------------------------------------------------------------
-Total 16 references                                  3782.248573
+Total 18 references                                  3740.777168
 
 ****************************************
 Design: multiplexer_1 
@@ -220,93 +269,92 @@ Design: processing_element_2
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-counter_2                      4188.675152       1   4188.675152  h, n
-multiplexer_2                   414.719997       1    414.719997  h
+counter_2                      4089.142754       1   4089.142754  h, n
+multiplexer_2                   356.659199       1    356.659199  h
 -----------------------------------------------------------------------------
-Total 2 references                                   4603.395149
+Total 2 references                                   4445.801952
 
 ****************************************
 Design: counter_2 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-and2s1             lec25dscc25_TT    49.766399       3   149.299198
-and2s2             lec25dscc25_TT    58.060799       3   174.182396
-aoi21s3            lec25dscc25_TT    74.649597       1    74.649597
+and2s1             lec25dscc25_TT    49.766399       2    99.532799
+and2s2             lec25dscc25_TT    58.060799       2   116.121597
+and3s1             lec25dscc25_TT    66.355202       1    66.355202
 dffs1              lec25dscc25_TT   157.593994       6   945.563965 n
-dsmxc31s2          lec25dscc25_TT    66.355202       1    66.355202
 i1s1               lec25dscc25_TT    33.177601       1    33.177601
-i1s2               lec25dscc25_TT    41.472000       2    82.944000
+i1s3               lec25dscc25_TT    41.472000       1    41.472000
 i1s4               lec25dscc25_TT    49.766399       1    49.766399
-i1s8               lec25dscc25_TT   199.065994       2   398.131989
-ib1s1              lec25dscc25_TT    33.177601       2    66.355202
-ib1s2              lec25dscc25_TT    41.472000       2    82.944000
-mxi21s2            lec25dscc25_TT    66.355202       4   265.420807
-nnd2s1             lec25dscc25_TT    41.472000      11   456.192001
-nnd2s2             lec25dscc25_TT    41.472000      15   622.080002
+i1s8               lec25dscc25_TT   199.065994       3   597.197983
+ib1s1              lec25dscc25_TT    33.177601       1    33.177601
+ib1s2              lec25dscc25_TT    41.472000       1    41.472000
+mx21s2             lec25dscc25_TT    82.944000       1    82.944000
+mx21s3             lec25dscc25_TT    91.238403       1    91.238403
+mxi21s1            lec25dscc25_TT    66.355202       1    66.355202
+mxi21s2            lec25dscc25_TT    66.355202       3   199.065605
+nnd2s1             lec25dscc25_TT    41.472000      10   414.720001
+nnd2s2             lec25dscc25_TT    41.472000      16   663.552002
 nnd2s3             lec25dscc25_TT    58.060799       1    58.060799
-nnd3s1             lec25dscc25_TT    49.766399       2    99.532799
-nnd3s2             lec25dscc25_TT    49.766399       4   199.065598
-nnd3s3             lec25dscc25_TT    82.944000       1    82.944000
-nor2s1             lec25dscc25_TT    41.472000       3   124.416000
-oai21s1            lec25dscc25_TT    49.766399       1    49.766399
+nnd3s2             lec25dscc25_TT    49.766399       6   298.598396
+nor2s1             lec25dscc25_TT    41.472000       2    82.944000
 or2s1              lec25dscc25_TT    49.766399       1    49.766399
 or2s2              lec25dscc25_TT    58.060799       1    58.060799
 -----------------------------------------------------------------------------
-Total 22 references                                  4188.675152
+Total 21 references                                  4089.142754
 
 ****************************************
 Design: multiplexer_2 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-and2s1             lec25dscc25_TT    49.766399       1    49.766399
+aoi21s2            lec25dscc25_TT    49.766399       1    49.766399
 aoi22s2            lec25dscc25_TT    58.060799       2   116.121597
 dsmxc31s2          lec25dscc25_TT    66.355202       1    66.355202
 mxi21s2            lec25dscc25_TT    66.355202       1    66.355202
-nor2s2             lec25dscc25_TT    58.060799       1    58.060799
 or3s1              lec25dscc25_TT    58.060799       1    58.060799
 -----------------------------------------------------------------------------
-Total 6 references                                    414.719997
+Total 5 references                                    356.659199
 
 ****************************************
 Design: processing_element_3 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-counter_3                      4006.197960       1   4006.197960  h, n
+counter_3                      3491.945171       1   3491.945171  h, n
 multiplexer_3                   381.542397       1    381.542397  h
 -----------------------------------------------------------------------------
-Total 2 references                                   4387.740356
+Total 2 references                                   3873.487568
 
 ****************************************
 Design: counter_3 
 ****************************************
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
-and2s1             lec25dscc25_TT    49.766399       3   149.299198
 and2s2             lec25dscc25_TT    58.060799       1    58.060799
-aoi21s3            lec25dscc25_TT    74.649597       3   223.948792
+aoi21s3            lec25dscc25_TT    74.649597       2   149.299194
 dffs1              lec25dscc25_TT   157.593994       6   945.563965 n
-dsmxc31s2          lec25dscc25_TT    66.355202       1    66.355202
 hi1s1              lec25dscc25_TT    33.177601       1    33.177601
-i1s1               lec25dscc25_TT    33.177601       2    66.355202
-i1s2               lec25dscc25_TT    41.472000       2    82.944000
-i1s3               lec25dscc25_TT    41.472000       7   290.304001
-i1s8               lec25dscc25_TT   199.065994       1   199.065994
-ib1s1              lec25dscc25_TT    33.177601       3    99.532803
+i1s1               lec25dscc25_TT    33.177601       1    33.177601
+i1s2               lec25dscc25_TT    41.472000       1    41.472000
+i1s3               lec25dscc25_TT    41.472000       3   124.416000
+i1s4               lec25dscc25_TT    49.766399       1    49.766399
+ib1s1              lec25dscc25_TT    33.177601       4   132.710403
 ib1s2              lec25dscc25_TT    41.472000       1    41.472000
+mxi21s1            lec25dscc25_TT    66.355202       1    66.355202
 mxi21s2            lec25dscc25_TT    66.355202       5   331.776009
-nnd2s1             lec25dscc25_TT    41.472000      13   539.136002
-nnd2s2             lec25dscc25_TT    41.472000       6   248.832001
-nnd3s2             lec25dscc25_TT    49.766399       6   298.598396
-nor2s1             lec25dscc25_TT    41.472000       2    82.944000
-nor2s2             lec25dscc25_TT    58.060799       1    58.060799
-oai21s1            lec25dscc25_TT    49.766399       1    49.766399
+nnd2s1             lec25dscc25_TT    41.472000       7   290.304001
+nnd2s2             lec25dscc25_TT    41.472000      11   456.192001
+nnd3s1             lec25dscc25_TT    49.766399       1    49.766399
+nnd3s2             lec25dscc25_TT    49.766399       4   199.065598
+nor2s1             lec25dscc25_TT    41.472000       1    41.472000
+nor3s2             lec25dscc25_TT    99.532799       1    99.532799
+oai21s2            lec25dscc25_TT    49.766399       1    49.766399
 oai21s3            lec25dscc25_TT    82.944000       1    82.944000
-or2s2              lec25dscc25_TT    58.060799       1    58.060799
+or2s1              lec25dscc25_TT    49.766399       2    99.532799
+or3s3              lec25dscc25_TT   116.122002       1   116.122002
 -----------------------------------------------------------------------------
-Total 21 references                                  4006.197960
+Total 22 references                                  3491.945171
 
 ****************************************
 Design: multiplexer_3 

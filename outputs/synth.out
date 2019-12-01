@@ -46,8 +46,8 @@ set link_library [concat  "*" $target_library]
 #/***********************************************************/
 set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/"]
 ./ /afs/umich.edu/class/eecs470/lib/synopsys/
-set src_files [list "sys_defs.svh counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv"]
-{sys_defs.svh counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv}
+set src_files [list "sys_defs.svh index_counter.sv partial_result_buffer.sv controller.sv counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv"]
+{sys_defs.svh index_counter.sv partial_result_buffer.sv controller.sv counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv}
 set design_name processing_unit
 processing_unit
 read_file -f sverilog $src_files
@@ -56,11 +56,17 @@ Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/gtech.db'
 Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/standard.sldb'
   Loading link library 'lec25dscc25_TT'
   Loading link library 'gtech'
-Loading sverilog files: '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/sys_defs.svh' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/counter.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/down_counter.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/FSM_selector.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/multiplexer.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_element.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv' 
+Loading sverilog files: '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/sys_defs.svh' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/index_counter.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/partial_result_buffer.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/controller.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/counter.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/down_counter.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/FSM_selector.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/multiplexer.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_element.sv' '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv' 
 Detecting input file type automatically (-rtl or -netlist).
 Reading with Presto HDL Compiler (equivalent to -rtl option).
 Running PRESTO HDLC
 Compiling source file /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/sys_defs.svh
+Compiling source file /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/index_counter.sv
+Opening include file sys_defs.svh
+Compiling source file /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/partial_result_buffer.sv
+Opening include file sys_defs.svh
+Compiling source file /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/controller.sv
+Opening include file sys_defs.svh
 Compiling source file /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/counter.sv
 Opening include file sys_defs.svh
 Compiling source file /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/down_counter.sv
@@ -74,6 +80,61 @@ Compiling source file /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/p
 Opening include file sys_defs.svh
 Compiling source file /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv
 Opening include file sys_defs.svh
+Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/index_counter.sv:16: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine index_counter line 11 in file
+		'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/index_counter.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  height_index_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|   width_index_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/partial_result_buffer.sv:26: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine partial_result_buffer line 17 in file
+		'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/partial_result_buffer.sv'.
+===================================================================================
+|      Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================
+| stored_partial_sums_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+===================================================================================
+Statistics for MUX_OPs
+==============================================================
+|     block name/line      | Inputs | Outputs | # sel inputs |
+==============================================================
+| partial_result_buffer/33 |   4    |    6    |      2       |
+==============================================================
+Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/controller.sv:69: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/controller.sv:69: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/controller.sv:42: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 40 in file
+	'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/controller.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            42            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 80 in file
+	'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/controller.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            96            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine controller line 147 in file
+		'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/controller.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      state_reg      | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
 
 Inferred memory devices in process
 	in routine counter line 16 in file
@@ -109,74 +170,19 @@ Statistics for MUX_OPs
 ======================================================
 | FSM_selector/29  | 32768  |    1    |      15      |
 ======================================================
-Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv:83: signed to unsigned conversion occurs. (VER-318)
-Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv:83: signed to unsigned conversion occurs. (VER-318)
-Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv:210: signed to unsigned conversion occurs. (VER-318)
-Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv:220: signed to unsigned conversion occurs. (VER-318)
-Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv:227: signed to unsigned conversion occurs. (VER-318)
-Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv:245: signed to unsigned conversion occurs. (VER-318)
-Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv:56: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
-
-Statistics for case statements in always block at line 54 in file
-	'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv'
-===============================================
-|           Line           |  full/ parallel  |
-===============================================
-|            56            |    auto/auto     |
-===============================================
-
-Statistics for case statements in always block at line 94 in file
-	'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv'
-===============================================
-|           Line           |  full/ parallel  |
-===============================================
-|           110            |    auto/auto     |
-===============================================
-
-Inferred memory devices in process
-	in routine processing_unit line 161 in file
-		'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|      state_reg      | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-
-Inferred memory devices in process
-	in routine processing_unit line 222 in file
-		'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|  height_index_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
-|   width_index_reg   | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-
-Inferred memory devices in process
-	in routine processing_unit line 236 in file
-		'/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv'.
-===================================================================================
-|      Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===================================================================================
-| stored_partial_sums_reg | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
-===================================================================================
-Statistics for MUX_OPs
-=========================================================
-|  block name/line    | Inputs | Outputs | # sel inputs |
-=========================================================
-| processing_unit/214 |   4    |    6    |      2       |
-=========================================================
+Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv:111: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.sv:119: signed to unsigned conversion occurs. (VER-318)
 Presto compilation completed successfully.
-Current design is now '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/counter.db:counter'
-Loaded 6 designs.
-Current design is 'counter'.
-counter down_counter FSM_selector multiplexer processing_element processing_unit
+Current design is now '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/index_counter.db:index_counter'
+Loaded 9 designs.
+Current design is 'index_counter'.
+index_counter partial_result_buffer controller counter down_counter FSM_selector multiplexer processing_element processing_unit
 set clock_name clock
 clock
 set reset_name reset
 reset
-set CLK_PERIOD 1.40
-1.40
+set CLK_PERIOD 1.50
+1.50
 #/***********************************************************/
 #/*  Clk Periods/uncertainty/transition                     */
 set CLK_TRANSITION 0.1
@@ -218,7 +224,7 @@ set AVG_FANOUT_LOAD 10
 ###############################################################
 analyze -library WORK -format sverilog $src_files
 Running PRESTO HDLC
-Error:  Unable to open file `sys_defs.svh counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv': in search_path {./ /afs/umich.edu/class/eecs470/lib/synopsys/}. (VER-41)
+Error:  Unable to open file `sys_defs.svh index_counter.sv partial_result_buffer.sv controller.sv counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv': in search_path {./ /afs/umich.edu/class/eecs470/lib/synopsys/}. (VER-41)
 *** Presto compilation terminated with 1 errors. ***
 0
 elaborate $design_name
@@ -232,7 +238,7 @@ link
   Linking design 'processing_unit'
   Using the following designs and libraries:
   --------------------------------------------------------------------------
-  * (6 designs)               /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.db, etc
+  * (9 designs)               /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/processing_unit.db, etc
   lec25dscc25_TT (library)    /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db
 
 1
@@ -246,40 +252,46 @@ check_design
 ****************************************
 check_design summary:
 Version:     O-2018.06
-Date:        Sat Nov 30 17:53:25 2019
+Date:        Sat Nov 30 21:37:56 2019
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Cells                                                              16
+Inputs/Outputs                                                     17
+    Unconnected ports (LINT-28)                                     6
+    Shorted outputs (LINT-31)                                       5
+    Constant outputs (LINT-52)                                      6
+
+Cells                                                               9
     Cells do not drive (LINT-1)                                     9
-    Connected to power or ground (LINT-32)                          6
-    Nets connected to multiple pins on same cell (LINT-33)          1
 --------------------------------------------------------------------------------
 
-Warning: In design 'processing_unit', cell 'C456' does not drive any nets. (LINT-1)
-Warning: In design 'processing_unit', cell 'C457' does not drive any nets. (LINT-1)
-Warning: In design 'processing_unit', cell 'C467' does not drive any nets. (LINT-1)
 Warning: In design 'down_counter', cell 'C62' does not drive any nets. (LINT-1)
 Warning: In design 'FSM_selector', cell 'C54' does not drive any nets. (LINT-1)
+Warning: In design 'partial_result_buffer', cell 'C92' does not drive any nets. (LINT-1)
+Warning: In design 'index_counter', cell 'C51' does not drive any nets. (LINT-1)
+Warning: In design 'index_counter', cell 'C52' does not drive any nets. (LINT-1)
 Warning: In design 'counter_3', cell 'C54' does not drive any nets. (LINT-1)
 Warning: In design 'counter_0', cell 'C54' does not drive any nets. (LINT-1)
 Warning: In design 'counter_1', cell 'C54' does not drive any nets. (LINT-1)
 Warning: In design 'counter_2', cell 'C54' does not drive any nets. (LINT-1)
-Warning: In design 'processing_unit', a pin on submodule 'PE_row[0].PE_column[0].PEs' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'init_val[5]' is connected to logic 0. 
-Warning: In design 'processing_unit', a pin on submodule 'PE_row[0].PE_column[0].PEs' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'init_val[4]' is connected to logic 0. 
-Warning: In design 'processing_unit', a pin on submodule 'PE_row[0].PE_column[0].PEs' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'init_val[3]' is connected to logic 0. 
-Warning: In design 'processing_unit', a pin on submodule 'PE_row[0].PE_column[0].PEs' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'init_val[2]' is connected to logic 0. 
-Warning: In design 'processing_unit', a pin on submodule 'PE_row[0].PE_column[0].PEs' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'init_val[1]' is connected to logic 0. 
-Warning: In design 'processing_unit', a pin on submodule 'PE_row[0].PE_column[0].PEs' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'init_val[0]' is connected to logic 0. 
-Warning: In design 'processing_unit', the same net is connected to more than one pin on submodule 'PE_row[0].PE_column[0].PEs'. (LINT-33)
-   Net '*Logic0*' is connected to pins 'init_val[5]', 'init_val[4]'', 'init_val[3]', 'init_val[2]', 'init_val[1]', 'init_val[0]'.
+Warning: In design 'partial_result_buffer', port 'store_vals[1][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][5]' is connected directly to output port 'fetch_vals[0][0]'. (LINT-31)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][5]' is connected directly to output port 'fetch_vals[0][1]'. (LINT-31)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][5]' is connected directly to output port 'fetch_vals[0][2]'. (LINT-31)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][5]' is connected directly to output port 'fetch_vals[0][3]'. (LINT-31)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][5]' is connected directly to output port 'fetch_vals[0][4]'. (LINT-31)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][5]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][4]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'partial_result_buffer', output port 'fetch_vals[0][0]' is connected directly to 'logic 0'. (LINT-52)
 1
 ###############################################################
 # set timing and area constraints to synthesis the design
@@ -464,17 +476,20 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 ============================================================================
 
 
-Information: There are 16 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 26 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
 
 
   Beginning Pass 1 Mapping
   ------------------------
+  Processing 'index_counter'
+  Processing 'partial_result_buffer'
   Processing 'multiplexer_0'
   Processing 'counter_0'
   Processing 'processing_element_0'
   Processing 'FSM_selector'
   Processing 'down_counter'
+  Processing 'controller'
   Processing 'processing_unit'
 
   Updating timing information
@@ -503,35 +518,35 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
   --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:02   37250.1      0.24       9.8       0.0                                0.00  
-    0:00:03   36420.7      0.26       9.8       0.0                                0.00  
-    0:00:03   36420.7      0.26       9.8       0.0                                0.00  
-    0:00:03   36404.1      0.25       9.6       0.0                                0.00  
-    0:00:03   36404.1      0.25       9.6       0.0                                0.00  
-    0:00:03   32953.7      0.54      14.0       0.0                                0.00  
-    0:00:03   33202.5      0.52      16.8       0.0                                0.00  
-    0:00:03   33733.3      0.38      11.5       0.0                                0.00  
-    0:00:03   33559.2      0.37      11.4       0.0                                0.00  
-    0:00:03   34065.1      0.30      10.1       0.0                                0.00  
-    0:00:03   34761.8      0.34       9.8       0.0                                0.00  
-    0:00:03   34952.6      0.28       9.3       0.0                                0.00  
-    0:00:03   34620.8      0.27       9.4       0.0                                0.00  
-    0:00:03   34695.5      0.27       9.3       0.0                                0.00  
-    0:00:03   34828.2      0.26       9.1       0.0                                0.00  
-    0:00:03   35566.4      0.25       8.9       0.0                                0.00  
-    0:00:03   35682.5      0.25       8.8       0.0                                0.00  
-    0:00:03   35856.7      0.23       8.6       0.0                                0.00  
-    0:00:03   36047.5      0.22       6.8       0.0                                0.00  
-    0:00:03   36138.7      0.22       6.7       0.0                                0.00  
-    0:00:04   36329.5      0.21       7.2       0.0                                0.00  
-    0:00:04   36561.7      0.20       7.0       0.0                                0.00  
-    0:00:04   36611.5      0.20       7.0       0.0                                0.00  
-    0:00:04   36611.5      0.20       7.0       0.0                                0.00  
-    0:00:04   36611.5      0.20       7.0       0.0                                0.00  
-    0:00:04   36611.5      0.20       7.0       0.0                                0.00  
-    0:00:04   36611.5      0.20       7.0       0.0                                0.00  
-    0:00:04   36611.5      0.20       7.0       0.0                                0.00  
-    0:00:04   36611.5      0.20       7.0       0.0                                0.00  
+    0:00:03   38303.5      0.16       6.5       0.1                                0.00  
+    0:00:03   38237.2      0.18       7.5       0.1                                0.00  
+    0:00:03   38237.2      0.18       7.5       0.1                                0.00  
+    0:00:03   38220.6      0.18       7.5       0.1                                0.00  
+    0:00:03   38220.6      0.18       7.5       0.1                                0.00  
+    0:00:03   32489.2      0.67      17.7       0.0                                0.00  
+    0:00:03   32522.4      0.46      14.8       0.0                                0.00  
+    0:00:03   32879.0      0.44      14.2       0.0                                0.00  
+    0:00:03   32920.5      0.33       9.8       0.0                                0.00  
+    0:00:03   33003.4      0.26       9.8       0.0                                0.00  
+    0:00:03   33235.7      0.24       9.2       0.0                                0.00  
+    0:00:03   33235.7      0.25       9.3       0.0                                0.00  
+    0:00:03   33459.6      0.35       9.7       0.0                                0.00  
+    0:00:04   33633.8      0.34       8.8       0.0                                0.00  
+    0:00:04   33492.8      0.22       9.5       0.0                                0.00  
+    0:00:04   33658.7      0.22       8.5       0.0                                0.00  
+    0:00:04   34546.2      0.22       8.5       0.0                                0.00  
+    0:00:04   35301.0      0.21       8.3       0.0                                0.00  
+    0:00:04   35641.1      0.21       7.7       0.0                                0.00  
+    0:00:04   35674.2      0.19       7.4       0.0                                0.00  
+    0:00:04   35972.8      0.18       7.2       0.0                                0.00  
+    0:00:04   35981.1      0.18       7.1       0.0                                0.00  
+    0:00:04   36263.1      0.18       7.0       0.0                                0.00  
+    0:00:04   36453.9      0.18       6.8       0.0                                0.00  
+    0:00:04   36453.9      0.18       6.8       0.0                                0.00  
+    0:00:04   36453.9      0.18       6.8       0.0                                0.00  
+    0:00:04   36453.9      0.18       6.8       0.0                                0.00  
+    0:00:04   36453.9      0.18       6.8       0.0                                0.00  
+    0:00:04   36453.9      0.18       6.8       0.0                                0.00  
 
 
 
@@ -542,71 +557,39 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
   --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:04   36611.5      0.20       7.0       0.0                                0.00  
-    0:00:04   36843.7      0.17       6.5       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[5]/DIN      0.00  
-    0:00:04   37432.6      0.16       6.6       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:04   37631.7      0.15       6.3       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:04   37764.4      0.15       6.1       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:04   37913.7      0.15       6.0       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[3]/DIN      0.00  
-    0:00:04   38220.6      0.13       5.2       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[1]/DIN      0.00  
-    0:00:04   38734.9      0.12       5.2       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:04   38627.0      0.12       5.1       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[3]/DIN      0.00  
-    0:00:04   38494.3      0.12       4.8       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[0]/DIN      0.00  
-    0:00:04   38486.0      0.12       4.9       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[5]/DIN      0.00  
-    0:00:04   38635.3      0.11       4.2       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[1]/DIN      0.00  
-    0:00:05   38643.6      0.11       4.2       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:05   38610.5      0.10       3.7       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:05   38627.0      0.10       3.7       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:05   38701.7      0.10       3.6       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:05   38776.3      0.10       3.6       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:05   39041.8      0.10       3.5       0.0                                0.00  
-    0:00:05   39182.8      0.09       3.5       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:05   39050.1      0.09       3.5       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[5]/DIN      0.00  
-    0:00:05   38859.3      0.09       3.4       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:05   38851.0      0.09       3.5       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:06   38892.5      0.08       3.5       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:06   38743.2      0.08       3.2       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:06   38759.7      0.08       3.2       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:06   38809.5      0.08       3.1       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[1]/DIN      0.00  
-    0:00:06   38983.7      0.08       3.0       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:06   39141.3      0.08       2.9       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:06   39166.2      0.07       2.7       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[1]/DIN      0.00  
-    0:00:06   39074.9      0.07       2.7       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:06   39133.0      0.07       2.6       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:07   39340.4      0.07       2.5       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
-    0:00:07   39381.8      0.07       2.4       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[0]/DIN      0.00  
-    0:00:07   39390.1      0.07       2.4       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:07   39381.8      0.06       2.2       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:07   39340.4      0.06       2.1       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:07   39481.4      0.06       2.1       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[3]/DIN      0.00  
-    0:00:07   39506.2      0.05       2.2       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
-    0:00:07   39531.1      0.05       2.2       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
-    0:00:08   39498.0      0.05       2.0       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:08   39697.0      0.05       1.4       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:08   40078.6      0.05       1.2       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:08   40227.9      0.05       1.2       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
-    0:00:08   40161.5      0.05       1.2       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:08   40136.6      0.04       1.2       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
-    0:00:08   40219.6      0.04       1.2       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:09   40244.4      0.04       1.2       0.0                                0.00  
-    0:00:09   39921.0      0.04       1.2       0.0                                0.00  
-
-
-  Beginning Design Rule Fixing  (max_transition)
-  ----------------------------
-
-                                  TOTAL                                                  
-   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
-    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
-  --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:09   39921.0      0.04       1.2       0.0                                0.00  
-    0:00:09   40144.9      0.04       1.1       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:09   40103.4      0.04       1.1       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[0]/DIN      0.00  
-    0:00:09   40277.6      0.04       0.8       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
-    0:00:09   40252.7      0.03       1.0       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:09   40261.0      0.03       0.9       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:09   40310.8      0.03       0.7       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[1]/DIN      0.00  
-    0:00:09   40310.8      0.02       0.6       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
+    0:00:04   36453.9      0.18       6.8       0.0                                0.00  
+    0:00:04   37523.9      0.16       5.6       0.0 partial_result_buffer_inst/stored_partial_sums_reg[0][2][1]/DIN      0.00  
+    0:00:04   37590.2      0.14       5.4       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[3]/DIN      0.00  
+    0:00:04   37946.9      0.13       4.9       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[5]/DIN      0.00  
+    0:00:04   38452.9      0.11       4.5       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[5]/DIN      0.00  
+    0:00:05   38403.1      0.10       4.4       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[2]/DIN      0.00  
+    0:00:05   38751.5      0.10       4.1       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[4]/DIN      0.00  
+    0:00:05   38635.3      0.10       3.6       0.0                                0.00  
+    0:00:05   38933.9      0.09       2.9       0.0 PE_row[1].PE_column[0].PEs/counter_inst/count_reg[2]/DIN      0.00  
+    0:00:05   38950.5      0.08       2.4       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
+    0:00:05   39307.2      0.07       2.4       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/DIN      0.00  
+    0:00:05   39439.9      0.07       2.0       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
+    0:00:05   39323.8      0.06       1.7       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
+    0:00:05   39381.8      0.05       1.7       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
+    0:00:05   39390.1      0.05       1.5       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
+    0:00:06   39439.9      0.05       1.3       0.0 partial_result_buffer_inst/stored_partial_sums_reg[0][2][3]/DIN      0.00  
+    0:00:06   39514.5      0.04       1.2       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[1]/DIN      0.00  
+    0:00:06   39597.5      0.04       1.1       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
+    0:00:06   39755.1      0.03       0.9       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
+    0:00:06   39605.8      0.03       0.9       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
+    0:00:06   39580.9      0.03       0.9       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[4]/DIN      0.00  
+    0:00:06   39663.8      0.03       0.8       0.0 partial_result_buffer_inst/stored_partial_sums_reg[0][2][1]/DIN      0.00  
+    0:00:06   39672.1      0.02       0.5       0.0 FSM_selector_inst/count_reg[1]/DIN      0.00  
+    0:00:06   39630.7      0.02       0.3       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[2]/DIN      0.00  
+    0:00:06   39448.2      0.02       0.2       0.0 down_counter_inst/Count_reg[1]/DIN      0.00  
+    0:00:06   39630.7      0.01       0.1       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[2]/DIN      0.00  
+    0:00:06   39680.4      0.01       0.1       0.0 PE_row[0].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
+    0:00:06   39663.8      0.01       0.0       0.0 down_counter_inst/Count_reg[5]/DIN      0.00  
+    0:00:06   39945.9      0.00       0.0       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
+    0:00:06   39962.4      0.00       0.0       0.0 down_counter_inst/Count_reg[1]/DIN      0.00  
+    0:00:06   39979.0      0.00       0.0       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[4]/DIN      0.00  
+    0:00:06   39846.3      0.00       0.0       0.0                                0.00  
+    0:00:07   39580.9      0.00       0.0       0.0                                0.00  
 
 
   Beginning Critical Range Optimization
@@ -616,15 +599,7 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
   --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:09   40310.8      0.02       0.6       0.0                                0.00  
-    0:00:10   40310.8      0.02       0.6       0.0                                0.00  
-    0:00:10   40609.4      0.02       0.4       0.0                                0.00  
-    0:00:10   40742.1      0.02       0.4       0.0                                0.00  
-    0:00:10   40733.8      0.02       0.2       0.0                                0.00  
-    0:00:10   40708.9      0.02       0.2       0.0                                0.00  
-    0:00:10   40626.0      0.02       0.2       0.0                                0.00  
-    0:00:10   40708.9      0.02       0.1       0.0                                0.00  
-    0:00:10   40451.8      0.02       0.1       0.0                                0.00  
+    0:00:07   39580.9      0.00       0.0       0.0                                0.00  
 
 
   Beginning Area-Recovery Phase  (cleanup)
@@ -634,34 +609,23 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
   --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:10   40451.8      0.02       0.1       0.0                                0.00  
-    0:00:10   40451.8      0.02       0.1       0.0                                0.00  
-    0:00:10   38287.0      0.02       0.1       0.0                                0.00  
-    0:00:10   38029.8      0.02       0.1       0.0                                0.00  
-    0:00:10   37963.5      0.02       0.1       0.0                                0.00  
-    0:00:10   37930.3      0.02       0.1       0.0                                0.00  
-    0:00:10   37930.3      0.02       0.1       0.0                                0.00  
-    0:00:10   37930.3      0.02       0.1       0.0                                0.00  
-    0:00:10   37897.1      0.02       0.1       0.0                                0.00  
-    0:00:10   37971.8      0.02       0.1       0.0                                0.00  
-    0:00:10   38063.0      0.02       0.0       0.0                                0.00  
-    0:00:10   38046.4      0.02       0.0       0.0                                0.00  
-    0:00:10   37241.9      0.04       0.2       0.0                                0.00  
-    0:00:10   36636.4      0.04       0.2       0.0                                0.00  
-    0:00:10   36628.1      0.04       0.2       0.0                                0.00  
-    0:00:10   36628.1      0.04       0.2       0.0                                0.00  
-    0:00:10   36628.1      0.04       0.2       0.0                                0.00  
-    0:00:10   36628.1      0.04       0.2       0.0                                0.00  
-    0:00:10   36628.1      0.04       0.2       0.0                                0.00  
-    0:00:10   36628.1      0.04       0.2       0.0                                0.00  
-    0:00:10   36578.3      0.02       0.0       0.0 height_index_reg[1]/DIN        0.00  
-    0:00:11   36777.4      0.02       0.1       0.0                                0.00  
-    0:00:11   36860.3      0.01       0.1       0.0                                0.00  
-    0:00:11   36893.5      0.01       0.0       0.0                                0.00  
-    0:00:11   36910.1      0.01       0.0       0.0                                0.00  
-    0:00:11   36785.7      0.00       0.0       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[0]/DIN      0.00  
-    0:00:11   36686.1      0.00       0.0       0.0 PE_row[0].PE_column[0].PEs/counter_inst/count_reg[2]/DIN      0.00  
-    0:00:11   36636.4      0.00       0.0       0.0 PE_row[1].PE_column[1].PEs/counter_inst/count_reg[2]/DIN      0.00  
+    0:00:07   39580.9      0.00       0.0       0.0                                0.00  
+    0:00:07   39580.9      0.00       0.0       0.0                                0.00  
+    0:00:07   37847.4      0.00       0.0       0.0                                0.00  
+    0:00:07   37548.8      0.00       0.0       0.0                                0.00  
+    0:00:07   37515.6      0.01       0.1       0.0                                0.00  
+    0:00:07   37515.6      0.01       0.1       0.0                                0.00  
+    0:00:07   37515.6      0.01       0.1       0.0                                0.00  
+    0:00:07   37581.9      0.00       0.0       0.0                                0.00  
+    0:00:07   36603.2      0.03       0.1       0.0                                0.00  
+    0:00:07   35790.4      0.06       0.3       0.0                                0.00  
+    0:00:07   35757.2      0.06       0.3       0.0                                0.00  
+    0:00:07   35757.2      0.06       0.3       0.0                                0.00  
+    0:00:07   35757.2      0.06       0.3       0.0                                0.00  
+    0:00:07   35757.2      0.06       0.3       0.0                                0.00  
+    0:00:07   35757.2      0.06       0.3       0.0                                0.00  
+    0:00:07   35757.2      0.06       0.3       0.0                                0.00  
+    0:00:07   36080.7      0.00       0.0       0.0                                0.00  
 
 
   Beginning Critical Range Optimization
@@ -671,7 +635,8 @@ Information: Updating design information... (UID-85)
    ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
   --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:11   36636.4      0.00       0.0       0.0                                0.00  
+    0:00:07   36080.7      0.00       0.0       0.0                                0.00  
+    0:00:07   36379.3      0.00       0.0       0.0                                0.00  
 Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
 
 
@@ -684,16 +649,24 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
 ****************************************
 check_design summary:
 Version:     O-2018.06
-Date:        Sat Nov 30 17:53:37 2019
+Date:        Sat Nov 30 21:38:03 2019
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Cells                                                              19
+Inputs/Outputs                                                      6
+    Unconnected ports (LINT-28)                                     6
+
+Cells                                                              18
     Connected to power or ground (LINT-32)                         18
-    Nets connected to multiple pins on same cell (LINT-33)          1
 --------------------------------------------------------------------------------
 
+Warning: In design 'partial_result_buffer', port 'store_vals[1][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'partial_result_buffer', port 'store_vals[1][0]' is not connected to any nets. (LINT-28)
 Warning: In design 'processing_unit', a pin on submodule 'PE_row[0].PE_column[0].PEs' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'selector[2]' is connected to logic 1. 
 Warning: In design 'processing_unit', a pin on submodule 'PE_row[0].PE_column[0].PEs' is connected to logic 1 or logic 0. (LINT-32)
@@ -730,10 +703,13 @@ Warning: In design 'processing_unit', a pin on submodule 'PE_row[1].PE_column[1]
    Pin 'selector[1]' is connected to logic 0. 
 Warning: In design 'processing_unit', a pin on submodule 'PE_row[1].PE_column[1].PEs' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'selector[0]' is connected to logic 1. 
-Warning: In design 'processing_unit', the same net is connected to more than one pin on submodule 'PE_row[0].PE_column[0].PEs'. (LINT-33)
-   Net 'n256' is connected to pins 'init_val[5]', 'init_val[4]'', 'init_val[3]', 'init_val[2]', 'init_val[1]', 'init_val[0]'.
 Writing verilog file '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/outputs/processing_unit.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 6 nets to module processing_unit using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
 Writing ddc file './outputs/processing_unit.ddc'.
+Removing design 'index_counter'
+Removing design 'partial_result_buffer'
+Removing design 'controller'
 Removing design 'down_counter'
 Removing design 'FSM_selector'
 Removing design 'processing_unit'
@@ -764,8 +740,8 @@ Performing 'read' command.
 Compiling source file /afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/outputs/processing_unit.vg
 Reading with netlist reader (equivalent to -netlist option).
 Verilog netlist reader completed successfully.
-Current design is now '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/outputs/down_counter.db:down_counter'
-Loaded 15 designs.
-Current design is 'down_counter'.
+Current design is now '/afs/umich.edu/user/a/r/arkhadem/Downloads/BISC/BISC_MVM/outputs/controller.db:controller'
+Loaded 18 designs.
+Current design is 'controller'.
 
 Thank you...
