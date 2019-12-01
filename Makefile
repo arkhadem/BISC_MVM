@@ -14,12 +14,12 @@ LIB = /afs/umich.edu/class/eecs470/lib/verilog/lec25dscc25.v
 
 all:    simv
 	./simv | tee program.out
-##### 
+#####
 # Modify starting here
 #####
 
 TESTBENCH = PU_test.sv
-SIMFILES = sys_defs.svh counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv
+SIMFILES = sys_defs.svh controller.sv counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv
 SYNFILES = outputs/processing_unit.vg
 SCRIPT = scripts/script.tcl
 SYN_OUTPUT = outputs/synth.out
@@ -57,5 +57,5 @@ clean:
 
 nuke:	clean
 	rm -rvf *.vg *.rep *.db *.chk *.log *.out *.ddc *.svf DVEfiles/ reports/* outputs/*
-	
-.PHONY: dve clean nuke	
+
+.PHONY: dve clean nuke
