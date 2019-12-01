@@ -30,8 +30,6 @@ module processing_unit(
     reg [(`INPUT_WIDTH_LOG - 1) : 0] width_index;
     reg [(`INPUT_HEIGHT_LOG - 1) : 0] height_index;
 
-    reg [(`OUT_BIN_LEN - 1) : 0] stored_partial_sums [(`KERNEL_HEIGHT - 2) : 0][(`INPUT_WIDTH - 1) : 0];
-
     wire down_counter_reset, down_counter_enable;
     wire FSM_selector_reset, FSM_selector_enable;
     wire PE_reset, PE_enable, PE_init;
@@ -39,6 +37,9 @@ module processing_unit(
     wire partial_sum_reset, partial_sum_enable;
 
     wire output_valid_tmp;
+
+    reg [(`OUT_BIN_LEN - 1) : 0] store_vals [(`KERNEL_HEIGHT - 1) : 0];
+    wire [(`OUT_BIN_LEN - 1) : 0] fetch_vals [(`KERNEL_HEIGHT - 1) : 0];
 
     controller controller_inst(
         .clock(clock),
@@ -109,15 +110,25 @@ module processing_unit(
             for (int j = 0; j < `KERNEL_HEIGHT; j = j + 1) begin
                 enables[i][j] = ((i <= height_index) && (j <= width_index) && (width_index + `KERNEL_WIDTH - 1 - j < `INPUT_WIDTH) && (height_index + `KERNEL_HEIGHT - 1 - i < `INPUT_HEIGHT)) ? 1 : 0;
             end
+            store_vals[i] = output_vals[i][(`KERNEL_WIDTH - 1)];
+            init_vals[i][0] = fetch_vals[i];
         end
-        for (int i = 1; i < `KERNEL_HEIGHT; i = i + 1) begin
-            init_vals[i][0] = stored_partial_sums[i - 1][width_index];
-        end
-        init_vals[0][0] = 0;
     end
 
     assign output_val = output_vals[(`KERNEL_HEIGHT - 1)][(`KERNEL_WIDTH - 1)];
     assign output_valid = ((output_valid_tmp == 1) && (width_index >= (`KERNEL_WIDTH - 1)) && (height_index >= (`KERNEL_HEIGHT - 1))) ? 1 : 0;
+
+    partial_result_buffer partial_result_buffer_inst(
+        .clock(clock),
+        .reset(partial_sum_reset),
+        .enable(partial_sum_enable),
+
+        .store_vals(store_vals),
+
+        .width_index(width_index),
+
+        .fetch_vals(fetch_vals)
+    );
 
     always@(posedge clock) begin
         if(index_reset) begin
@@ -129,20 +140,6 @@ module processing_unit(
                 height_index = height_index + 1;
             end else begin
                 width_index = width_index + 1;
-            end
-        end
-    end
-
-    always@(posedge clock) begin
-        if(partial_sum_reset) begin
-            for(int i = 0; i < `KERNEL_HEIGHT - 1; i++) begin
-                for(int j = 0; j < `INPUT_WIDTH; j++) begin
-                    stored_partial_sums[i][j] = 0;
-                end
-            end
-        end else if(partial_sum_enable) begin
-            for(int i = 0; i < `KERNEL_HEIGHT - 1; i++) begin
-                stored_partial_sums[i][width_index - (`KERNEL_WIDTH - 1)] = output_vals[i][(`KERNEL_WIDTH - 1)];
             end
         end
     end
