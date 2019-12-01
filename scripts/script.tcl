@@ -21,7 +21,7 @@ set link_library [concat  "*" $target_library]
 #/* new design                                              */
 #/***********************************************************/
 set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/"]
-set src_files [list "sys_defs.svh controller.sv counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv"]
+set src_files [list "sys_defs.svh partial_result_buffer.sv controller.sv counter.sv down_counter.sv FSM_selector.sv multiplexer.sv processing_element.sv processing_unit.sv"]
 set design_name processing_unit
 read_file -f sverilog $src_files
 set clock_name clock
