@@ -5,7 +5,7 @@ module processing_unit(
     input reset,
     input start,
 
-    output reg input_req,
+    output input_req,
     input [(`BIN_LEN - 1) : 0] input_val,
     input input_ready,
 
@@ -15,7 +15,7 @@ module processing_unit(
     output [(`OUT_BIN_LEN - 1) : 0] output_val,
     output output_valid,
 
-    output reg done
+    output done
 );
 
     wire zero_flag;
@@ -32,139 +32,39 @@ module processing_unit(
 
     reg [(`OUT_BIN_LEN - 1) : 0] stored_partial_sums [(`KERNEL_HEIGHT - 2) : 0][(`INPUT_WIDTH - 1) : 0];
 
-    reg down_counter_reset, down_counter_enable;
-    reg FSM_selector_reset, FSM_selector_enable;
-    reg PE_reset, PE_enable, PE_init;
-    reg index_reset, index_enable;
-    reg partial_sum_reset, partial_sum_enable;
+    wire down_counter_reset, down_counter_enable;
+    wire FSM_selector_reset, FSM_selector_enable;
+    wire PE_reset, PE_enable, PE_init;
+    wire index_reset, index_enable;
+    wire partial_sum_reset, partial_sum_enable;
 
-    reg output_valid_tmp;
+    wire output_valid_tmp;
 
-    parameter   WAIT_FOR_START = 3'd0,
-                RESET_SIGNALS = 3'd1,
-                WAIT_FOR_INPUT = 3'd2,
-                INIT_SIGNALS = 3'd3,
-                WAIT_FOR_ZERO = 3'd4,
-                OUTPUT_IS_READY = 3'd5,
-                INDEX_INCREMENT = 3'd6,
-                DONE_FLAG = 3'd7;
+    controller controller_inst(
+        .clock(clock),
+        .reset(reset),
+        .start(start),
+        .input_ready(input_ready),
+        .zero_flag(zero_flag),
 
-    reg [2:0] state, next_state;
+        .width_index(width_index),
+        .height_index(height_index),
 
-    always@(*) begin
-        next_state = WAIT_FOR_START;
-        case (state)
-            WAIT_FOR_START:
-                if(start)
-                    next_state = RESET_SIGNALS;
-                else
-                    next_state = WAIT_FOR_START;
-
-            RESET_SIGNALS: next_state = WAIT_FOR_INPUT;
-
-            WAIT_FOR_INPUT:
-                if(input_ready)
-                    next_state = INIT_SIGNALS;
-                else
-                    next_state = WAIT_FOR_INPUT;
-
-            INIT_SIGNALS: next_state = WAIT_FOR_ZERO;
-
-            WAIT_FOR_ZERO:
-                if(zero_flag == 1)
-                    next_state = OUTPUT_IS_READY;
-                else
-                    next_state = WAIT_FOR_ZERO;
-
-            OUTPUT_IS_READY:
-                next_state = INDEX_INCREMENT;
-
-            INDEX_INCREMENT:
-                if((width_index == `INPUT_WIDTH - 1) && (height_index == `INPUT_HEIGHT - 1))
-                    next_state = DONE_FLAG;
-                else
-                    next_state = WAIT_FOR_INPUT;
-
-            DONE_FLAG: next_state = WAIT_FOR_START;
-
-            default: next_state = WAIT_FOR_START;
-        endcase
-    end
-
-    always@(state) begin
-        input_req = 0;
-        down_counter_reset = 0;
-        down_counter_enable = 0;
-        FSM_selector_reset = 0;
-        FSM_selector_enable = 0;
-        PE_reset = 0;
-        PE_enable = 0;
-        PE_init = 0;
-        index_reset = 0;
-        index_enable = 0;
-        partial_sum_reset = 0;
-        partial_sum_enable = 0;
-        output_valid_tmp = 0;
-        done = 0;
-
-        case (state)
-            RESET_SIGNALS: begin
-                index_reset = 1;
-                PE_reset = 1;
-                partial_sum_reset = 1;
-            end
-
-            WAIT_FOR_INPUT: input_req = 1;
-
-            INIT_SIGNALS: begin
-                PE_init = 1;
-                down_counter_reset = 1;
-                FSM_selector_reset = 1;
-            end
-
-            WAIT_FOR_ZERO: begin
-                PE_enable = 1;
-                down_counter_enable = 1;
-                FSM_selector_enable = 1;
-            end
-
-            OUTPUT_IS_READY: begin
-                partial_sum_enable = 1;
-                output_valid_tmp = 1;
-            end
-
-            INDEX_INCREMENT: begin
-                index_enable = 1;
-            end
-
-            DONE_FLAG: done = 1;
-
-            default: begin
-                input_req = 0;
-                down_counter_reset = 0;
-                down_counter_enable = 0;
-                FSM_selector_reset = 0;
-                FSM_selector_enable = 0;
-                PE_reset = 0;
-                PE_enable = 0;
-                PE_init = 0;
-                index_reset = 0;
-                index_enable = 0;
-                partial_sum_reset = 0;
-                partial_sum_enable = 0;
-                output_valid_tmp = 0;
-                done = 0;
-            end
-        endcase
-    end
-
-    always@(posedge clock) begin
-        if(reset) begin
-            state = WAIT_FOR_START;
-        end else begin
-            state = next_state;
-        end
-    end
+        .down_counter_reset(down_counter_reset),
+        .down_counter_enable(down_counter_enable),
+        .FSM_selector_reset(FSM_selector_reset),
+        .FSM_selector_enable(FSM_selector_enable),
+        .PE_reset(PE_reset),
+        .PE_enable(PE_enable),
+        .PE_init(PE_init),
+        .index_reset(index_reset),
+        .index_enable(index_enable),
+        .partial_sum_reset(partial_sum_reset),
+        .partial_sum_enable(partial_sum_enable),
+        .output_valid(output_valid_tmp),
+        .input_req(input_req),
+        .done(done)
+    );
 
 
     down_counter down_counter_inst(
