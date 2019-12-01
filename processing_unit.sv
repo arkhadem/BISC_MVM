@@ -27,8 +27,8 @@ module processing_unit(
 
     reg enables [(`KERNEL_HEIGHT - 1) : 0][(`KERNEL_WIDTH - 1) : 0];
 
-    reg [(`INPUT_WIDTH_LOG - 1) : 0] width_index;
-    reg [(`INPUT_HEIGHT_LOG - 1) : 0] height_index;
+    wire [(`INPUT_WIDTH_LOG - 1) : 0] width_index;
+    wire [(`INPUT_HEIGHT_LOG - 1) : 0] height_index;
 
     wire down_counter_reset, down_counter_enable;
     wire FSM_selector_reset, FSM_selector_enable;
@@ -130,18 +130,14 @@ module processing_unit(
         .fetch_vals(fetch_vals)
     );
 
-    always@(posedge clock) begin
-        if(index_reset) begin
-            width_index = 0;
-            height_index = 0;
-        end else if (index_enable) begin
-            if(width_index == `INPUT_WIDTH - 1) begin
-                width_index = 0;
-                height_index = height_index + 1;
-            end else begin
-                width_index = width_index + 1;
-            end
-        end
-    end
+
+    index_counter index_counter_inst(
+        .clock(clock),
+        .reset(reset),
+        .enable(enable),
+
+        .width_index(width_index),
+        .height_index(height_index)
+    );
 
 endmodule
