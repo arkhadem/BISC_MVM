@@ -9,10 +9,10 @@ module index_counter(
     output reg [(`INPUT_HEIGHT_LOG - 1) : 0] height_index
 );
     always@(posedge clock) begin
-        if(index_reset) begin
+        if(reset) begin
             width_index = 0;
             height_index = 0;
-        end else if (index_enable) begin
+        end else if (enable) begin
             if(width_index == `INPUT_WIDTH - 1) begin
                 width_index = 0;
                 height_index = height_index + 1;

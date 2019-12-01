@@ -133,8 +133,8 @@ module processing_unit(
 
     index_counter index_counter_inst(
         .clock(clock),
-        .reset(reset),
-        .enable(enable),
+        .reset(index_reset),
+        .enable(index_enable),
 
         .width_index(width_index),
         .height_index(height_index)
